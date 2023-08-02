@@ -1,0 +1,245 @@
+Важный случай: $\R^d,\ \|x\|=\sqrt{x_1^2+x_2^2+...+x_d^2}$
+
+\begin{definition}
+    \textit{Поокординатная сходимость} $x_n=(x_n^{(1)}, x_n^{(2)}, ..., x_n^{(d)})$ и $a=(a^{(1)}, a^{(2)}, ..., a^{(d)})$ – $x_n$ сходится к $a$ покоординатно, если $\forall i \ \lim\limits_{n\rightarrow \infty}x_n^{(i)}=a^{(i)}$.
+\end{definition}
+
+\begin{theorem}
+    В $\R^d$ покоординатная сходимость и сходимость по норме совпадают.
+\end{theorem}
+
+\begin{proof}
+    По норме $\Rightarrow$ покоординатная:
+    
+    $\|x_n-a\|\rightarrow 0\Rightarrow|x_n^{(i)}-a^{(i)}|\leq \sqrt{(x_n^{(1)}-a^{(1)})^2+...+(x_n^{(d)}-a^{(d)})}=\|x_n-a\|\rightarrow0$
+
+    Покоординатная $\Rightarrow$ по норме:
+
+    $\|x_n-a\|=\sqrt{(x_n^{(1)}-a^{(1)})^2+...+(x_n^{(d)}-a^{(d)})}\leq \underbrace{|x_n^{(1)}-a^{(1)}|}_{\rightarrow 0}+...+\underbrace{|x_n^{(d)}-a^{(d)}|}_{\rightarrow 0}\rightarrow 0$
+\end{proof}
+
+\begin{definition}
+    $(X, \rho)$ – метрическое пространство, $x_n$ – последовательность в $X$. $x_n$ – \textit{фундаментальная последовательность}, если $\forall\varepsilon>0\ \exists N:m, n\geq N\ \rho(x_m, x_n)<\varepsilon$.
+\end{definition}
+
+\begin{statement}
+    \textbf{Свойства фундаментальных последовательностей:}
+    \begin{enumerate}
+        \item Сходящаяся последовательность фундаментальна.
+        \item Фундаментальная последовательность ограничена.
+        \item Если у фундаментальной последовательности есть сходящаяся подпоследовательность, то эта последовательность имеет тот же предел.
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}
+    Аналогично последовательностям, только вместо модуля используется норма.
+\end{proof}
+
+\begin{definition}
+    $(X, \rho)$ – метрическое пространство называется \textit{полным}, если любая его фундаментальная последовательность имеет предел.
+\end{definition}
+
+\begin{example}
+    $\R$ – полное пространство.
+\end{example}
+
+\begin{theorem}
+    $\R^d$ – полное пространство.
+\end{theorem}
+
+\begin{proof}
+    Пусть $x_n=(x_n^{(1)}, x_n^{(2)}, ..., x_n^{(d)})$ – фундаментальная последовательность.
+
+    $\forall\varepsilon>0\ \exists N:m, n\geq N\ \rho(x_m, x_n)<\varepsilon$
+
+    $\rho(x_m, x_n)=\sqrt{(x_n^{(1)}-x_m^{(1)})^2+...+(x_n^{(d)}-x_m^{(d)})^2}\geq |x_n^{(i)}-x_m^{(i)}|\Rightarrow$ последовательность $x_n^{(i)}$  фундаментальная $\Rightarrow$ найдется $a^{(i)}\in \R:\lim\limits_{n\rightarrow \infty}x_n^{(i)}=a^{(i)}$.
+
+    Рассмотрим $a=(a^{(1)}, a^{(2)}, ..., a^{(d)})$. $x_n$ покоординатно сходится к $a\Rightarrow x_n$ по норме сходится к $a$.
+\end{proof}
+\newpage
+\section{Компактность}
+\begin{definition}
+    $A_{\alpha},\ \alpha\in I$. Множества $A_{\alpha}$ \textit{покрывают} множество $B$, если $B\subset \bigcup\limits_{\alpha\in I}A_\alpha$.
+\end{definition}
+
+\begin{definition}
+    \textit{Открытое покрытие} = покрытие открытыми множествами.
+\end{definition}
+
+\begin{definition}
+    $K$ – \textit{компакт (компактное множество)}, если из любого его открытого покрытия можно выбрать конечное подпокрытие.
+\end{definition}
+
+\begin{theorem}
+    \textbf{О свойствах компактных множеств}.
+    \begin{enumerate}
+        \item Пусть $(X,\ \rho)$ – метрическое пространство, $Y\subset X, K\subset Y$. Тогда $K$  компактно в $(X,\ \rho)\Leftrightarrow $ $K$  компактно в $(Y,\ \rho)$.
+        \item  $K$ – компакт $\Rightarrow K$ замкнуто и $K$ ограничено.
+        \item Если $K$ компакт, $K\supset \Tilde{K}$ – замкнуто, то $\Tilde{K}$ – компакт.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item $\Rightarrow:$ пусть $K\subset \bigcup\limits_{\alpha\in I}U_\alpha$, где $U_\alpha$ открыто в $Y\Rightarrow \forall \alpha \ U_\alpha=G_\alpha \cap Y$, где $G_\alpha$ – открыто в $X\Rightarrow K\subset \bigcup\limits_{\alpha\in I} G_\alpha\overset{K\text{ – комп.}}{\Rightarrow}$ найдется $\alpha_1, . ..., \alpha_n:K\subset \bigcup\limits_{i=1}^n G_{\alpha_i}\Rightarrow K=K\cap Y\subset \bigcup\limits_{i=1}^n (G_{\alpha_i}\cap Y)=\bigcup\limits_{i=1}^nU_{\alpha_i} $
+
+        $\Leftarrow:$ пусть $K\subset \bigcup\limits_{\alpha\in I}G_\alpha$, где $G_\alpha$ открыто в $Y\Rightarrow K = K \cap Y \subset \bigcup\limits_{\alpha\in I} (G_{\alpha}\cap Y) \overset{K\text{ – комп.}}{\Rightarrow}$ найдется $\alpha_1, . ..., \alpha_n:K\subset \bigcup\limits_{i=1}^n (G_{\alpha_i}\cap Y) \subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
+
+        \item \textit{Компактность $\Rightarrow$ ограниченность: }
+        
+        $K\subset \bigcup\limits_{n=1}^\infty\text{B}_n(a)$, если $n>\rho(x, a)$, то $x\in \text{B}_n(a)$
+
+        Выделим конечное подпокрытие $\text{B}_{n_1}(a), . ..., \text{B}_{n_k}(a)$. $K\subset \bigcup\limits_{j=1}^k\text{B}_{n_j}(a)=\text{B}_{\max\{n_i\}}(a)$.
+
+        \textit{Компактность $\Rightarrow$ замкнутость: }
+        
+        Докажем, что $X\setminus K$ – открытое множество. Возьмем $a\notin K$. $\forall x\in K\ a\notin \text{B}_{\frac{\rho(a, x)}{2}}(x):=U_x$.
+
+        $U_x$ – открыто, $K\subset \bigcup \limits_{x\in K}U_x$. Выделим конечное подпокрытие $U_{x_1}, . ..., U_{x_k},\ K\subset \bigcup\limits_{j=1}^k U_{x_j}$.
+
+        $r:=\min\{\frac{\rho(a, x_1)}{2}, . ..., \frac{\rho(a, x_k)}{2}\}>0$. $\text{B}_r(a)\cap U_{x_j}=\varnothing\Rightarrow \text{B}_r(a)\cap \bigcup\limits_{j=1}^k U_{x_j}=\varnothing\Rightarrow \text{B}_r(a)\cap K=\varnothing\Rightarrow \text{B}_r(a)\subset X\setminus K\Rightarrow a$ – внутренняя точка $X\setminus K$.
+        
+        \item Рассмотрим открытое покрытие $\Tilde{K}\subset \bigcup\limits_{\alpha\in I}U_\alpha\Rightarrow K\subset \underbrace{(X\setminus \Tilde{K})}_{\text{откр.}}\cup \bigcup\limits_{\alpha\in I}U_\alpha$ – открытое покрытие $K\Rightarrow$ можем выделить конечное подпокрытие $ K\subset (X\setminus \Tilde{K})\cup \bigcup\limits_{i=1}^nU_{\alpha_i}\overset{\Tilde{K}\subset K}{\Rightarrow} \Tilde{K}\subset (X\setminus \Tilde{K})\cup \bigcup\limits_{i=1}^nU_{\alpha_i}\Rightarrow \Tilde{K}$ компакт
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    $K_\alpha$ семейство компактов такое, что пересечение любого их конечного числа непусто. Тогда $\bigcap\limits_{\alpha \in I}K_\alpha \neq \varnothing$.
+\end{theorem}
+
+\begin{proof}
+    Пусть $\bigcap\limits_{\alpha\in I}K_\alpha=\varnothing\Rightarrow\exists \alpha_0: K_{\alpha_0}\subset \bigcup\limits_{\alpha\in I} X\setminus K_\alpha = X \setminus \bigcap\limits_{\alpha\in I} = X\Rightarrow$ можно выделить конечное подпокрытие $\alpha_1, ..., \alpha_n$.
+
+    $K_{\alpha_0}\subset \bigcup\limits_{i=1}^n X\setminus K_{\alpha_i} = X \setminus \bigcap\limits_{i = 1}^n K_{\alpha_i}\Rightarrow\bigcap\limits_{i = 1}^n K_{\alpha_i}=\varnothing$. Противоречие.
+\end{proof}
+
+\begin{corollary}
+    $K_1\supset K_2\supset ...$ непустые, тогда $\bigcap\limits_{i = 1}^nK_i \neq \varnothing$.
+\end{corollary}
+
+\begin{definition}
+    $K$ – \textit{секвенциальный компакт}, если из любой последовательности точек из $K$ можно выделить подпоследовательность, имеющую предел в $K$.
+\end{definition}
+
+\begin{example}
+    $[a, b]\in \R$ – секвенциальный компакт (th Б.-В.)
+\end{example}
+
+\begin{theorem}
+    Всякое бесконечное подмножество компакта имеет предельную точку.
+\end{theorem}
+
+\begin{proof}
+    $K$ – компакт, $K\supset A$ – бесконечное подможество.
+
+    От противного. Пусть $A'=\varnothing\Rightarrow A$ – замкнутое $\Rightarrow A$ – компакт.
+
+    Возьмем $a\in A, a$ – не предельная точка в $A\Rightarrow$ найдется $ \overset{\circ}{\text{B}}_{r_a}(a)$, не пересекающийся с $A\Rightarrow\text{B}_{r_a}(a)\cap A=\{a\}$.
+
+    $A\subset \bigcup\limits_{a\in A}\text{B}_{r_a}(a)$ – открытое покрытие $A$. Выделим конечное подпокрытие $\text{B}_{r_{a_1}}(a_1), . ..., \text{B}_{r_{a_n}}({a_n})\Rightarrow A=\{a_1, . ..., a_n\}$ – конечное множество. Противоречие.
+\end{proof}
+
+\begin{corollary}
+    Компактность $\Rightarrow$ секвенциальная компактность.
+\end{corollary}
+
+\begin{proof}
+    Рассмотрим последовательность $x_n\in K, D=\{x_1, x_2, ...\}$ – подмножество.
+
+    \begin{enumerate}
+        \item[1)] $\# D<+\infty\Rightarrow$ какой-то член последовательности повторяется бесконечно много раз, возьмем его.
+        \item[2)] $\# D=+\infty\Rightarrow$ у $D$ есть предельная точка  $a\Rightarrow \exists n_k:\lim x_{n_k}=a$. 
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    \textbf{Лемма Лебега}
+
+    $K$ – секвенциальный компакт, $K\subset \bigcup\limits_{\alpha \in I} U_\alpha$ – открытое покрытие. Тогда $\exists \varepsilon > 0:\forall x\in K$ шар $B_\varepsilon(x)$ целиком накрывается каким-то элементом покрытия.
+\end{lemma}
+
+\begin{definition}
+    $\varepsilon$ из леммы Лебега называется \textit{числом Лебега} для покрытия $\bigcup\limits_{\alpha \in I} U_\alpha$.
+\end{definition}
+
+\begin{proof}
+    От противного. Тогда $\varepsilon =\frac{1}{n}$ не подходит. Найдется $x_n\in K:\text{B}_{\frac{1}{n}}(x_n)$ целиком не накрывается никаким $U_\alpha$.
+
+    Выберем сходяющуюся подпоследовательность $x_{n_k}\rightarrow a\in K\Rightarrow \exists \alpha_0:a\in U_{\alpha_0}$ – открытое $\Rightarrow \exists r>0:\ \text{B}_r(a)\subset U_{\alpha_0}\Rightarrow\exists N:\ \forall k\geq N\ \rho(x_{n_k}, a)<\frac{r}{2}$. 
+    
+    Кроме  того, $\rho(x_{n_k}, a)\rightarrow 0\Rightarrow x_{n_k}\in \text{B}_{\frac{r}{2}}(a)$ при $k\geq N$.
+
+    Возьмем такое $k\geq N$, что $\frac{1}{n_k}<\frac{r}{2}$. Тогда $\text{B}_{\frac{1}{n_k}}(x_{n_k})\subset \text{B}_r(a)\subset U_{\alpha_0}$. Противоречие.
+
+    Проверим, что $\text{B}_{\frac{1}{n_k}}(x_{n_k})\subset \text{B}_r(a)$. Берем $x\in \text{B}_{\frac{1}{n_k}}(x_{n_k})\Rightarrow \rho(x, x_{n_k})<\frac{1}{n_k}<\frac{r}{2}(\And \rho(x_{n_k}, a)<\frac{r}{2})\Rightarrow \rho(x, a)\leq \rho(x, x_{n_k})+\rho(x_{n_k}, a)<\frac{r}{2}+\frac{r}{2}=r$.
+\end{proof}
+
+\begin{theorem}
+    Компактность = секвенциальная компактность.
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\Rightarrow:$] доказано.
+        \item[$\Leftarrow:$] $K$ – секвенициальный компакт. Рассмотрим открытое покрытие $K\subset \bigcup\limits_{\alpha \in I} U_\alpha$ – открытое.
+
+        Возьмем $\varepsilon$ из леммы Лебега. Тогда $\forall x\in K\ \text{B}_\varepsilon (x)$ целиком содержится в каком-то элементе покрытия.
+    
+        $K\subset\bigcup\limits_{x \in K} \text{B}_\varepsilon (x)$ – открытое покрытие.
+        
+        Если $K\subset \text{B}_\varepsilon (x_1)$, то выделили конечное подпокрытие. Если это не так, то $\exists x_2\notin \text{B}_\varepsilon (x_1)$.
+    
+        Если $K\subset \text{B}_\varepsilon (x_1)\cap \text{B}_\varepsilon (x_2)$, то выделили конечное подпокрытие. Иначе $\exists x_3\notin\text{B}_\varepsilon (x_1)\cap \text{B}_\varepsilon (x_2)$.
+    
+        ...
+    
+        В итоге построили последовательность $x_n\in K$ – секвенциальный компакт $\Rightarrow$ можно выделить сходящуюся подпоследовательность $x_{n_k}\Rightarrow x_{n_k}$  фундаментальная. 
+        
+        Но так быть не может: $\rho(x_{n_k}, x_{n_j})>\varepsilon\ \forall k\neq j$. Противоречие.
+    
+        Таким образом, найдется $K\subset \bigcup\limits_{j=1}^n\text{B}_\varepsilon (x_j)$. Но $\text{B}_\varepsilon (x_j)$ целиком содержится в $U_{\alpha_j}\Rightarrow K\subset \bigcup\limits_{j=1}^n U_{\alpha_j}$. Получилось конечное подпокрытие.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    $(X, \rho)$ – метрическое пространство, $A\subset X$.
+
+    $a_1, a_2, ...$ – $\varepsilon$\textit{-сеть множества} $A$, если $\forall a\in A$ найдется $a_k:\rho(x, a_k)\leq \varepsilon$.
+
+    Это означает, что $A\subset \bigcup\limits_{k=1}^n\text{B}_\varepsilon (a_k)$.
+\end{definition}
+
+\begin{definition}
+    \textit{Конечная $\varepsilon$-сеть} – конечное множество точек $a_1, ..., a_n$ с тем же условием.
+\end{definition}
+
+\begin{definition}
+    $A$ – \textit{вполне ограничено}, если $\forall\varepsilon>0$ у $A$ есть конечная $\varepsilon$-сеть.
+\end{definition}
+
+\begin{statement}
+    \begin{enumerate}
+        \item[]
+        \item Вполне ограниченность $\Rightarrow$ ограниченность.
+        \item В $\R^d$ ограниченность $\Rightarrow$ вполне ограниченность.
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item Возьмем $\varepsilon=1$ и конечную $1$-сеть  $a_1, ..., a_n$.
+
+        $A\subset \bigcup\limits_{k=1}^n\overline{\text{B}}_1 (a_k)\subset \overline{\text{B}}_R(a_1)$, где $R=1+\max \{\rho(a_1, a_2), . ..., \rho(a_1, a_n)\}$.
+
+        $\rho(x, a_1)\leq \rho(x, a_j)+\rho(a_j, a_1)<1+R$
+
+        \item
+        $A$ – ограниченное множество в $\R^d$.
+
+        $l$ – длина стороны куба. Возьмем $n:\frac{l}{n}<\varepsilon$ и нарежем на $n^d$ равных кубиков.
+
+        Если есть пересечение кубика с $A$, то берем точку из этого пересечения. Если нет, то просто выкидываем.
+
+        Выбранные точки образуют $\varepsilon \sqrt{d}$-сеть: $\rho(x, a)\leq \varepsilon \sqrt{d}$.
+    \end{enumerate}
+\end{proof}

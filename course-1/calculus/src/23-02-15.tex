@@ -1,0 +1,305 @@
+
+
+\begin{definition}
+    $f:[a, b]\rightarrow \R$ непрерывна. $\int\limits_a^b f$ называется \textit{абсолютно сходящимся}, если $\int\limits_a^b |f|<+\infty$.
+\end{definition}
+
+\begin{theorem}
+    Если $\int\limits_a^b f$ абсолютно сходящийся, то он сходится.
+\end{theorem}
+
+\begin{proof}
+    $|f|=f_++f_-,\ f_\pm \geq 0\Rightarrow 0\leq f_\pm\leq |f|\Rightarrow \int\limits_a^b f_\pm\ -$ сходящийся $\Rightarrow \int\limits_a^b f=\int\limits_a^b f_++\int\limits_a^b f_-\ -$ сходящийся.
+\end{proof}
+
+\begin{theorem}
+    \textbf{Признак Дирихле}
+
+    $f, g\in C[a,+\infty)$
+    $\begin{cases} 1)\ f\text{ имеет ограниченную первообразную.} \\
+        2)\ g\text{  монотонна.} \\
+        3)\lim\limits_{x\rightarrow +\infty} g(x)=0.
+    \end{cases}$ $\Rightarrow \int\limits_a^{+\infty} f(x)g(x)dx$ сходится.
+\end{theorem}
+
+\begin{proof}
+    \textit{Только для $g\in C^1[a,+\infty$)}.
+
+    $F(y):=\int\limits_a^y f(x)g(x)dx\ -$ ограниченная функция, $|F(y)|\leq M$.
+
+    $\int\limits_a^y f(x)g(x)dx = \int\limits_a^y F'(x)g(x)dx = \left.F(x)g(x)\right|_a^y -\int\limits_a^{y}F(x)g'(x)dx$
+
+    $F(y)g(y)\underset{y\rightarrow +\infty}{\rightarrow} 0$ (ограниченная на бесконечно малую) $\Rightarrow$ надо доказать, что $\int\limits_a^{+\infty}F(x)g'(x)dx$ сходится. Докажем, что он абсолютно сходящийся.
+
+    $\int\limits_a^{+\infty}|F(x)||g'(x)|dx\leq M\int\limits_a^{+\infty}|g'(x)|dx=M\bigg|\int\limits_a^{+\infty}g(x)dx\bigg|=M|\left.g(x)\right|_a^{+\infty}|=M|g(a)|<+\infty$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Признак Абеля}
+
+    $f, g\in C[a,+\infty)$
+    $\begin{cases}
+        1)\ \int\limits_a^{+\infty} f(x)dx\text{ сходится.} \\
+        2)\ g\text{  монотонна на } [a, +\infty).  \\
+        3)\ g\text{  ограничена на } [a, +\infty).
+    \end{cases}$ $\Rightarrow \int\limits_a^{+\infty} f(x)g(x)dx$ сходится.
+\end{theorem}
+
+\begin{proof}
+    Пусть $b:=\lim\limits_{x\rightarrow +\infty} g(x)\in \R;\ \Tilde{g}(x):=g(x)-b\ -$ монотонна и $\lim\limits_{x\rightarrow +\infty}\Tilde{g}(x)=0$.
+
+    $F(y):=\int\limits_a^y f(x)dx$ и $\lim\limits_{y\rightarrow +\infty}F(y)=\int\limits_a^{+\infty}f(x)dx\in \R\Rightarrow F(y)$ ограничена при больших $y\Rightarrow F\ -$ ограниченная функция.
+
+    Тогда $f$ и $\Tilde{g}$ удовлетворяют признаку Дирихле $\Rightarrow\int\limits_a^{+\infty} f(x)\Tilde{g}(x)dx$.
+
+    $\int\limits_a^{+\infty} f(x)g(x)dx=\underbrace{\int\limits_a^{+\infty} f(x)\Tilde{g}(x)dx}_{\text{доказали, что сходится}}+\underbrace{b\cdot \int\limits_a^{+\infty} f(x)dx}_{\text{сходится по условию}}\Rightarrow \int\limits_a^{+\infty} f(x)g(x)dx$ сходится.
+\end{proof}
+
+\begin{corollary}
+    $f, g\in C[a,+\infty),\ f$ периодична с периодом $T$, $g$ монотонна, $g(x)\underset{x\rightarrow +\infty}{\rightarrow}0$ и $\int\limits_a^{+\infty} g(x)dx$ расходится. Тогда $\int\limits_a^{+\infty}f(x)g(x)dx$ – сходится $\Leftrightarrow \int\limits_a^{a+T} f(x)dx=0$.
+\end{corollary}
+
+\begin{proof}
+    $\Leftarrow:\ F(y):=\int\limits_a^y f(x)dx\ -$ периодична с периодом $T$.
+    $F(y+T)=F(y)+\underbrace{\int\limits_y^{y+T}f(x)dx}_{=0}\Rightarrow$ все значения $F$ принимает на $[a, a+T]$, а там она ограничена по th В. $\Rightarrow$ можно применить принцип Дирихле.
+
+    $\Rightarrow:$ от противного.
+
+    Пусть $b:=\int\limits_a^{a+T}f(x)dx\neq 0$. Расссмотрим $\Tilde{f}(x):=f(x)-\frac{b}{T}\Rightarrow \int\limits_a^{a+T}\Tilde{f}(x)dx=0\Rightarrow\int\limits_a^{+\infty}\Tilde{f}(x)g(x)dx$ сходится $\Rightarrow\underbrace{\int\limits_a^{+\infty}f(x)g(x)dx}_{\text{сходится}}-\underbrace{\int\limits_a^{+\infty}\Tilde{f}(x)g(x)dx}_{\text{сходится}}=\frac{b}{T}\int\limits_a^{+\infty} g(x)dx\ -$ сходится. Противоречие.
+\end{proof}
+
+\begin{example}
+    $\int\limits_p^{+\infty}\frac{\sin x}{x^p}dx$
+
+    \begin{enumerate}
+        \item Если $p>1:\ |\frac{\sin x}{x^p}|\leq \frac{1}{x^p},\ \int\limits_1^{+\infty}\frac{1}{x^p}dx$ сходится при $p>1\Rightarrow$ абсолютно сходящийся.
+        \item Если $0<p\leq 1:\ \int\limits_1^{+\infty}\ -$ расходится $\frac{1}{x_p}\searrow$ при $x\rightarrow +\infty$.
+
+        $\int\limits_0^{2\pi}\sin x dx=0\overset{\text{по следствию}}{\Rightarrow}\int\limits_0^{\infty}\frac{\sin x}{x^p}$ сходится.
+
+         $\int\limits_0^{2\pi}|\sin x|dx>0\Rightarrow\int\limits_0^{\infty}\frac{\sin x}{x^p}$ расходится.
+
+         Т.е. сходится, но не абсолютно.
+        \item Если $p\leq 0:\ a_n=\frac{\pi}{6}+2\pi n,\ b_n=\frac{5\pi}{6}+2\pi n\Rightarrow \sin x\geq \frac{1}{2}$ при $x\in[a_n, b_n]$
+
+        $\int\limits_{a_n}^{b_n}\frac{\sin x}{x^p}dx\geq \frac{1}{2}\int\limits_{a_n}^{b_n}\frac{1}{x^p}dx\geq \frac{1}{2}(b_n-a_n)=frac{1}{2}\cdot \frac{2\pi}{3}=\frac{\pi}{3}$ т.е. сколь угодно далеко есть отрезок с $\int=\frac{\pi}{3}$.
+
+        Противоречие с критерием Коши: $\int\limits_1^{+\infty}f(x)dx$ сходится $\Leftrightarrow \forall \underbrace{\varepsilon}_{=\frac{\pi}{3}} >0\ \exists B\ \forall \underbrace{a}_{=a_n},\underbrace{b}_{=b_n}>B\ |\int\limits_a^b f(x)dx|<\varepsilon$
+    \end{enumerate}
+\end{example}
+
+\newpage
+\section{Метрические пространства}
+\subsection{Метрические и нормированные пространства}
+
+\begin{definition}
+    \item $\rho:X\times X\rightarrow [0,+\infty)\ -$ \textit{метрика} (\textit{расстояние}), если:
+    \begin{enumerate}
+        \item $\rho(x, x)=0$ и $\rho(x, y)=0\Rightarrow x=y$.
+        \item $\rho(x, y)=\rho(y, x)\ \forall x, y\in X$.
+        \item $\rho(x, y)\leq \rho(x, z) + \rho(z, y)\ \forall x, y, z\in X$ (неравенство треугольника).
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Пара $(X, \rho)$ – это \textit{метрическое пространство}.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item[]
+        \item Дискретная метрика: $\rho(x, x)=0,\ \rho(x, y)=1$, если $x\neq y$.
+        \item $X=\R,\ \rho(x, y)=|x-y|$ .
+        \item $X=\R^2$, расстояние на плоскости.
+        \item \textit{Манхэттеновская метрика:} $X=\R^2,\ \rho((x_1, y_1), (x_2, y_2))=|x_1-x_2|+|y_1+y_2|$
+        \item $\R^d=(x_1,$ ..., $x_d)$.
+
+        $\rho(x, y)=\sqrt{(x_1-y_1)^2+...+(x_d-y_d)^2}\ ^*$ (на самом деле, даже $p$-ая степень и корень $p$-ой степени подойдет)
+
+        $^*$Неравенство треугольника в этом случае $-$ это неравенство Минковского. 
+        \item $X=C[a, b] \ \rho(f, g)=\int\limits_a^b |f-g|$.
+        \item \textit{Французская железнодорожная метрика:} $\rho(A, B)=AB$, если $A$ и $B$ на одной прямой и $\rho(AB)=AP+PB$ иначе.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    $(X, \rho)$ – \textit{метрическое пространство}, $a\in X,\ r>0$.
+
+    \textit{Открытый шар} $B_r(a):=\{x\in X\mid \rho(x, a)<r\}$.
+
+    \textit{Замкнутый шар} $\overline{B}_r(a):=\{x\in X\mid \rho(x, a)\leq r\}$.
+
+    $a$ – \textit{центр шара}, $r$ – \textit{радиус шара}.
+\end{definition}
+
+\begin{statement} \textbf{Свойства:}
+    \begin{enumerate}
+        \item $B_{r_1}(a)\cap B_{r_2}(a)=B_{\min\{r_1, r_2\}}(a)$.
+        \item Если $a\neq b$, то $\exists r>0:\overline{B}_r(a)\cap \overline{B}_r(b)=\varnothing$.
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}
+    $r:=\frac{\rho(a, b)}{3}>0.$ Предположим, что $x\in \overline{B}_r(a)\cap \overline{B}_r(b)\Rightarrow\begin{matrix} \rho(x, a)\leq r\\ \rho(x, b)\leq r
+    \end{matrix}\Rightarrow \rho(a, b)\leq \rho(a, x)+\rho(x, b)\leq r+r=\frac{2}{3}\rho(a, b)$, противоречие.
+\end{proof}
+
+\begin{definition}
+    $A\subset X;\ A\ -$ \textit{открытое множество}, если $\forall a\in A$ найдется $B_r(a)\subset A$.
+\end{definition}
+
+\begin{theorem}
+    \textbf{О свойствах открытых множеств}
+
+    \begin{enumerate}
+        \item $\varnothing$ и $X\ -$ открытые множества.
+
+        \item Объединение любого числа открытых множеств $-$ открытое множество. 
+
+        \item Пересечение конечного числа открытых множеств $-$ открытое множество. 
+
+        \item $B_R(a)\ -$ открытое множество.
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    В третьем конечность существенна: $\bigcap\limits_{n=1}^\infty (-1, \frac{1}{n})=(-1, 0]$.
+\end{remark}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[]
+        \item[2.] $A_\alpha\ -$ открытые множества, $\alpha\in I$. Проверим, что $U:=\bigcup\limits_{\alpha\in I}A\ -$ открытое.
+
+        Возьмем $a\in U\Rightarrow$ найдется $\alpha_0:a\in A_{\alpha_0}\ -$ открытое $\Rightarrow $ найдется $r>0:B_r(a)\subset A_{\alpha_0} \subset U$.
+
+        \item[3.] $A_1, ..., A_n\ -$ открытые множества. Проверим, что $U:=\bigcap\limits_{k=1}^n A_k\ -$ открытое.
+
+        Возьмем $a\in U\Rightarrow a\in A_k\ k=1, ..., n\ -$ открытое $\Rightarrow $ найдется такое $r_k:B_{r_k}(a)\subset A_k$.
+
+        $r:=\min\{r_1, ..., r_k\}>0\Rightarrow B_r(a)\subset B_{r_k}(a)\subset A_k\ \forall k =1, ..., n\Rightarrow B_r(a)\subset U$.
+
+        \item[4.] $B_R(a)\ -$ открытый шар; $r:=R-\rho(a, x)$ и покажем, что $B_r(x)\subset B_R(a)$.
+
+        Возьмем $y\in B_r(x)\Rightarrow \rho(x, y)<r\Rightarrow \rho(y, a)\leq \rho(y, x)+\rho(x, a)<r+\rho(x, a)=R$.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    $A\subset X,\ a\in A;\ a\ -$ \textit{внутренняя точка} $A$, если найдется $r>0:\ B_r(a)\subset A$.
+\end{definition}
+
+\begin{remark}
+    $A$ – открытое множество $\Leftrightarrow$ всего его точки внутренние.
+\end{remark}
+
+\begin{definition}
+    $\Int A\ -$ \textit{внутренность множества} $A\ -$ множество всех внутренних точек.     
+\end{definition}
+
+\begin{remark}
+    Если $A\ -$ открытое множество, то $\Int A=A$.
+\end{remark}
+
+
+\begin{statement}
+    \textbf{Свойства внутренности:}
+    \begin{enumerate}
+        \item $\Int A\ -$ объединение всех открытых множеств, содержащихся в $A$.
+        \item $\Int A\ -$ открытое множество.
+        \item $A\ -$открыто $\Leftrightarrow \Int A=A$.
+        \item Если $A\subset B$, то $\Int A\subset \Int B$.
+        \item $\Int (A\cap B)=\Int A\cap \Int B$.
+        \item $\Int (\Int A)=\Int A$.
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[]
+        \item[1.] $G:=\bigcup\limits_{U\in A,\ U\ -\text{ откр.}} $. Надо доказать, что $G=\Int A$.
+
+        $\supset:$ Берем $a\in \Int A\Rightarrow \underset{\text{открытое}}{B_r(a})\subset A\Rightarrow a\in B_r(a)\subset G$.
+
+        $\subset:$ Берем $a\in G\Rightarrow a\in U$ для некоторого открытого $U\subset A\Rightarrow B_r(a)\subset U\subset A\Rightarrow a\ -$ внутренняя точка $A\Rightarrow a\in \Int A$.
+        \item[2.] Объединение открытых множеств $-$ открытое.
+        \item[3.] $\Int A\ -$ открытое $\Rightarrow,\ \Leftarrow$ есть.
+        \item[4.] Если $a\ -$ внутренняя точка $A$, то $B_r(a)\subset A\subset B\Rightarrow a\in \Int B$.
+        \item[5.] $\begin{cases} A\cap B\subset A\Rightarrow \Int (A\cap B)\subset \Int A \\
+        A\cap B\subset B\Rightarrow \Int (A\cap B)\subset \Int B\end{cases}\Rightarrow \subset$ есть.
+
+        $\supset:$ Пусть $a\in \Int A\cap \Int B\Rightarrow \begin{cases}
+            B_{r_1}(a)\subset A \\ B_{r_2}(a)\subset B
+        \end{cases} \Rightarrow B_{\min(r_1, r_2)}(a)\in A\cap B\Rightarrow a\in (\Int A\cap B)$.
+        \item[6.] 2 + 3
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    $A\ -$ \textit{замкнутое множество}, если $X\setminus A\ -$ открытое множество.
+\end{definition}
+
+\begin{theorem}
+    \textbf{О свойствах замкнутых множеств:}
+    \begin{enumerate}
+        \item $\varnothing$ и $X\ -$ замкнутые множества.
+        \item Пересечение любого числа замкнутых множеств $-$ замкнутое множество.
+        \item Объединение конечного числа замкнутых множеств $-$ замкнутое множество.
+        \item $\overline{B}_r\ -$ замкнутое множество.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[]
+        \item Пусть $A_\alpha\ -$ замкнутое, $\alpha\in I, F:=\bigcap\limits_{\alpha\in I}A_\alpha$.
+
+        Проверим, что $x\setminus F\ -$ открытое: $x\setminus F=x\setminus \bigcap\limits_{\alpha\in I}A_\alpha=\bigcup\limits_{\alpha\in I}\underset{\text{откр.}}{(X\setminus A_\alpha)}\ -$ открытое.
+        \item Пусть $A_1$, ..., $A_n\ -$ замкнутые, $F:=\bigcup\limits_{k=1}^nA_k$.
+
+        Проверим, что $x\setminus F\ -$ открытое: $x\setminus F=x\setminus \bigcup\limits_{k=1}^nA_k=\bigcap\limits_{k=1}^n\underset{\text{откр.}}{(X\setminus A_k)}\ -$ открытое.
+        \item Проверим, что $X\setminus \overline{B}_R(a)\ -$ открытое множество. Возьмем $x\notin \overline{B}_R(a)\Rightarrow \rho (a, x)>R$.
+
+        (picture)
+
+        $r:=\rho(x, a)-R>0$. Покажем, что $B_r(x)\subset X\setminus \overline{B}_R(a)$, т.е. что $B_r(x)\cap \overline{B}_R(a) =\varnothing$. 
+        
+        Пусть $y\in B_r(x)\cap \overline{B}_R(a)\Rightarrow \rho(y, x)<r\And\rho(y, a)\leq R\Rightarrow \rho(a, y)+\rho(y, x)\leq R+r=\rho(a, x)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+     В третьем существенна конечность: $\bigcup\limits_{n=1}^\infty[\frac{1}{n}, 1]=(0,\frac{1}{n})$.
+\end{remark}
+
+\begin{definition}
+    $\Cl A\ -$ \textit{замыкание множества} $A\ -$ пересечение всех замкнутых множеств, содержащих $A$.
+\end{definition}
+
+\begin{theorem}
+    $X\setminus \Cl A=\Int (X\setminus A)$.
+
+    $X\setminus \Int A=\Cl (X\setminus A)$.
+\end{theorem}
+
+\begin{proof}
+    $\Int(X\setminus A)=\cup\{U\ - $ открытое: $U\subset X\setminus A \}$
+
+    $X\setminus \Int (X \setminus A)=X \setminus \cup \{...\}=\cap \{X\setminus U: U\ - $ открытое: $U\subset X\setminus A \}=\cap \{ F : F\ - $ замкнутое и $\underset{\Leftrightarrow F \supset A}{X\setminus F \subset X\setminus A}\}=\Cl A$
+\end{proof}
+
+\begin{statement}
+    \textbf{Свойства замыканий:}
+    \begin{enumerate}
+        \item $\Cl A\ -$ замкнутое множество.
+        \item $A$ замкнуто $\Leftrightarrow \Cl A=A$.
+        \item $A\subset B\Rightarrow \Cl A\subset \Cl B$.
+
+        \textit{Комментарий:} $X\setminus A \supset X\setminus B \Rightarrow \Int (X\setminus A)\supset \Int (X\setminus B)$.
+        \item $\Cl (A\cup B)=\Cl A\cup \Cl B$.
+
+        \textit{Комментарий:} $X\setminus \Cl(A\cup B)=\Int (X\setminus (A\cup B))=\Int ((X\setminus A)\cap (X\setminus B))$.
+
+        \item $\Cl (\Cl A)=\Cl A$.
+    \end{enumerate}
+\end{statement}

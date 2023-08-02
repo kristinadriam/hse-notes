@@ -1,0 +1,267 @@
+\begin{theorem}
+    Компактное множество вполне ограничено.
+\end{theorem}
+
+\begin{proof}
+    Возьмем $\varepsilon>0$ и покроем компакт $K\subset \bigcup\limits_{x\in K}$B$_\varepsilon(x_i)$. Выделим конечное подпокрытие $K\subset \bigcup\limits_{i=1}^n$B$_\varepsilon(x_i)$. Тогда $x_1, ..., x_n$ – $\varepsilon$-сеть множества $K$.
+\end{proof}
+
+\begin{corollary}
+    Компактное множество замкнуто и вполне ограничено.
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Теорема Хаудсдорфа}
+
+    Если $(X, \rho)$ – полное метрическое пространство, то $K$ – компакт $\Leftrightarrow K$ – замкнуто и вполне ограничено.
+\end{theorem}
+
+\begin{proof}
+    $\Leftarrow:$ будем проверять секвенциальную компактность.
+
+    Рассмотрим последовательность $x_n\in K$ и выделим из нее сходящуюся подпоследовательность.
+
+    Возьмем 1-сеть, то есть покроем $K$ конечным числом шаров радиуса 1 $\Rightarrow$ в каком-то из шаров бесконечное число членов последовательности, возьмем их: $x_{11}, x_{12}, ...$. Остальные выкинем.
+
+    Возьмем $\frac{1}{2}$-сеть, то есть покроем $K$ конечным числом шаров радиуса $\frac{1}{2}$ $\Rightarrow$ в каком-то из шаров бесконечное число членов последовательности, возьмем их: $x_{21}, x_{22}, ...$. Остальные выкинем
+    
+    Возьмем $\frac{1}{3}$-сеть и так далее...
+
+    Получили:
+    
+    $x_{11}, x_{12}, x_{13}, x_{14} ...$ – лежат в шаре радиусом 1.
+
+    $x_{21}, x_{22}, x_{23}, x_{24} ...$ – лежат в шаре радиусом $\frac{1}{2}$.
+
+    $x_{31}, x_{32}, x_{33}, x_{34} ...$ – лежат в шаре радиусом $\frac{1}{3}$.
+
+    При этом каждая следующая строка – подпоследовательность из предыдущей. В частности $x_k, . ...,  x_{k+1, k+1},...$ –  подпоследовательность $k$-ой строки, поэтому $x_{k,k}, ...,  x_{k+1, k+1},...$ лежат в шаре радиусом $\frac{1}{k}$.
+
+    $\Rightarrow\forall i, j\geq k\ \rho(x_{ii}, x_{jj})\leq \frac{2}{k}\Rightarrow x_{11}, x_{22}, x_{33}, ...$ фундаментальная $\Rightarrow$ у нее есть предел $\Rightarrow$ из исходной последовательности выбрали сходящуюся.
+\end{proof}
+
+\begin{corollary}
+    \textbf{Характеристика компактов в $\R^d$}
+
+    $K\subset \R^d$. Тогда $K$ – компакт $\Leftrightarrow K$ замкнуто и ограничено.
+\end{corollary}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\Rightarrow:$] верно всегда, было.
+        \item[ $\Leftarrow:$] $\begin{matrix*}[l]\text{ в }\R^d\text{ ограниченность }\Rightarrow\text{ вполне ограниченность} \\
+        \R^d\text{ полное}\end{matrix*}\Rightarrow K$ – компакт
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \textbf{Теорема Больцано-Вейерштрасса в $\R^d$}
+
+    Ограниченная последовательность в $\R^d$ имеет сходящуюся подпоследовательность.
+\end{corollary}
+
+\begin{proof}
+    $x_n$ – ограниченная последовательность $\Rightarrow\exists R:\ x_n\in\overline{\text{B}}_R(0)$ – замкнут и ограничен $\Rightarrow \overline{\text{B}}_R(0)$ – компакт $\Rightarrow$ секвенциальный компакт $\Rightarrow$ можно выбрать сходящуюся подпоследовательность.
+\end{proof}
+
+\subsection{Непрерывные отображения}
+
+\begin{definition}
+    $(X, \rho_X)$, $(Y, \rho_Y)$ – метрические пространства, $E\subset X$, $f:E\rightarrow Y$, $a\in E$, $a$ – предельная точка  $E$, $b\in Y$. Тогда $\lim\limits_{x\rightarrow a}f(x)=b$, если:
+
+    \begin{enumerate}
+        \item[$\circ$] по Коши: $\forall \varepsilon>0\ \exists \delta >0:\ \forall \underset{\neq a}{x}\in E\ \rho(x, a)<\delta\Rightarrow \rho(f(x), b)<\varepsilon$.
+        \item[$\circ$] в терминах окрестностей: $\forall U_b$ – окрестность точки $b$ $\exists \overset{\circ}{U}_a$ – проколотая окрестность точки $a$: $f(\overset{\circ}{U}_a\cap E)\subset U_b$.
+        \item[$\circ$] по Гейне: $\forall$ последовательности $\underset{\neq a}{x_n}\in E$: $\lim x_n =a\Rightarrow 'lim f(x_n)=b$. 
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Определение по Коши и с окрестностями – это одно и то же.
+\end{remark}
+
+\begin{proof}
+    $U_b=\text{B}_\varepsilon(b)$, $\overset{\circ}{U}_a=\overset{\circ}{\text{B}}_\delta (a)$
+    
+    $\forall \varepsilon > 0$ $\exists \delta>0: f(\overset{\circ}{\text{B}}_\delta (a) \cap E)\text{B}_\varepsilon (b)$
+
+    Если $x\in \overset{\circ}{\text{B}}_\delta (a)\cap E$, то $f(x)\in \text{B}_\varepsilon(b)$.
+
+    Если $x_{\neq a}\in E$ и $\rho_X(x, a)< \delta$, то $\rho_Y(f(x), b)<\varepsilon$.
+\end{proof}
+
+\begin{theorem}
+    Все определения равносильны.
+\end{theorem}
+
+\begin{proof}
+    Как раньше.
+\end{proof}
+
+\begin{theorem}
+    \textbf{Критерий Коши}
+
+    $f:E\rightarrow Y$, $E\subset X$, $a$ – предельная точка $E$, $Y$ – полное пространство. Тогда $\lim\limits_{x\rightarrow a} f(x)$ существует $\Leftrightarrow\forall \varepsilon>0\ \exists \delta >0:\ \forall \underset{\neq a}{x, y}\in E\ \rho_X(x, a)<\delta\And \rho_X(y, a)<\delta\Rightarrow \rho_Y(f(x), f(y))<\varepsilon$.
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[$\Rightarrow:$] Как раньше.
+        \item[$\Leftarrow:$]Будем проверять определение по Гейне.
+
+        Берем последовательность $\underset{\neq a}{x_n}\in E:\lim x_n=a$. Хотим доказать, что $f(x_n)$ – фундаментальная последовательность.
+    
+        Возьмем $\varepsilon>0$. Тогда $\exists \delta >0:\ \forall \underset{\neq a}{x, y}\in E\ \rho_X(x, a)<\delta \And \rho_X(y, a)<\delta\Rightarrow \rho_Y(f(x), f(y))<\varepsilon$.
+    
+        Из $\lim x_n=a\Rightarrow \exists N:\ \begin{matrix}
+            \forall n\geq N\ \rho_X(x_n, a)<\delta \\
+            \forall m\geq N\ \rho_X(x_m, a)<\delta
+        \end{matrix}\Rightarrow \rho_Y(f(x_n), f(x_m))<\varepsilon$
+    
+        т.е. $\forall \varepsilon>0\ \exists N:\ \forall m, n\geq N\ \rho_Y(f(x_n), f(x_m))<\varepsilon\Rightarrow f(x_n)$ – фундаментальная последовательность $\Rightarrow$ имеет предел.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема об арифметических действиях с пределами}
+
+    $f, g:E\rightarrow Y$ – нормированное пространство, $a$ – предельная точка $E$. Если $\lim\limits_{x\rightarrow a}f(x)=b$, $\lim\limits_{x\rightarrow a}g(x)=c, \alpha, \beta\in \R$, то:
+    \begin{enumerate}
+        \item $\lim\limits_{a\rightarrow a}(\alpha f(x)+\beta g(x))=\alpha b+\beta c$.
+
+        \item Если $\lambda :E\rightarrow \R:$ $\lim\limits_{a\rightarrow a}\lambda(x)=\nu$, то $\lim\limits_{a\rightarrow a}\lambda(x)f(x)=\nu b$.
+
+        \item $\lim\limits_{x\rightarrow a}\|f(x)\|=\|b\|$.
+
+        \item Если в $Y$ есть скалярное произведение, то $\lim\limits_{x\rightarrow a}\langle f(x),g(x)\rangle =\langle b, c\rangle$.
+
+        \item Если $Y=\R$ и $c\neq 0$, то $\lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)}=\frac{b}{c}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Все из определения по Гейне. Берем $\underset{\neq a}{x_n}\in E$: $\lim x_n=a\Rightarrow \lim f(x_n)=b,\ \lim g(x_n)=c,\ \lim\lambda(x_n)\nu$.
+
+    Как раньше.
+\end{proof}
+
+\begin{definition}
+    $(X, \rho_X)$, $(Y, \rho_Y)$ – метрические пространства, $E\subset X$, $f:E\rightarrow Y$, $a\in E$. Отображение $f$ \textit{непрерывно в точке} $a$, если: 1) $a$ – изолированная точка $E$ (то есть не предельная) или 2) $a$ – предельная точка $E$ и $\lim f(x)=f(a)$.
+
+    \begin{enumerate}
+        \item[$\circ$] по Коши: $\forall \varepsilon>0\ \exists \delta >0:\ \forall x\in E\ \rho_X(x, a)<\delta\Rightarrow \rho_Y(f(x), f(a))<\varepsilon$.
+        \item[$\circ$] в терминах окрестностей: $\forall U_{f(a)}$  $\exists U_a$: $f(U_a\cap E)\subset U_{f(a)}$.
+        \item[$\circ$] по Гейне: $\forall x_n\in E$: $\lim x_n =a\Rightarrow \lim f(x_n)=f(a)$. 
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    \textbf{Теорема о непрерывности композиции}
+
+    $(X, \rho_X),$ $(Y, \rho_Y)$, $(Z, \rho_Z)$ – метрические пространства, $D\subset X, E\subset Y, f:D\rightarrow Y, g:E\rightarrow Z, a\in D, f(D)\subset E$. Если $f$ непрерывна в точке $a$ и $g$ непрерывна в точке $f(a)$, то $g\circ f$ непрерывна в точке $a$.
+\end{theorem}
+
+\begin{proof}
+    $\forall U_{g(b)}$ $\exists U_b$: $g(U_b \cap E)\subset U_{g(b)}$ (непрерывность $g$ в точке $b=f(a)$)
+
+    $\forall U_{f(a)}$ $\exists U_a$: $f(U_a \cap E)\subset U_{f(a)}$ (непрерывность $f$ в точке $a$)
+
+    $\overset{\text{т.к. }f(D)\subset E}{\Rightarrow} f(U_a \cap E)\subset U_{f(a)}\cap E = U_b\cap E\Rightarrow g(f(U_a \cap D))\subset g(U_b\cap E)\subset U_{g(b)}=U_{g\circ f(a)}$
+
+    Это непрерывность композиции.
+\end{proof}
+
+\begin{theorem}
+    \textbf{Характеристика непрерывности в терминах открытых множеств}
+
+    $(X, \rho_X)$, $(Y,  \rho_Y)$ – метрические пространства, $f:X\rightarrow Y$. Тогда $f$ непрерывна во всех точках $\Leftrightarrow\forall U\subset Y$ – открытого $f^{-1}(U)=\{x\in X:f(x)\in U\}$ – открытое.
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\Rightarrow:$] Пусть $U$ – открытое. Докажем, что $f^{-1}(U)$ – открытое. Возьмем $a\in f^{-1}(U)\Rightarrow f(a)\in U$ – открытое  $\Rightarrow \exists \varepsilon > 0:$ B$_\varepsilon (f(a))\subset U$.
+
+        $f$ непрерывна в $a\Rightarrow \exists \delta >0:\ f($B$_\delta(a))\subset\text{ B}_\varepsilon(f(a))\subset U\Rightarrow$ B$_\delta(a)\subset f^{-1}(U)\Rightarrow a$ лежат в $f^{-1}(U)$ – открыто (так как все точки внутренние).
+
+        \item[$\Leftarrow:$]$U:=\text{ B}_\varepsilon(f(a))$ – открытое $\Rightarrow f^{-1}(\text{ B}_\varepsilon(f(a)))$ – открытое
+
+        $a\in f^{-1}($B$_\varepsilon(f(a)))\Rightarrow$ она лежит в этом множестве вместе с некоторым шаром B$_\delta (a)\subset f^{-1}($B$_\varepsilon(f(a))\Rightarrow f($B$_\delta(a)\subset$B$_\varepsilon(f(a))$
+    
+        Это непрерывность функции в точке $a$.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Непрерывный образ компакта – компакт.
+\end{theorem}
+
+\begin{proof}
+
+     $(X, \rho_X), (Y,  \rho_Y)$ – метрические пространства, $K$ – компакт $\subset X, f:K\subset Y$ непрерывна.
+
+     $(K, \rho_X)$ – метрическое пространство, $K$ – компакт в нем.
+
+     Докажем, что $f(K)$ – компакт. Возьмем его открытое покрытие: $f(K)\subset\bigcup\limits_{\alpha\in I} U_\alpha\Rightarrow K\subset\bigcup\limits_{\alpha\in I} f^{-1}(U_\alpha)$  – открытое $\Rightarrow$ это открытое покрытие компакта $\Rightarrow$ выделим конечное подпокрытие $K\subset\bigcup\limits_{i=1}^n f^{-1}(U_{\alpha_i})\Rightarrow f(K)\subset\bigcup\limits_{i=1}^n U_{\alpha_i}$ – это конечное подпокрытие из исходного покрытия $f(K)$.     
+\end{proof}
+
+\begin{corollary}
+    \begin{enumerate}
+        \item[]
+        \item Непрерывный образ компакта замкнут и ограничен.
+    
+    \begin{definition}
+        $f:E\rightarrow Y$ \textit{ограничена}, если множество ее значений – ограниченное множество.
+    \end{definition}
+
+    \item Если $f:K\rightarrow Y, K$ – компакт, $f$ непрерывна во всех точках $\Rightarrow$ $f$ ограниченная функция.
+
+    \item \textbf{Теорема Вейерштрасса}
+    \begin{theorem}
+         $f:K\rightarrow \R, K$ – компакт, $f$ непрерывна во всех точках. Тогда существуют $a, b\in K: f(a)\leq f(x)\leq f(b)\ \forall x\in K$.
+    \end{theorem}
+
+    \begin{proof}
+        $f(K)$ – ограниченное множество в $\R\Rightarrow$ у него есть супремум – $B:=\sup\{f(x):x\in K\}$.
+
+        $\forall n\in N\ \exists x_n\in K\ B=\frac{1}{n}<f(x_n)\leq B\Rightarrow \lim f(x_n)=B$.
+
+        $x_n$ – последовательность из $K$ – секвенциальный компакт $\Rightarrow$ найдется сходящаяся подпоследовательность: $\lim f(x_{n_k})=b\in K\overset{f \text{ непр. в точке } b}{\Rightarrow}\lim f(x_n)=f(b)=B$.
+
+        Аналогично с инфимумом.
+    \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    $f:K\rightarrow Y$ непрерывна во всех точках и биекция, $K$ – компакт $\Rightarrow$ обратная $f^{-1}$ тоже непрерывна.
+\end{theorem}
+
+\begin{proof}
+    Надо проверить, что для $f^{-1}$ прообраз открытого множества – открытое множество.
+
+    Берем $U$ – открытое подмножество $K$. И надо доказать, что $f(U)$ –  открытое.
+
+    $K\setminus U$ – замкнутое подмножество $K\Rightarrow K\setminus U$ – компакт $\Rightarrow f(K\setminus U)$ – компакт $\Rightarrow Y\setminus f(K\setminus U)$ – открытое $\Rightarrow Y\setminus f(K\setminus U)=f(U)$ – открытое.
+\end{proof}
+
+\begin{definition}
+    $(X, \rho_X)$, $(Y,  \rho_Y)$ – метрические пространства, $E\subset X, f:E\rightarrow Y$. $f$  \textit{равномерно непрерывна} на $E$, если $\forall \varepsilon > 0\ \exists \delta > 0 \ \forall x, y\in E$ и $\rho_X(x, y)<\delta \Rightarrow \rho_Y(f(x), f(y))<\varepsilon$.    
+\end{definition}
+
+\begin{remark}
+    Равномерная непрерывность $\Rightarrow f$ непрерывна во всех точках $E$. 
+\end{remark}
+
+\begin{theorem}
+    \textbf{Теорема Кантора}
+
+    Если $f:K\rightarrow Y$ непрерывна во всех точках, $K$ – компакт, то $f$ равномерно непрерывна на $K$.
+\end{theorem}
+
+\begin{proof}
+    Зафиксируем $\varepsilon>0$. Возьмем $x\in K, f$ непрерывна в точке $x\Rightarrow \exists r_x>0:$ $f(\text{B}_{r_x(x)})\subset \text{B}_{\frac{\varepsilon}{2}}(f(x))$.
+
+    Берем покрытие $K \subset \bigcup\limits_{x\in K} \text{B}_{r_x(x)}$. Пусть $\delta$ – число Лебега для этого покрытия. 
+    
+    Проверим, что оно подходит. Пусть $x, y\in K:\rho(x, y)<\delta\Rightarrow y\in \text{B}_\delta(x)$. $\text{B}_\delta(x)$ целиком содержиттся в каком-то элементе покрытия $\text{B}_{r_a}(a)$. Тогда $x.y\in \text{B}_{r_a}(a)\Rightarrow f(x), f(y)\in f(\text{B}_{r_a}(a))\subset\text{B}_{\frac{\varepsilon}{2}}(a)\Rightarrow \rho( f(x), f(y)) \leq rho(f(x), f(a)) + \rho(f(a), f(y))<\frac{\varepsilon}{2}+\frac{\varepsilon}{2} =\varepsilon$
+\end{proof}

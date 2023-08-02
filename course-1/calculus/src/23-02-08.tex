@@ -1,0 +1,230 @@
+\subsection{Несобственные интегралы}
+
+\begin{definition}
+    $-\infty < a < b\leq +\infty,\ f\in C[a, b).$ Тогда \textit{несобственный интеграл}: 
+    
+    $\int\limits_a^{\rightarrow b}f:=\lim \limits_{B\rightarrow b_-}\int\limits_a^Bf$, если предел существует.
+\end{definition}
+
+\begin{definition}
+    $-\infty \leq a < b< +\infty,\ f\in C(a, b].$ Тогда \textit{несобственный интеграл}: 
+    
+    $\int\limits_{\rightarrow a}^b f:=\lim \limits_{A\rightarrow a_+}\int\limits_A^b f$, если предел существует.
+\end{definition}
+
+\begin{definition}
+    Если предел существует и конечен, то соответствующий интеграл назовем \textit{сходящимся}. В остальных случаях назовем интеграл \textit{расходящимся}.
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[]
+        \item Если $b\neq +\infty$ и $f\in C[a, b]$, то $\int\limits_a^{\rightarrow b} f = \int\limits_a^{b} f$.
+
+        \textit{Комментарий:} $\int\limits_a^{\rightarrow b} f=\lim\limits_{B\rightarrow b_-}\int\limits_a^{b}f,\ \bigg|\int\limits_a^b -\int\limits_a^B\bigg|=\bigg|\int\limits_B^b\bigg|\leq (b-B)\cdot M$, где $M\ -\max |f|$.
+
+        \item Если $f$ имеет первообразную $F$ в $[a, b)$, то $\int\limits_a^{\rightarrow b}=\lim\limits_{B\rightarrow b_-} F(b)-F(a)$.
+
+        \textit{Комментарий:} $\int\limits_a^B=F(B)-F(a)$ и написать пределы.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    \textbf{Критерий Коши для несобственных интегралов}
+
+    $-\infty <a<b\leq +\infty,\ f\in C[a, b)$. Тогда $\int\limits_a^{\rightarrow b}f$ сходится $\Leftrightarrow\forall \varepsilon>0\ \exists c\in (a, b): $
+    
+    $\forall A, B\in (c, b) \ \bigg|\int\limits_A^B f\bigg |<\varepsilon$.
+\end{theorem}
+
+\begin{proof}
+    Пусть $F:[a, b)\rightarrow \R\ -$ первообразная $f$. Тогда $\int\limits_a^{\rightarrow b}f$ сходится $\Leftrightarrow \exists$ конечный $\lim\limits_{B\rightarrow b_-}F(b)$.
+
+    Если $b\neq +\infty \Leftrightarrow \forall \varepsilon >0\ \exists \delta > 0\ \forall A, B\in (\underbrace{b-\delta}_{=c}, b)\ \underbrace{|F(A)-F(B)|}_{=\int\limits_A^B}<\varepsilon$
+
+    Если $b= +\infty \Leftrightarrow \forall \varepsilon >0\ \exists E\ \forall A, B \supset \underbrace{E}_{=c}\ \underbrace{|F(A)-F(B)|}_{=\int\limits_A^B}<\varepsilon$
+\end{proof}
+
+\begin{remark}
+    Если $\exists A_n,\ B_n\in [a, b)$, т.ч. $A_n,\ B_n\rightarrow b$ и $\underbrace{\int\limits_{A_n}^{B_n}}_{:=C_n}f \not\rightarrow 0$, то $\int\limits_a^{\rightarrow b}f$ расходится.
+
+    \textit{Комментарий:} Найдется подпоследовательность $C_{n_k}$, т.ч. $|C_{n_k}|>\varepsilon\Rightarrow \bigg|\int\limits_{B_n}^{A_n}f\bigg|\geq \varepsilon$ ?! (противоречие с критерием Коши).
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item[]
+        \item $\int\limits_1^{+\infty }\frac{dx}{x^p}=\lim\limits_{x\rightarrow +\infty}F(x)-F(1)$, где $F(x)\ -$ первообразная $\frac{1}{x^p}$.
+
+        Если $p=1$, то $F(x)=\ln x$ и $\lim\limits_{x\rightarrow +\infty}\ln x=+\infty\Rightarrow$ интеграл расходится.
+
+        Если $p\neq1$, то $F(x)=-\frac{1}{(p-1)\cdot x^{p-1}}$ и тогда:
+        
+        $\lim\limits_{x\rightarrow +\infty}\frac{1}{x^{p-1}}=\begin{cases} 
+        0, & \text{если $p>1\Rightarrow$ интеграл сходится} \\
+        +\infty, & \text{если $p<1\Rightarrow$ интеграл расходится}
+        \end{cases}$ 
+
+        \textit{Итог:} $\int\limits_1^{+\infty }\frac{dx}{x^p}$ сходится $\Leftrightarrow p>1$ и в этом случае $\int\limits_1^{+\infty }\frac{dx}{x^p}=\frac{1}{p-1}$.
+        \item $\int\limits_0^1\frac{dx}{x^p}=F(1)-\lim\limits_{x\rightarrow 0_+}F(x)$, где $F(x)\ -$ первообразная $\frac{1}{x^p}$.
+
+        Если $p=1$, то $F(x)=\ln x$ и $\lim\limits_{x\rightarrow 0_+}\ln x=-\infty\Rightarrow$ интеграл расходится.
+
+        Если $p\neq1$, то $F(x)=-\frac{1}{(p-1)\cdot x^{p-1}}$ и тогда:
+        
+        $\lim\limits_{x\rightarrow 0_+}\frac{1}{x^{p-1}}=\lim\limits_{x\rightarrow 0_+}x^{1-p}=\begin{cases} 
+        0, & \text{если $p<1\Rightarrow$ интеграл сходится} \\
+        +\infty, & \text{если $p>1\Rightarrow$ интеграл расходится}
+        \end{cases}$ 
+
+        \textit{Итог:} $\int\limits_0^1\frac{dx}{x^p}$ сходится $\Leftrightarrow p<1$ и в этом случае $\int\limits_0^1\frac{dx}{x^p}=\frac{1}{1-p}$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+\textit{    $f$ \textit{непрерывно на} $[a, b]$ }за исключением точек $c_1, ..., c_n$. 
+    
+    Рассмотрим $\int\limits_a^{d_1} f,\ \int\limits_{d_1}^{c_1} f,\ \int\limits_{c_1}^{d_2} f, ...,  \int\limits_{d_{n+1}}^{b} f$.
+    
+    Если все интегралы сходятся, то и несобственный $\int\limits_a^b f$ сходится и $\int\limits_a^b f=\int\limits_a^{d_1} f+\int\limits_{d_1}^{c_1} f+ \int\limits_{c_1}^{d_2} f+...+ \int\limits_{d_{n+1}}^{b} f$. 
+
+    В противном случае интеграл расходится.
+\end{definition}
+
+\begin{statement}
+    \textbf{Свойства несобственных интегралов:}
+    \begin{enumerate}
+        \item \textbf{Аддитивность}
+
+        $c\in (a, b)$. Если $\int\limits_a^b f$ сходится, то $\int\limits_c^b f$ сходится и $\int\limits_a^b f=\int\limits_a^c f+\int\limits_c^b f$.
+
+        \begin{proof}
+            $F\ -$ первообразная $f$; $\int\limits_a^b f = \lim\limits_{B\rightarrow b_-}F(b)-F(a)$
+
+            Сходимость $\int\limits_a^b f\Leftrightarrow \lim\limits_{B\rightarrow b_-}F(b)$ существует и конечен.
+
+            $\int\limits_c^b f=\lim\limits_{B\rightarrow b_-}F(b)-F(c)=\int\limits_a^b f - \underbrace{(F(c)-F(a))}_{\int\limits_a^c f}$
+        \end{proof}
+        \item Если $\int\limits_a^b f$ сходится, то $\lim\limits_{c\rightarrow b_-}\int_c^b f=0$.
+        \begin{proof}
+            $\int\limits_a^b f=\underbrace{\int\limits_a^c f}_{\rightarrow \int\limits_a^b f} + \int\limits_c^b f\Rightarrow \int\limits_c^b\rightarrow 0$
+        \end{proof}
+        \item \textbf{Линейность}
+    
+        Если $\int\limits_a^b f$ и $\int\limits_a^b g$ сходятся, $\alpha, \beta\in \R$, то $\int\limits_a^b(\alpha f+\beta g)$ сходится и $\int\limits_a^b(\alpha f+\beta g)=\alpha\int\limits_a^b f+\beta \int\limits_a^b g$.
+        \begin{proof}
+            $F$ и $G\ -$ первообразные для $f$ и $g$; по условию $\lim\limits_{B\rightarrow b_-} F(B)$ и $\lim\limits_{B\rightarrow b_-} G(B)$ существуют и конечные $\Rightarrow\alpha F + \beta G\ -$ первообразные для $\alpha f + \beta g$ и $\lim\limits_{B\rightarrow b_-}(\alpha\cdot F(B) + \beta\cdot G(B))=\alpha\lim\limits_{B\rightarrow b_-}F(B) + \beta\lim\limits_{B\rightarrow b_-} G(B)\Rightarrow \int\limits_a^b (\alpha f + \beta g)$ сходится 
+            
+            и $\int\limits_a^b (\alpha f + \beta g)=\alpha\lim\limits_{B\rightarrow b_-}F(B) + \beta\lim\limits_{B\rightarrow b_-} G(B)-\alpha \cdot F(A) - \beta \cdot G(A)=\alpha \cdot \int\limits_a^b f+\beta \cdot \int\limits_a^b g$  
+        \end{proof}
+        \begin{remark}
+            Если $\int\limits_a^b f$ сходится и $\int\limits_a^b g$ расходится, то $\int\limits_a^b(f+g)$ расходится.
+        \end{remark}
+
+        Комментарий: $g=(f+g)-f$
+        \item \textbf{Монотонность}
+        
+        Если $\int\limits_a^b f$ и $\int\limits_a^b g$ существуют в $\overline{\R}$ и $f\leq g$ во всех точках от $a$ до $b$, то $\int\limits_a^b f \leq \int\limits_a^b g$.
+        \begin{proof}
+            $\int\limits_a^B f\leq \int\limits_a^B g$ и перейти к пределу.
+        \end{proof}
+        \item \textbf{Формула интегрирования по частям}
+
+        Если $f, g\in C^{1}[a, b)$, то $\int\limits_a^b fg' = fg\left.\right|_a^{b^{\leftarrow\text{тут предел}}}-\int\limits_a^bf'g$.
+
+        Если существует два конечных предела, то существует и третий и есть равенство.
+        \begin{proof}
+            $\int\limits_a^B fg' = fg\left.\right|_a^B-\int\limits_a^Bf'g$ и перейти к пределу.
+        \end{proof}
+        \item \textbf{Замена переменной}
+
+        $\varphi: [\alpha, \beta)\rightarrow [a, b) \ \varphi\in C^{-1}[\alpha, \beta),\ \exists \lim\limits_{\gamma \rightarrow \beta_-}\varphi(\gamma)=:\varphi(\beta_-),\ f\in C[a, b)$, тогда:
+
+        $\int\limits_\alpha^\beta f(\varphi(t))\varphi'(t)dt=\int\limits_{\varphi(\alpha)}^{\varphi(\beta_-)}f(x)dx$ 
+        
+        (если существует один $\int$, то существует и другой и они равны).
+
+        \begin{proof}
+            $F(y):=\int\limits_{\varphi(\alpha)}^y f(x)dx,\ \Phi(\gamma):=\int\limits_\alpha^\gamma f(\varphi(t))\varphi'(t)dt,\ \Phi(\gamma)=F(\varphi(\gamma))$ при $\alpha<\gamma<\beta$.
+
+            Далее рассмотрим следующие случаи: 
+            \begin{enumerate}
+                \item[I.] Если $\exists \lim\limits_{y\rightarrow \varphi (\beta_-)} F(y)$.
+
+                Возьмем $\gamma_n\nearrow \beta\Rightarrow \varphi(\gamma_n)\rightarrow \varphi(\beta_-)\Rightarrow \int\limits_{\alpha}^{\gamma_n}f(\varphi(t))\varphi'(t)dt=\Phi (\gamma_n)=F(\varphi(\gamma_n))=\lim\limits_{y\rightarrow \varphi(\beta_-)} F(y)=\int\limits_{\varphi(\alpha)}^{\varphi(\beta_-)}f(x)dx$
+
+                \item[II.] Если $\exists \lim\limits_{\gamma\rightarrow \beta_-} \Phi(\gamma)$.
+
+                Проверим, что $\exists \lim\limits_{y\rightarrow \varphi(\beta_-)} F(y)$.
+
+                При $\varphi(\beta_-)<b$ очевидно, поскольку $F\in C[a, b)$. Пусть $\varphi(\beta_-)=b$. Возьмем $b_n\nearrow b$. Считаем, что $b_n\in [\varphi(\alpha), b)$. Тогда $\exists \gamma_n\in [\alpha, \beta)$ т.ч. $\varphi(\gamma_n)=b_n$. 
+                
+                Докажем, что $\gamma_n\rightarrow \beta$. 
+                
+                От противного. Найдется $\gamma_{n_k}\rightarrow \Tilde{\beta}<\beta\Rightarrow b_{n_k}=\varphi(\gamma_{n_k})\rightarrow \varphi(\Tilde{\beta})<b\ (\varphi$ непрерывна в $\Tilde{\beta})$. Противоречие с тем, что $b_n\rightarrow b$. Следовательно, $\gamma_n\rightarrow \beta$.
+
+                $F(b_n)=F(\varphi(\gamma_n))=\Phi(\gamma_n)$ имеет предел $\overset{\text{по Гейне}}{\Rightarrow}\exists \lim\limits_{y\rightarrow b_-}F(y)$
+            \end{enumerate}
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{remark}
+    $\int\limits_a^b f$ заменой $x=b-\frac{1}{t}$ сводится к $\int\limits_{\frac{1}{b-a}}^{+\infty}f(b-\frac{1}{t})\frac{1}{t^2}dt$.
+\end{remark}
+
+\begin{theorem}
+    Пусть $f\in C[a, b]$ и $f\geq 0$. Тогда сходимость $\int\limits_a^b f$ равносильна ограниченности сверху функции $F(y):=\int\limits_a^y f$.
+\end{theorem}
+
+\begin{proof}
+    Если $f\geq 0$, то $F\ -$ возрастающая функция: $F(y)-F(x)=\int\limits_x^y f\geq 0$
+
+    $\int\limits_a^b f\ -$ сходится $\Leftrightarrow \lim\limits_{y\rightarrow b_-} F(y)$ существует и конечен, а так как $F$ возрастает, то это равносильно ограниченности $F$ сверху.
+\end{proof}
+
+\begin{corollary}
+    \textbf{Признак сравнения}
+    
+    $f, g\in C[a, b), \ f, g\geq 0$ и $f\leq g$, тогда:
+
+    \begin{enumerate}
+        \item Если $\int\limits_a^b g$ сходится, то $\int\limits_a^b f$ сходится.
+
+        \item Если $\int\limits_a^b f$ расходится, то $\int\limits_a^b g$ расходится.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    $F$ и $G$ первообразные. Знаем, что $F(x)\leq G(x)$: $F(x)=\int\limits_a^x f \leq \int\limits_a^x g=G(x)$.
+
+    Если $\int\limits_a^b g$ сходится, то $G$ ограничена сверху $\Rightarrow F$ ограничена сверху $\overset{\text{по th}}{\Rightarrow}\int\limits_a^b f$ сходится.
+
+    Второй пункт = отрицание первого.
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[]
+        \item Неравенство $f\leq g$ может выполняться лишь при аргументах, близких к $b$.
+        \item Неравенство $f\leq g$ можно заменить на $f=\mathcal{O}(g)$.
+        \item Если $f\in C[a,+\infty),\ f=\mathcal{O}(\frac{1}{x^{1+\varepsilon}})$ при $\varepsilon>0$, то $\int\limits_a^{+\infty} f$ сходящийся.
+    \end{enumerate}
+\end{remark}
+
+\begin{corollary}
+    Пусть $f, g\in C[a, b) \ f, g\geq 0$ и $f(x)\sim g(x)$ при $x\rightarrow b_-$. Тогда $\int\limits_a^b f$ и $\int\limits_a^b g$ ведут себя одинаково (либо оба сходятся, либо оба расходятся).
+\end{corollary}
+
+\begin{proof}
+    $f(x)=\varphi(x)g(x),$ где $\varphi(x)\rightarrow 1\Rightarrow$ при $x$ близких к $b$; $\frac{1}{2}\leq \varphi(x)\leq 2\Rightarrow \begin{cases}
+        f(x) \leq 2 g(x) & \text{при $x$ близких к $b\Rightarrow$ если $\int\limits_a^b g$ сходящийся, то и $\int\limits_a^b f$ сходящийся} \\
+        g(x) \leq 2 f(x) & \text{при $x$ близких к $b\Rightarrow$ если $\int\limits_a^b f$ сходящийся, то и $\int\limits_a^b g$ сходящийся} \\
+    \end{cases}$
+\end{proof}
+
+\begin{remark}
+    Если $\int\limits_a^{+\infty}f$ сходящийся и $f\geq 0$, то необязательно, что $\lim\limits_{x\rightarrow +\infty} f(x)=0$.
+
+    $\frac{1}{2}\sum\limits_{n=0}^\infty\frac{1}{2^n}=1$
+\end{remark}

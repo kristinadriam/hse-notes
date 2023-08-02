@@ -1,0 +1,271 @@
+\begin{theorem}
+    $A$ – множество в метрическом пространстве $(X, \rho)$. Тогда $x\in \Cl A\Leftrightarrow \forall r>0$ B$_r(x)\cap A\neq \varnothing$.
+\end{theorem}
+
+\begin{proof}
+    $\neg(P\Leftrightarrow Q)=\neg P\Leftrightarrow \neg Q$. Тогда докажем: $x\notin \Cl A\Leftrightarrow \exists r>0$ B$_r(x)\cap A=\varnothing$
+
+    $x\notin \Cl A\Leftrightarrow x\in X\setminus \Cl A=\Int (X\setminus A)\Rightarrow x$ – внутренняя точка $X\setminus A\Rightarrow \exists r>0:$ $\underbrace{\text{B}_r(x)\subset X\setminus A}_{\text{B}_r(x)\cap A=\varnothing}$
+\end{proof}
+
+\begin{corollary}
+    Если $U$ – открытое и $U\cap A=\varnothing$, то $U\cap \Cl A=\varnothing$.
+\end{corollary}
+
+\begin{proof}
+    От противного. Пусть $U\cap \Cl A\neq\varnothing$. Возьмем $x\in U\cap \Cl A$. 
+
+    $\left.\begin{array}{r}
+          x \in U\text{ – открытое }\Rightarrow\exists r>0: \text{B}_r(x)\subset U \\
+         x \in \Cl A \overset{\text{по th}}{\Rightarrow} \text{B}_r(x)\cap  A\neq \varnothing
+    \end{array}\right\}\Rightarrow$ точка из B$_r(x)\cap A$ лежит и в $U$, и в $A$. Противоречие.
+\end{proof}
+
+\begin{definition}
+    $U_a$ – \textit{окрестность точки} $a$  – шар B$_r(a)$ некоторого радиуса $r>0$.
+\end{definition}
+
+\begin{definition}
+    $\overset{\circ}{U_a}$ – \textit{проколотая окрестность точки} $a$  – $\overset{\circ}{\text{B}}_r(a)=$B$_r(a)\setminus \{a\}$ некоторого радиуса $r>0$.
+\end{definition}
+
+\begin{definition}
+    $a$ – \textit{предельная точка множества} $A$, если любая проколотая окрестность точки $a$ пересекается с множеством $A$.
+\end{definition}
+
+\begin{designation}
+    $A'$ – множество всех предельных точек $A$.
+\end{designation}
+
+\begin{statement}
+    \begin{enumerate}
+        \item[]
+        \item $\Cl A= A\cup A'$
+        \begin{proof}
+            $a\in \Cl A\Leftrightarrow \forall r> 0$ B$_r(a)\cap A\neq\varnothing\Leftrightarrow\left[\begin{gathered}
+                a\in A \hfill \\
+                \forall r > 0\ \overset{\circ}{\text{B}} _r(a)\Leftrightarrow a\in A' 
+            \end{gathered}\right.$
+        \end{proof}
+        \item $A\subset B\Rightarrow A'\subset B'$
+        \item $A$ замкнуто $\Rightarrow A'\subset A$.
+
+        \begin{proof}
+            $A$ замкнуто $\Leftrightarrow A=\Cl A\Leftrightarrow A=A\cup A'\Leftrightarrow A'\subset A$.
+        \end{proof}
+        \item $(A\cup B)'=A'\cup B'$
+        \begin{proof}
+            $A\subset A\cup B\Rightarrow A'\subset (A\cup B)'\Rightarrow A'\cup B'\subset (A\cup B)'$
+
+            Теперь докажем обратное включение. Возьмем $x\in (A\cup B)'\Rightarrow \forall r>0\ \overset{\circ}{\text{B}}_r(x)\cap (A\cup B)\neq \varnothing\ (1)$ 
+
+            Пусть $x\notin B'\overset{\text{для дост. малых } r}{\Rightarrow}$B$_r(x)\cap B=\varnothing\ (2)$
+
+            Из $(1)$ и $(2):\overset{\circ}{\text{B}}_r(x)\cap A\neq \varnothing$ для достаточно малых $r\Rightarrow\forall r>0\ \overset{\circ}{\text{B}}_r(x)\cap A\neq \varnothing$ 
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{theorem}
+    $x\in A'\Leftrightarrow\exists r>0:$ шар B$_r(x)$ содержит бесконечно много точек из $A$.
+\end{theorem}
+
+\begin{proof}~
+\begin{enumerate}
+    \item[$\Leftarrow:$] если B$_r(x)\cap A$ содержит бесконечно много точек, то $\overset{\circ}{\text{B}_r}(x)\cap A$ содержит  бесконечно много точек $\Rightarrow\overset{\circ}{\text{B}_r}(x)\cap A\neq \varnothing\Rightarrow x\in A'$.
+
+    \item[$\Rightarrow:$] $x\in A'\Rightarrow \overset{\circ}{\text{B}_1}(x)\cap A\neq \varnothing$. Возьмем точку $x_1$ из этого пересечения, для нее $0<\underbrace{\rho(x, x_1)}_{=:r_2}<1$
+
+    $\overset{\circ}{\text{B}_{r_2}}(x)\cap A\neq \varnothing$. Возьмем точку $x_2$ из этого пересечения, для нее $0<\underbrace{\rho(x, x_2)}_{=:r_3}<r_2=\rho(x, x_1)$.
+
+    И так далее: $\rho(x, x_1)>\rho(x, x_2)>...\Rightarrow$ все радиусы различны.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Можно добиться того, что $\rho(x, x_n)\rightarrow 0$. Для этого надо брать $r_n=\frac{1}{2}\rho(x, x_{n-1})$.
+\end{remark}
+
+\begin{corollary}
+    Конечное множество не имеет предельных точек.
+\end{corollary}
+
+\begin{definition}
+    Пусть $(X, \rho)$ – метрическое пространство, $Y\subset X$. \textit{Подпространством метрического пространства} называется $(Y, \rho|_{Y\times Y})$ (более кратко: $(Y, \rho)$).
+\end{definition}
+
+\begin{theorem}
+    \textbf{Об открытых и замкнутых множествах в подпространстве}
+
+    Пусть $(X, \rho)$ – метрическое пространство $A\subset Y\subset X$. Тогда:
+    \begin{enumerate}
+        \item $A$ открыто в $(Y, \rho)\Leftrightarrow \exists G$ – открытое в $(X, \rho):\ A=G \cap Y$.
+        \item $A$ замкнутое в $(Y, \rho)\Leftrightarrow \exists F$ – замкнутое в $(X, \rho):\ A=F \cap Y$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item [$\Rightarrow:$]$A$ открытое в $Y\Rightarrow A=\bigcup\limits_{x\in A}$B$_{r_x}^Y(x)$, где $r_x>0$ такой радиус, что B$^Y_{r_x}\subset A$.
+
+        B$_{r_x}^Y=\{y\in Y:\rho(x, y)<r_x\}=\underbrace{\{y\in X:\rho(x, y)<r_x\}}_{=\text{B}^X_{r_x}(x)} \cap  Y=$B$_{r_x}^X\cap Y\Rightarrow A = \bigcup\limits_{x\in A}($B$_{r_x}^X(x) \cap Y)=Y \cap \underbrace{\cup\text{B}^X_{r_x}}_{=:G\text{ откр. в }X}$
+
+        $\Leftarrow:A=Y\cap G$, $G$ – открытое в $X\Rightarrow G=\bigcup\limits_{x\in G}\text{B}^X_{r_x}(x),$ где $r_x>0$ такой радиус, что B$_{r_x}\subset G\Rightarrow A = Y \cap \bigcup\limits_{x\in G}\text{B}^X_{r_x}(x)=\bigcup\limits_{x\in G}(Y\cap \text{B}^X_{r_x}(x))=\bigcup\limits_{x\in G}\text{B}^Y_{r_x}(x)$ –  открытое в $Y$. 
+        
+        \item $A$ замкнуто в $Y\Leftrightarrow Y\setminus A$ открыто в $Y\overset{1}{\Leftrightarrow}\exists G$ – открытое в $X:Y\setminus A=G\cap Y\Leftrightarrow A=Y\setminus G=Y\cap(\underset{\text{замк. }F:=}{X\setminus G})\Leftrightarrow \exists F$ – замкнутое в $X:A=Y\cap F$ (и обратно доказывается с конца).
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    $x=\R,\ \rho(x, y):=|x-y|,\ Y=[0, 3)$
+
+    В $(Y, \rho)$ :
+    
+    $[0, 1)$ – открытое множество $[0, 1)=(-1, 1)\cap Y$.
+
+    $[2, 3)$ – закрытое множество $[2, 3)=[2, 4]\cap Y$.
+\end{example}
+
+\begin{definition}
+    $X$ – векторное пространство над $\R$. $\|.\|:X\rightarrow \R$ – \textit{норма}, если:
+    \begin{enumerate}
+        \item $\|x\|\geq 0$ и $\|x\|=0\Leftrightarrow x=\vec{0}$.
+        \item $\|\lambda x\|=|\lambda|\cdot \|x\|,\ \forall\lambda\in \R,\  \forall x, y, z$.
+        \item $\|x+y\|\leq \|x\|+ \|y\|\ \forall x, y\in X$ (неравенство треугольника).
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item[]
+        \item $|x|$ в $\R$.
+        \item $\|x\|_p:=(|x_1|^p+...+|x_d|^p)^{\frac{1}{p}}$ в $\R^d$ при $p\geq 1$.
+        \item $\|x\|_\infty:=\max\{|x_1|, ..., |x_d|\}$ в $\R^d$.
+        \item $X=C[a, b];\ \|f\|:=\underset{x\in[a, b]}{\max}|f(x)|$.
+        \item $X=C[a, b];\ \|f\|:=\int\limits_a^b|f(x)|dx$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    $X$ – векторное пространство над $\R$. $\langle \ ,\ \rangle:X\times X\rightarrow \R$ 
+    
+    \textit{скалярное произведение}, если:
+    \begin{enumerate}
+        \item $\langle x, x \rangle\geq 0$ и $\langle x, x\rangle=0\Leftrightarrow x=\vec{0}$.
+        \item $\langle x+y, z\rangle=\langle x, z \rangle +\langle y, z\rangle\ \forall x, y, z$.
+        \item $\langle\lambda x, y \rangle=\lambda\langle x, y \rangle\ \forall x, y\in X$ и $\forall\lambda\in \R$.
+        \item $\langle x, y\rangle=\langle y, x\rangle\ \forall x, y\in X$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item[] 
+        \item $X=\R^d;\ \langle x, y\rangle=\sum\limits_{k=1}^d x_ky_k$
+        \item $X=\R^d,\ w_1, ..., w_d>0;\ \langle x, y\rangle=\sum\limits_{k=1}^d w_k x_k y_k$
+        \item $X\in C[a, b];\ \langle f, g\rangle=\int\limits_b^af(x)g(x)dx$.
+    \end{enumerate}
+\end{example}
+
+\begin{statement}
+    \begin{enumerate}
+        \item[]
+        \item \textbf{Неравенство Коши-Буняковского}: $\langle x, y\rangle^2\leq \langle x, x\rangle\langle y, y\rangle$
+        \begin{proof}
+            Пусть $y\neq \vec{0}$ (если $y=\vec{0}$, то очевидно).
+
+            $f(t):=\langle x+ty, x+ty\rangle=\langle x, x\rangle+t\langle y, x\rangle+t\langle x, y\rangle+t^2\langle y, y\rangle=\langle y, y\rangle t^2+2t\langle x, y\rangle+\langle x, x\rangle$ – квадратный трехчлен.
+
+            $f(t)\geq 0\ \forall t\in R\Rightarrow$ его дискриминант $\leq 0\Rightarrow (2\langle x, y\rangle)^2-4\langle x, x\rangle\langle y, y\rangle\leq 0\Leftrightarrow \langle x, y\rangle^2\leq \langle x, x\rangle\langle y, y\rangle$
+        \end{proof}
+        \item $\|x\|:=\sqrt{\langle x, x\rangle}$ – норма.
+        \begin{proof}~
+            \begin{enumerate}
+                \item[1.] $\|x\|\geq 0$ и $\|x\|=0\Leftrightarrow x=\vec{0}$ - первое свойство скалярного произведения.
+                \item[2.] $\|\lambda x\|=\sqrt{\langle\lambda x,\lambda x\rangle}=\sqrt{\lambda^2\langle x, x\rangle}=|\lambda|\sqrt{\langle x, x\rangle}=|\lambda|\cdot \|x\|$
+                \item[3.] $\|x+y\|\leq \|x\|+\|y\|$
+
+                $\|x+y\|^2\leq \|x\|^2+2\|x\|\cdot \|y\|+\|y\|^2$
+
+                $\langle x, x\rangle+2\langle x, y\rangle+\langle y, y\rangle=\langle x+y, x+y\rangle\leq \langle x, x\rangle+\langle y, y\rangle+2\sqrt{\langle x, x\rangle\langle y, y\rangle}$ и осталось неравенство Коши-Буняковского.
+            \end{enumerate}
+        \end{proof}
+        \item $\rho(x, y)=\|x-y\|$ – метрика.
+        \begin{proof}
+            $\rho(y, x)=\|y-x\|=\|(-1)(x-y)\|=|-1|\|x-y\|=\|x-y\|=\rho(x, y)$
+
+            Неравенство треугольника: $\rho(x, y)+\rho(y, z)\geq \rho(x, z)$
+
+            $\|x-y\|+\|y-z\|\geq \|(x-y)+(y-z)\|=\|x-z\|$
+        \end{proof}
+        \item $\|x-y\|\geq |\|x\|-\|y\||$
+
+        \begin{proof}
+            $\|x\|-\|y\|\leq \|x-y\|$ и $\|y\|-\|x\|\leq \|y-x\|=\|x-y\|$ 
+
+            $\|x\|=\|y+(x-y)\|\leq \|y\|+\|x-y\|$
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{definition}
+    $(X, \rho)$ – метрическое пространство, $x_n$ – последовательность в $X,\ a\in X$. Тогда $\lim x_n = a$:
+    \begin{enumerate}
+        \item Вне любого шара B$_r(a)$ содержится лишь конечное число членов последовательности.
+        \item $\forall \varepsilon > 0\ \exists N:\ n\geq N\ \rho(x_n, a)<\varepsilon$.
+    \end{enumerate}
+\end{definition}
+
+\begin{statement}
+    \begin{enumerate}
+        \item[]
+        \item $\lim x_n=a\Leftrightarrow \lim \rho(x_n, a)=0$.
+        \item Предел единственнен.
+        \begin{proof}
+            Если $\lim x_n=a$ и $\lim x_n=b$, то возьмем такое число $r>0$, что B$_r(a) \cap $B$_r(b) = \varnothing\Rightarrow$ вне B$_r(a)$ конечное число членов и вне B$_r(b)$ конечное число членов $\Rightarrow$ всего конечное число членов. Противоречие.
+        \end{proof}
+        \item Если $\lim x_n=a$ и $\lim y_n=a$, то последовательность, полученная перемешиванием $x_n$ и $y_n$, также стремится к $a$.
+        \item Если $\lim x_n=a$, то последовательность, полученная перестановкой членов последовательности, имеет тот же предел.
+        \item Если $\lim x_n=a$, то последовательность, в которой $x_n$ взяты с конечной кратностью, имеет тот же предел.
+    
+        \begin{definition}
+        $A\subset X;$ $A\ -$ \textit{ограниченное множество}, если $A$ содержится в некотором шаре.
+        \end{definition}
+
+        \item Если последовательность имеет предел, то она ограничена.
+        \begin{proof}
+            Возьмем $\varepsilon=1$. $\exists N:\ \forall n\geq N \ \rho(x_n, a)<1$
+
+            $R:=\max\{\rho(x_1, a), ..., \rho(x_{N-1}, a)\}+1\Rightarrow x_n\in$B$_R(a)$.
+        \end{proof}
+        \item Если $\lim x_n=a$, то $\lim x_{n_k}=a$.
+        \item $a$ – предельная точка множества $A\Leftrightarrow$ существует последовательность $\underset{\neq a}{x_n}\in A$: $\lim x_n=a$. Более того, $x_n$ можно выбрать так, что $\rho(x_n, a)$ монотонно убывают.
+        \begin{proof}
+            $\Rightarrow:$ было.
+
+            $\Leftarrow:$ берем B$_r(a)\Rightarrow\exists N:\ \forall n\geq N\ \underset{\neq a}{x_n}\in$B$_r(a)\Rightarrow\overset{\circ}{\text{B}}_r(a)\cap A\neq \varnothing$
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{theorem}
+    \textbf{Об арифметических действиях с пределами}
+
+    $X$ – векторное пространство, $\|\cdot\|$ – норма в $X$, $\lim x_n=a,\ \lim y_n=b,\ \lim \lambda_n=\nu;\ \lambda_n, \nu\in \R;\ x_n, y_n, a, b\in X$. Тогда:
+    \begin{enumerate}
+        \item $\lim (x_n \pm y_n) = a\pm b$.
+        \item $\lim (\lambda_n x_n) = \nu a$.
+        \item $\lim \|x_n\|=\|a\|$.
+        \item Если в $X$ есть скалярное произведение, то $\lim \langle x_n, y_n\rangle =\langle a, b\rangle$.
+    \end{enumerate}
+    \begin{proof}~
+        \begin{enumerate}
+            \item $\rho(x_n+y_n, a+b)=\|(x_n+y_n)-(a+b)\|\leq \|x_n-a\|+\|y_n-b\|=\underset{\rightarrow 0}{\rho(x_n, a)}+\underset{\rightarrow 0}{\rho(y_n, b)}\Rightarrow \rho(x_n+y_n, a+b)\rightarrow 0$
+            \item $\|\lambda_nx_n-\nu a\|=\|\lambda_nx_n-\lambda_na+\lambda_na-\nu a\|\leq \|\lambda_nx_n-\lambda_n a\|+\|\lambda_n a-\nu a\|=\underset{\text{огр.}}{|\lambda_n|}\underset{\rightarrow 0}{\|x_n-a\|}+\underset{\rightarrow 0}{|\lambda_n-\nu|}\|a\|\rightarrow 0$
+            \item $|\|x_n\|-\|a\||\leq\|x_n\|-\|a\|\rightarrow0$
+            \item $\langle x, y\rangle=\frac{1}{4}(\|x+y\|^2-\|x-y\|^2)$
+    
+            $\langle x_n, y_n\rangle=\frac{1}{4}(\underset{\rightarrow\|a+b\|^2}{\|x_n+y_n\|^2}-\underset{\rightarrow\|a-b\|^2}{\|x_n-y_n\|^2})\rightarrow \frac{1}{4}(\|a+b\|^2-\|a-b\|^2)=\frac{1}{4}\langle a, b\rangle$
+        \end{enumerate}
+    \end{proof}
+\end{theorem}

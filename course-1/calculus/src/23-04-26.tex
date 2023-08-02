@@ -1,0 +1,127 @@
+\subsection{Свойства равномерно сходящихся последовательностей и рядов}
+
+\begin{theorem}
+    Пусть $f_n, f: E\rightarrow \R$, $f_n\rightrightarrows f$, $a$ – предельная точка $E$, $b_n=\lim\limits_{x\rightarrow a} f_n(x)\in \R$. Тогда $\lim b_n$ и $\lim\limits_{x\rightarrow a} f(x)$ существуют, конечны и равны.
+\end{theorem}
+
+\begin{proof}
+    Критерий Коши для $f_n\rightrightarrows f$: $\forall \varepsilon > 0\ \exists N\ \forall m, n\geq N\ \forall x\in E\ 
+    \underset{\underset{x\rightarrow a}{\rightarrow}|b_n-b_m|\leq\varepsilon}{|f_n(x)-f_m(x)|<\varepsilon}\Rightarrow b_n$ – фундаментальная последовательность в $\R\Rightarrow b=\lim b_n\in \R$.
+
+    Проверим, что $\lim\limits_{x\rightarrow a} f_n(x) =b$.
+
+    $|f(x)-b|\leq \underset{<\varepsilon \text{ при $n\geq N_1$}}{|b_n-b|} + |f_n(x)-b_n|+\underset{<\varepsilon \text{ при $n\geq N_2\ \forall x\in E$}}{|f_n(x)-f(x)|}<2\varepsilon+\underset{<\varepsilon \text{ при $|x-a|<\delta$}}{|f_n(x)-b_n|}$
+
+    Возьмем $\max\{N_1, N_2\}$.
+\end{proof}
+
+\begin{theorem}
+    Пусть $u_n: E\rightarrow \R$, $\sum\limits_{n=1}^\infty u_n(x)$ равномерно сходится, $a$ – предельная точка и $\lim\limits_{x\rightarrow a} u_n(x)=c_n$. Тогда $\lim\limits_{x\rightarrow a}\sum\limits_{n=1}^\infty u_n(x) = \sum\limits_{n=1}^\infty c_n=\sum\limits_{n=1}^\infty \lim\limits_{x\rightarrow a} u_n(x)$ и ряд сходится.
+\end{theorem}
+
+\begin{proof}
+    Пусть $f_n(x):=\sum\limits_{k=1}^n u_k(x)\rightrightarrows f(x)=\sum\limits_{n=1}^\infty u_n(x)$, $b_n=\lim\limits_{x\rightarrow a}f_n(x) =\lim\limits_{x\rightarrow a} \sum\limits_{k=1}^n u_k(x)=$
+    
+    $\overset{\text{т.к. сумма конечна}}{=}\sum\limits_{k=1}^n \lim u_k(x)=\sum\limits_{k=1}^n c_k$. Подставляем $b_n$ в предыдущую теорему.
+
+    Тогда по теореме $\exists \lim b_n$, то есть $\sum\limits_{n=1}^\infty c_n$ сходится.
+
+    $\lim\limits_{x\rightarrow a}b_n=\lim\limits_{x\rightarrow a}f(x)=\lim\limits_{x\rightarrow a} \sum\limits_{n=1}^\infty u_n(x)$
+\end{proof}
+
+\begin{remark}
+    В случае равномерной сходимости ряда мы можем менять местами $\lim$ и $\sum$.
+\end{remark}
+
+\begin{corollary}
+    Если $u_n$ непрерывны в точке $a$ и $\sum\limits_{n=1}^\infty u_n(x)$ равномерно сходится, то $\sum\limits_{n=1}^\infty u_n(x)$ непрерывна в точке $a.$
+\end{corollary}
+
+\begin{proof}
+    $c_n=u_n(a)$ в предыдущей теореме.
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема об интегрировании функциональных последовательностей.}
+    
+    Пусть $f_n\in C[a, b]$ и $f_n\rightrightarrows f$ на $[a, b]$, $c\in [a, b]$. Тогда $\int\limits_c^x f_n(t)dt\rightrightarrows \int\limits_c^x f(t)dt$. В частности, $\lim\limits_{n\rightarrow \infty}\int\limits_c^x f_n(t)dt=\int\limits_c^x\lim\limits_{n\rightarrow \infty }f_n(t) dt$.
+\end{theorem}
+
+\begin{proof} %\sum\limits_{n=1}^\infty
+    Пусть $F_n(x):=\int\limits_c^x f_n(t)dt$.
+
+    $|F_n(x)-F(x)|=|\int\limits_c^x f_n(t)dt-\int\limits_c^x f(t)dt|\leq \int\limits_c^x |f_n(t)-f(t)|dt\leq |x-c|\cdot \max\limits_{t\in [c, x]}|f_n(t)-f(t)|\leq |b-a|\cdot \sup\limits_{t\in [a, b]}|f_n(t)-f(t)|\rightarrow 0$, то есть равномерная сходимость есть.
+\end{proof}
+
+\begin{remark}
+    В случае равномерной сходимости ряда мы можем менять местами $\lim$ и $\int$.
+\end{remark}
+
+\begin{corollary}
+    Если $u_n\in C[a, b]$ и $\sum\limits_{n=1}^\infty u_n(x)$ равномерно сходится, то $\int\limits_c^x \sum\limits_{n=1}^\infty u_n(t)dt = \sum\limits_{n=1}^\infty \int\limits_c^x u_n(t)dt$.
+\end{corollary}
+
+\begin{proof}
+    $\int\limits_c^x \sum\limits_{k=1}^n u_k(t)dt=\sum\limits_{k=1}^n \int\limits_c^x u_k(t)dt$ частичные суммы – это $F$ из предыдущей теоремы.
+\end{proof}
+
+\begin{remark}
+    Поточечной сходимости не хватает.
+    \begin{example}
+        $f_n(x)=nxe^{-nx^2}$ на $[0, 1]$
+
+        $f_n(x)\underset{n\rightarrow \infty}{\rightarrow} 0$, но $\int\limits_0^1 f_n(x)dx= \int\limits_0^1 nxe^{-nx^2}dx=\frac{1}{2}\int\limits_0^1 e^{-nx^2}d(nx^2)=-\frac{e-nx^2}{2}|_0^1=\frac{1-e^{-n}}{2}\rightarrow \frac{1}{2}\not\rightarrow 0=\int\limits_0^1 f(x)dx$
+    \end{example}
+    \begin{remark}
+        $f_n(x_n)\not\rightarrow 0\Rightarrow$ нет равномерной сходимости:
+
+        $f_n(x_n)\not\rightarrow 0\Rightarrow \underbrace{|f_n(x_n)|}_{\leq \sup\limits_{x\in [0, 1]}f_n(x_n)}\not \rightarrow 0$
+    \end{remark}
+
+    $x_n=\frac{1}{\sqrt{n}}$, $f_n(x_n)=n \frac{1}{\sqrt{n}}e^{-n(\frac{1}{\sqrt{n}})^2}=\frac{\sqrt{n}}{e}\not\rightarrow 0$
+    
+\end{remark}
+
+\begin{theorem}
+    \textbf{Теорема о дифференцировании функциональных последовательностей.}
+
+    Пусть $f_n\in C^1[a, b]$, $c\in [a, b]$, $f_n(c)\rightarrow A$ и $f'_n\rightrightarrows g$ на $[a, b]$. Тогда $f_n\rightrightarrows f$ на $[a, b]$, $f\in C^1[a, b]$ и $f'=g$. В частности, $\lim\limits_{n\rightarrow \infty}f'_n(x)=(\lim\limits_{n\rightarrow \infty} f_n(x))'$.
+\end{theorem}
+
+\begin{proof}
+    $\int\limits_c^x g(t)dt=\int\limits_c^x \lim\limits_{n\rightarrow \infty}f'_n(t)dt=\lim\limits_{n\rightarrow \infty}\int\limits_c^xf'_n(t)dt=\lim\limits_{n\rightarrow \infty} (f_n(x)-f_n(c))=$
+    
+    $\text{ (так как предел существует) }=\lim\limits_{n\rightarrow \infty}  f_n(x) - \lim\limits_{n\rightarrow \infty} f_n(c)=f(x)-A\Rightarrow f(x)=A+\int\limits_c^x g(t)dt\Rightarrow$
+    
+    $\Rightarrow f\in C^1[a, b]$ (так как это интеграл от непрерывной функции) и $f'(x)=g(x)$.
+
+    Осталось понять, что $f_n\rightrightarrows f$.
+
+    $f(x)=\int\limits_c^x g(t)dt+A$
+    
+    $f_n(x)=\underbrace{\int\limits_c^x f'_n(t)dt}_{\rightrightarrows \int\limits_c^x g(t)dt}+\underbrace{f_n(c)}_{\rightrightarrows A}\Rightarrow f_n(x)\rightrightarrows f(x)$ (по теореме Барроу).
+\end{proof}
+
+\begin{corollary}
+    Пусть $u_n\in C^1[a, b]$, $\sum\limits_{n=1}^\infty u'_n(x)$ равномерно сходится на $[a, b]$ и $\sum\limits_{n=1}^\infty u_n(x)$ сходится. Тогда $\sum\limits_{n=1}^\infty u_n(x)$ равномерно сходится к дифференцируемой функции и $(\sum\limits_{n=1}^\infty u_n(x))'=\sum\limits_{n=1}^\infty u'_n(x)$.
+\end{corollary}
+
+\begin{proof}
+    Пусть $f_n(x)=\sum\limits_{k=1}^n u_k(x)\in C^1[a, b]$ (конечная сумма дифференцируемых функций), $f'_n(x)=\sum\limits_{k=1}^n u'_k(x)\rightrightarrows  \sum\limits_{n=1}^\infty u'_n(x)=: g(x)$ (опять же конечная сумма).
+
+    $f'_n\rightrightarrows g$ и $f_n(c)$ сходится. 
+
+    По теореме $f_n\rightrightarrows f$, $f$ – дифференцируемая функция и ее производная – это $g$:
+
+    $(\sum\limits_{n=1}^\infty u_n(x))'=g(x)=\sum\limits_{n=1}^\infty u'_n(x)$
+\end{proof}
+
+\begin{remark}
+    Равномерной сходимости исходных функций недостаточно, нужна именно равномерная сходимость производных.
+
+    \begin{example}
+        $\sum\limits_{n=1}^\infty \frac{\sin nx}{n^2}$ равномерно сходится: $|\frac{\sin nx}{n^2}|\leq \frac{1}{n^2}$
+
+        $\sum\limits_{n=1}^\infty (\frac{\sin nx}{n^2})'=\sum\limits_{n=1}^\infty \frac{\cos nx}{n}$ расходится при $x=0$.
+    \end{example}
+\end{remark}

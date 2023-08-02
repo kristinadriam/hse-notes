@@ -1,0 +1,250 @@
+\begin{definition}
+    $X$ – векторное пространство, $\|\cdot \|$ и $|||\cdot |||$ – нормы в $X$. Если существуют $c_1, c_2>0:c_1\|x\|\leq |||x|||\leq c_2\|x\|$, то $||\cdot \|$ и $|||\cdot |||$ – \textit{эквивалентные нормы}.
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[]
+        \item Это отношение эквивалентности.
+        \item Пределы последовательностей по эквивалентным нормам совпадают:
+
+        $\forall \varepsilon >0\ \exists N: \forall n > N\ \|x_n-a\|<\varepsilon\Leftrightarrow |||x_n-a|||<c_1\varepsilon$.
+
+        \item Предельные точки в смысле $\|\cdot \|$ и $|||\cdot |||$ совпадают.
+
+        \item Непрерывность в смысле $\|\cdot \|$ и $|||\cdot |||$ совпадает.
+
+        \item Замкнутые и открытые множества по $\|\cdot \|$ и $|||\cdot |||$ совпадают.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    В $\R^d$ все нормы эквивалентны.
+\end{theorem}
+
+\begin{proof}
+    Докажем, что все нормы экивалентны $\|x\|=\sqrt{\sum\limits_{i=1}^d x_i^2}$.
+
+    Пусть $p(x)$ – другая норма в $\R^d$.
+
+    $e_i=\begin{pmatrix} 0 \\ ... \\ 1 \\ ... \\0 \end{pmatrix}\leftarrow 
+    i$.
+    
+    $p(x)=p(\sum\limits_{i=1}^d x_ie_i)\leq \sum\limits_{i=1}^d p(x_ie_i)=\sum\limits_{i=1}^d |x_i|\cdot p(e_i)\leq(\underset{=\|x\|}{\sum\limits_{i=1}^d x_i^2)^{\frac{1}{2}}}\cdot \underset{:=c_2\text{ не зависит от }x}{(\sum\limits_{i=1}^d p(e_i)^2)^{\frac{1}{2}}}$
+
+    $p(x)\leq C_2\|x\|$
+
+    Тогда $|px-py|\leq p(x-y) \leq c_2 \|x-y\|\Rightarrow p(x)$ непрерывна во всех точках.
+
+    $S:=\{x\in\R^d: \sum\limits_{i=1}^d x_i^2 =1\}$ – единичная сфера – компакт.
+
+    $p$ непрерывна на компакте $S\Rightarrow$ в некоторой точке $a\in S$ достигается минимальное значение $\Rightarrow \underset{:=c_1>0}{p(a)}\leq p(x)$ $\forall x\in S$. Проверим неравенство $c_1\|x\|\leq p(x)$ $\forall x\in R^d$:
+
+    Если $x\neq 0$, то $\frac{x}{\|x\|}\in S\Rightarrow c_1\leq p(\frac{x}{\|x\|})=p(\frac{1}{\|x\|}\cdot x)=\frac{1}{\|x\|}\cdot p(x)$.
+\end{proof}
+
+\begin{remark}
+    В бесконечномерных пространствах бывают не эквивалентные нормы.
+
+    $C[a, b],  \|f\|=\max\limits_{x\in [a, b]}|f(x)|, |||f(x)|||=\int\limits_a^b|f(x)|dx$ не эквивалентны.
+
+    $|||f|||\leq (b-a)\|f\|$, а обратного неравенства нет.
+\end{remark}
+
+\subsection{Длина кривой}
+
+\begin{definition}
+    Пусть ($X, \rho$) –  метрическое пространство. Тогда \textit{путь} –это непрерывное отображение $\gamma:[a, b]\rightarrow X$.
+
+    \textit{Начало пути} – $\gamma(a)$, \textit{конец пути} – $\gamma(b)$, \textit{носитель пути} $\gamma([a, b])$.
+
+    \textit{Замкнутый путь} – $\gamma(a)=\gamma(b)$.
+
+    \textit{Простой (несамопересекающийся) путь} $\gamma(x)\neq \gamma(y)$ $\forall x\neq y\in [a, b]$ (возможно за исключением равенства $\gamma(a)=\gamma(b)$).
+
+    \textit{Противоположный путь} $\Tilde{\gamma(t)}:=\gamma(a+b-t)$.
+\end{definition}
+
+\begin{definition}
+    Пусть $A\subset X$. Тогда $A$ – \textit{линейно связно}, если $\forall p, q\in A$ найдется путь, лежащий в $A$ и соединяющий эти точки: $\exists \gamma :[a, b]\rightarrow A:$ $\gamma(a)=p$, $\gamma(b)=q$.
+\end{definition}
+
+\begin{theorem}
+    \textbf{Теорема Больцано-Коши}
+
+    Пусть $f:E\rightarrow \R$ непрерывна, $E$ линейно связно,  $p, q\in E$. Тогда для любого $C$, лежащего между $f(p)$ и $f(q)$, найдется $x\in E:$ $f(x)=C$.
+\end{theorem}
+
+\begin{proof}
+    Берем $\gamma :[a, b]\rightarrow E:$ $\gamma(a)=p$, $\gamma(b)=q$. Тогда $g=f\circ \gamma: [a, b]\rightarrow\R$ непрерывна. 
+
+    $f(p)=g(a)$, $f(q)=g(b)\Rightarrow C$ лежит между $g(a)$ и $g(b)\Rightarrow \exists t\in [a, b]:$ $g(t)=C=f(\gamma(t))$
+\end{proof}
+
+\begin{definition}
+    Пусть $\gamma :[a, b]\rightarrow X$ и $\Tilde{\gamma} :[c, d]\rightarrow X$ – пути. Если существует $\tau:[a, b]\rightarrow[c, d]$ строго возрастающая биекция ($\tau(a)=c, \tau(b)=d$ и непрерывность) такая, что $\Tilde{\gamma}\circ \tau =\gamma$, то такие пути называют \textit{эквивалентными}. Такие $\tau$ будем называть \textit{допустимыми заменами параметра}.
+\end{definition}
+
+\begin{remark}
+    Это отношение эквивалентности.
+\end{remark}
+
+\begin{definition}
+    \textit{Кривая} – класс эквивалентных путей. Конкретный представитель класса – \textit{параметризация кривой}.
+\end{definition}
+
+\begin{definition}
+    Пусть $\gamma:[a, b]\rightarrow X$ – путь. Рассмотрим дробление $[a, b]$: $a=t_0<t_1<...<t_n=b$. Тогда $\sup\{\sum\limits_{k=1}^n\rho(\gamma(t_{k-1}), \gamma(t_k))\mid t_0, ..., t_n$ – дробление $[a, b]\}:=l(\gamma)$ – \textit{длина пути}. 
+
+    Неформально: длина пути – супремум по всем длинам полученных ломанных.
+\end{definition}
+
+\begin{statement}
+    \textbf{Свойства:}
+    \begin{enumerate}
+        \item Длины эквивалентных и противоположных путей равны.
+        \item Длина пути $\geq$ длины отрезка, соединяющего концы.
+        \item Длина пути $\geq$ длины вписанной в него ломаной.
+    \end{enumerate}
+\end{statement}
+
+\begin{definition}
+    \textit{Длина кривой} – длина любого пути из класса эквивалентности.
+\end{definition}
+
+\begin{theorem}
+    Пусть $\gamma:[a, b]\rightarrow X$ – путь, $c\in[a, b]$, $\gamma_1|_{[a, c]}$, $\gamma_2|_{[c, b]}$. Тогда $l(\gamma)=l(\gamma_1)+l(\gamma_2)$.
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\leq:$] Возьмем какое-то дробление $a=t_0<t_1<...<t_{k-1}\leq c<t_k<...<t_n=b$.
+
+        $\sum\limits_{j=1}^n\rho(\gamma(t_{j-1}), \gamma(t_j))\leq \underbrace{\sum\limits_{j=1}^{k-1}\rho(\gamma(t_{j-1}), \gamma(t_j)) + \rho(\gamma(t_{k-1}), \gamma(c))}_{\leq l(\gamma_1)}+\underbrace{\rho(\gamma(t_{c}), \gamma(t_k))+\sum\limits_{j=k+1}^n\rho(\gamma(t_{j-1}), \gamma(t_j))}_{\leq l(\gamma_2)}\Rightarrow l(\gamma_1)+l(\gamma_2)$ – верхняя граница для всех длин вписанных ломаных $\Rightarrow \underbrace{\sup}_{=l(\gamma)}\leq l(\gamma_1) + l(\gamma_2)$.
+        \item[$\geq:$] Возьмем  дробление $a=t_0<t_1<...<t_{т}= c=u_0<u_1<...<u_m=b$.
+
+        $\underbrace{\sum\limits_{j=1}^n\rho(\gamma(t_{j-1}), \gamma(t_j))}_{\text{пририсуем сюда } \sup}+\sum\limits_{j=1}^m\rho(\gamma(u_{j-1}), \gamma(u_j))\leq l(\gamma)\Rightarrow l(\gamma_1)+\underbrace{\sum\limits_{j=1}^m\rho(\gamma(u_{j-1}), \gamma(u_j))}_{\text{пририсуем сюда } \sup}\leq l(\gamma)\Rightarrow l(\gamma_1)+l(\gamma_2)\leq l(\gamma)$
+    \end{enumerate}
+\end{proof}
+
+Дальше все пути рассматриваем в $\R^d$.
+
+\begin{definition}
+    Пусть $\gamma:[a, b]\rightarrow \R^d$ – $r$-\textit{гладкий путь}, $\gamma=\begin{pmatrix} \gamma_1\\ ...\\ \gamma_n
+    \end{pmatrix}$, где $\gamma_1$, ..., $\gamma_d\in C^r[a, b]$. Если $r=1$, то $\gamma$ – гладкий путь.
+\end{definition}
+
+\begin{definition}
+    Кривая $r$-\textit{гладкая}, если в классе эквивалентности есть $r$-гладкий путь.
+\end{definition}
+
+\begin{lemma}
+    Пусть $\Delta\subset [a, b]$,  $\gamma:[a, b]\rightarrow \R^d$ – гладкий путь. 
+    
+    $m_\Delta^{(i)}:=\min\limits_{t\in \Delta}|\gamma'_i(t)|,\quad m_\Delta^2=\sum\limits_{i=1}^d(m_\Delta^{(i)})^2$.
+    
+    $M_\Delta^{(i)}:=\max\limits_{t\in \Delta}|\gamma'_i(t)|,\quad M_\Delta^2=\sum\limits_{i=1}^d(M_\Delta^{(i)})^2$. 
+    
+    Тогда $m_\Delta l(\Delta)\leq l(\gamma|_\Delta)\leq M_\Delta l(\Delta)$ (где $l(\Delta)$ – длина отрезка $\Delta$).
+\end{lemma}
+
+\begin{proof}
+    Пусть $t_0<...<t_n$ – дробление $\Delta$, $a_k$ – длина $k$-ого звена ломанной, построенной по этому дроблению.
+    
+    $a_k^2=\sum\limits_{i=1}^d(\gamma_i(t_k)-\gamma_i(t_{k-1}))^2$.
+
+    $|\gamma_i(t_k)-\gamma_i(t_{k-1})|=(t_k-t_{k-1})\cdot |\gamma_i'(\xi_{ki})|$, где $\xi_{ki}\in (t_{k-1},t_k)$ (теорема Лагранжа)
+
+    $(t_k-t_{k-1})m^{(i)}_\Delta\leq (t_k-t_{k-1})\cdot |\gamma_i'(\xi_{ki})|\leq (t_k-t_{k-1})M^{(i)}_\Delta$
+
+    Тогда $(t_k-t_{k-1})^2\cdot m^{2}_\Delta\leq a_k^2\leq (t_k-t_{k-1})^2\cdot M^{2}_\Delta\Rightarrow (t_k-t_{k-1})\cdot m_\Delta\leq a_k\leq (t_k-t_{k-1})\cdot M_\Delta$.
+    
+    Просуммируем по всем звеньям: $\Rightarrow m_\Delta l(\Delta)\leq \sum\limits_{k=1}^n a^2_k \leq M_\Delta l(\Delta) \Rightarrow$
+    
+    $\Rightarrow m_\Delta l(\Delta)\leq \underbrace{\sup \sum\limits_{k=1}^n a^2_k}_{=l(\gamma|_\Delta)} \leq M_\Delta l(\Delta)$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема о длине гладкого пути}
+
+    Пусть $\gamma:[a, b]\rightarrow \R^d$ – гладкий путь. Тогда $l(\gamma)=\int\limits_a^b\|\gamma'(t)\|dt=\int\limits_a^b\sqrt{\gamma'_1(t)^2+...+\gamma'_d(t)^2} dt$.
+\end{theorem}
+
+\begin{proof}
+     Рассмотрим дробление $a=t_0< ... <t_n=b$. Пусть $m_k:=m_{[t_{k-1}, t_k]}, M_k:=M_{[t_{k-1}, t_k]}$.
+
+     По лемме: $m_k(t_k-t_{k-1})\leq l(\gamma |_{[t_{k-1}, t_k]})\leq M_k(t_k-t_{k-1})$, $\Delta=[t_{k-1}, t_k]$
+
+     А также: $m_k(t_k-t_{k-1})\leq \int\limits_{t_{k-1}}^{t_k}\|\gamma'(t)\|dt\leq M_k(t_k-t_{k-1})$
+
+     Просуммируем по $k$: 
+     
+     $\sum\limits_{k=1}^nm_k(t_k-t_{k-1})\leq l(\gamma)\leq \sum\limits_{k=1}^nM_k(t_k-t_{k-1})$
+
+     $\sum\limits_{k=1}^nm_k(t_k-t_{k-1})\leq \int\limits_a^b\|\gamma'(t)\|dt\leq \sum\limits_{k=1}^nM_k(t_k-t_{k-1})$
+
+     Чтобы доказать равенство, достаточно будет доказать, что $\sum\limits_{k=1}^n(M_k-m_k)(t_k-t_{k-1})\rightarrow 0$.
+
+     $M_k-m_k=\sqrt{\sum\limits_{i=1}^d(M^{(i)}_{[t_{k-1}, t_k]})^2}-\sqrt{\sum\limits_{i=1}^d(m^{(i)}_{[t_{k-1}, t_k]})^2}\overset{\text{н-во Минковского}}{\leq} \sqrt{\sum\limits_{i=1}^d(M^{(i)}_{[t_{k-1}, t_k]}-m^{(i)}_{[t_{k-1}, t_k]})^2}$ $\leq \sum\limits_{i=1}^d|M^{(i)}_{[t_{k-1}, t_k]}-m^{(i)}_{[t_{k-1}, t_k]}|=\underset{\text{где } \xi_{ki},\nu_{ki}\in[t_{k-1}, t_k]}{\sum\limits
+     _{i=1}^d(|\gamma_i'(\xi_{ki})|-|\gamma_i'(\nu_{ki})|)}\leq \sum\limits_{i=1}^d|\gamma_i'(\xi_{ki})-\gamma_i'(\nu_{ki})|\leq \sum\limits_{i=1}^d w_{\gamma'_i}(|\tau|)=:f(|\tau|)\underset{\text{мелкость}\rightarrow 0}{\rightarrow}0$
+
+     Просуммируем:
+
+     $\sum\limits_{k=1}^n(M_k-m_k)(t_k-t_{k-1})\leq \sum\limits_{k=1}^n f(|\tau|)(t_k-t_{k-1})=f(|\tau|)\cdot (b-a)\underset{\text{мелкость}\rightarrow 0}{\rightarrow}0$
+\end{proof}
+
+\begin{corollary}
+    \begin{enumerate}
+        \item[]
+        \item Длина графика функции $f:[a, b]\rightarrow \R$, $f\in C^1[a, b]$ равна $\int\limits_a^b\sqrt{1+f'(x)^2}dx$.
+
+        \begin{proof}
+            $\gamma(t)=\binom{t}{f(t)}:[a, b]\rightarrow \R^2$ – это график функции.
+
+            $\gamma'(t)=\binom{1}{f'(t)}$
+
+            $\int\limits_a^b\sqrt{1+f'(t)^2}dt=l(\gamma)$.
+        \end{proof}
+
+        \item Длина пути в полярных координатах $r:[\alpha, \beta]\rightarrow \R$ (непрерывно дифференцируема) равна $\int\limits_a^b \sqrt{r^2(t)+r'(t)^2}$.
+
+        $r:[\alpha, \beta]\rightarrow \R$ непрерывно.
+
+        \begin{proof}
+            $\gamma(t)=\binom{r(t)\cos t}{r(t)\sin t}, \gamma'(t)=\binom{r'(t)\cos t-r(t)\sin t}{r'(t)\sin t+r(t)\cos t}$ и подставляем.
+        \end{proof}
+
+        \item $\gamma:[a, b]\rightarrow \R^d$ гладкий путь. Тогда $l(\gamma)\leq (b-a)\cdot\max\limits_{t\in [a, b]}\|\gamma'(t)\|$.
+
+        \begin{proof}
+            $l(\gamma)=\int\limits_a^b\|\gamma'(t)\|dt \leq (b-a)\max\limits_{t\in [a, b]}\|\gamma'(t)\|$
+        \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\subsection{Линейные операторы}
+
+\begin{definition}
+    Пусть $X, Y$ – векторные пространства. Тогда $A:X\rightarrow Y$ – \textit{линейный оператор}, если $A(\lambda x+\nu y)=\lambda A(x)+\nu A(y)$ $\forall x, y\in X$ $\forall \lambda, \nu\in \R$.
+\end{definition}
+
+\begin{statement}~
+    \begin{enumerate}
+        \item $A(0_X)=0_Y$.
+        \begin{proof}
+            $\lambda=\nu=0$ и подставляем: $\lambda x+\nu y=0_X, \lambda A(x)+\nu A(y)=0_Y$.
+        \end{proof}
+        \item $A(\sum\limits_{k=1}^n\lambda_k x_k)=\sum\limits_{k=1}^n\lambda_k A(x_k)$.
+        \begin{proof} Индукция.
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{definition}
+    Пусть $A, B:X\rightarrow Y$ линейные операторы, $\lambda\in \R$. Тогда:
+    \begin{enumerate}
+        \item $A+B:X\rightarrow Y$. $(A+B)(x):=A(x)+B(x)$ – линейный оператор.
+        \item $\lambda A:X\rightarrow Y$. $(\lambda A)(x):=\lambda A(x)$  – линейный оператор.
+    \end{enumerate}
+\end{definition}
+

@@ -1,0 +1,233 @@
+\begin{definition}
+    $f:[a, b]\rightarrow \R$ непрерывная; $\Phi:[a, b]\rightarrow \R$, $\Phi(x):=\int\limits_a^x f$ называется \textit{интегралом с переменным верхним пределом}.
+\end{definition}
+
+\begin{definition}
+    $f:[a, b]\rightarrow \R$ непрерывная; $\Psi:[a, b]\rightarrow \R$, $\Psi(x):=\int\limits_x^b f$ называется \textit{интегралом с переменным нижним пределом}.
+\end{definition}
+
+\begin{remark}
+    $\Phi(x)+\Psi(x)=\int\limits_a^b f$
+\end{remark}
+
+\begin{theorem}
+    \textbf{Теорема Барроу}
+
+    Если $f\in C[a, b]$ и $\Phi(x)=\int\limits_a^x f$, то $\Phi\ -$ первообразная $f$.
+\end{theorem}
+
+\begin{proof}
+    Надо доказать, что $\lim \limits_{y\rightarrow x}\frac{\Phi(y)-\Phi(x)}{y-x}=f(x)$.
+
+    Проверим для предела справа $y>x$. 
+    
+    $R(y):=\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{1}{y-x}\cdot \bigg(\int\limits_a^y f - \int\limits_a^x f \bigg)=\frac{1}{y-x}\cdot \int\limits_x^y f\overset{\text{по th о среднем}}{=} f(c)$, где $x<c<y\ (c$ зависит от $y)$.
+
+    Надо доказать, что $\lim\limits_{y\rightarrow x} R(y)=f(x)$. Берем последовательность $y_n\underset{y_n>x}{\rightarrow} x$.
+
+    $R(y_n)=f(c_n)$, где $x<c_n<y_n$, но $ c_n\rightarrow x$ и $f$ непрерывна в точке $x\Rightarrow R(y_n)=f(c_n)\rightarrow f(c)\Rightarrow \lim\limits_{y\rightarrow x} R(y)=f(x)$.
+\end{proof}
+
+\begin{corollary}
+    \begin{enumerate}
+        \item[]
+        \item $\Psi'(x)=-f(x)$.
+        \begin{proof}
+            $\Psi(x)=\int\limits_a^b f-\Phi(x)=const -\Phi(x)\Rightarrow \Psi'(x)=-f(x)$.
+        \end{proof}
+        \item Если $f\in C(\langle a, b \rangle)$, то у $f$ есть первообразная.
+        \begin{proof}
+            Возьмем $c\in (a, b)$ и определим $F(x):=\begin{cases} \int\limits_c^x f, &\text{если $x\geq c$} \\
+            -\int\limits_x^c f, &\text{если $x\leq c$}
+            \end{cases}$.
+        \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Формула Ньютона-Лейбница}
+
+    Если $f\in C[a, b],$ $F$ – первообразная $f$, то $\int\limits_a^b f =F(b)-F(a)$.
+\end{theorem}
+
+\begin{proof}
+    $\Phi(x):= \int\limits_a^x f\ -$ первообразная $f$ и все первообразные отличаются друг на друга на контанту $\Rightarrow \Phi(x)=F(x)+C\Rightarrow \begin{matrix*}
+        \int\limits_a^b f =\Phi(b) = F(b)+C \\
+        0=\Phi(a)=F(a)+C
+    \end{matrix*}\Rightarrow \int\limits_a^b f = F(b)-F(a)$.
+\end{proof}
+
+\begin{designation}
+    $\int\limits_a^b f=\left. F\right|_a^b := F(b)-F(a)$.
+\end{designation}
+
+\begin{theorem}
+    \textbf{Линейность интеграла}
+
+    $f, g\in C[a, b];\ \alpha, \beta\in \R$. Тогда $\int\limits_a^b (\alpha f + \beta g)= \alpha \int\limits_a^b f + \beta\int\limits_a^b g$.
+\end{theorem}
+
+\begin{proof}
+    Знаем, что если $F$ и $G$ – первообразные $f$ и $g$, то $\alpha F + \beta G\ -$ первообразная $\alpha f + \beta g\Rightarrow \int\limits_a^b (\alpha f + \beta g)=\left.(\alpha F + \beta G)\right|_a^b=\left.\alpha F\right|_a^b+\left.\beta G\right|_a^b=\alpha \int\limits_a^b f + \beta \int\limits_a^b g$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Формула интегрирования по частям}
+
+    $u, v\in C^1[a, b]$. Тогда: $\int\limits_a^b uv'=\left.uv\right|_a^b-\int\limits_a^b u'v$.
+\end{theorem}
+
+\begin{proof}
+    Знаем, что если $H\ -$ первообразная $u'v$, то $uv-H\ -$ первообразная для $uv'$.
+
+    $\int\limits_a^b uv'=\left.(uv-H)\right|_a^b=\left.uv\right|_a^b - \left.H\right|_a^b=\left.uv\right|_a^b-\int\limits_a^b u'v$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема о замене переменной в определенном интеграле}
+
+    $f:\langle a, b \rangle \rightarrow \R,\ f\in C(\langle a, b\rangle);\ \varphi: \langle c, d\rangle\rightarrow \langle a, b\rangle,\ \varphi\in C^{1}(\langle a, b\rangle);\ p, q\in \langle c, d\rangle$. Тогда $\int\limits_p^q f(\varphi(t))\cdot \varphi '(t)dt=\int\limits_{\varphi(p)}^{\varphi(q)}f(x)dx$.
+
+    \underline{Соглашение:} если $a>b$, то $\int\limits_a^b f:=-\int\limits_b^a f$.
+\end{theorem}
+
+\begin{proof}
+    Пусть $F$ – первообразная для $f$. Тогда $F\circ \varphi$ – первообразная для $f(\varphi(t)) \varphi'(t)$.
+
+    $\int\limits_p^q f(\varphi(t)) \varphi '(t)dt=\left.F\circ \varphi\right|_q^p=F(\varphi(q))-F(\varphi(p))=\left. F\right|_{\varphi(p)}^{\varphi(q)}=\int\limits_{\varphi(p)}^{\varphi(q)}f(x)dx$.
+\end{proof}
+
+\begin{example}
+    $\int\limits_1^3\frac{x}{1+x^4}dx=\begin{bmatrix*}[l]t=x^2 \\ dt=2xdx \end{bmatrix*}=\frac{1}{2}\int\limits_1^9 \frac{dt}{1+t^2}=\left.\frac{1}{2}\arctan t\right|_1^9=\frac{1}{2}(\arctan 9 - \arctan 1)$
+\end{example}
+
+\subsection{Приложения формулы интегрирования по частям}
+\begin{example}
+    $W_n:=\int\limits_0^{\frac{\pi}{2}}\cos ^n x\ dx=\int\limits_0^{\frac{\pi}{2}}\sin ^n x\ dx$
+\end{example}
+
+\begin{proof}
+    $\cos(\frac{\pi}{2}-t)=\sin t,\ \varphi(t):=\frac{\pi}{2}-t,\ \varphi'(t)=-1$
+
+    $\int\limits_0^{\frac{\pi}{2}}\sin ^n t\ dt=-\int\limits_0^{\frac{\pi}{2}}\cos ^n(\varphi(t))\varphi'(t)\ dt=-\int\limits_{\varphi(0)}^{\varphi(\frac{\pi}{2})}\cos ^n x\ dx=-\int\limits^0_{\frac{\pi}{2}}\cos ^n x\ dx=\int\limits_0^{\frac{\pi}{2}}\cos ^n x\ dx$
+\end{proof}
+
+\begin{statement}
+    $W_0\geq W_1\geq ...\geq W_n$
+    
+\end{statement}
+
+\begin{proof}
+    Индукция.
+
+    \textit{База:} $W_0=\frac{\pi}{2},\ W_1=\int\limits_0^{\frac{\pi}{2}}\sin x\ dx=\left.-\cos x\right|_0^{\frac{\pi}{2}}=1$
+    
+    \textit{Переход:} $\int\limits_0^{\frac{\pi}{2}}\sin ^n x\ dx=\begin{bmatrix*}[l]
+    u=\sin^{n-1}x & u'=(n-1)\cdot \sin^{n-2}x\cdot \cos x \\
+    v'=\sin x\ & v=-\cos x
+    \end{bmatrix*}=\int\limits_0^{\frac{\pi}{2}}uv'=\left.uv\right|_0^{\frac{\pi}{2}}-\int\limits_0^{\frac{\pi}{2}}u'v=\underbrace{\left.-\sin ^{n-1}x\cos x\right|_0^{\frac{\pi}{2}}}_{=0}+\int\limits_0^{\frac{\pi}{2}}(n-1)\sin ^{n-2}x\cos ^2 x\ dx=(n-1)\int\limits_0^{\frac{\pi}{2}}\sin^{n-2}x(1-\sin^2 x)dx=(n-1)\bigg(\int\limits_0^{\frac{\pi}{2}}\sin^{n-2}x\ dx - \int\limits_0^{\frac{\pi}{2}}\sin^nx\ dx\bigg)=(n-1)(W_{n-2}-W_n)$
+
+    $W_n=(n-1)(W_{n-2}-W_n)\Rightarrow W_n=\frac{n-1}{n}\cdot W_{n-2}$
+\end{proof}
+
+\begin{corollary}
+    $W_{2n}=\frac{2n-1}{2n}\cdot\frac{2n-3}{2n-2}\cdot ...\cdot \frac{1}{2}\cdot W_0=\frac{(2n-1)!!}{(2n)!!}\cdot\frac{\pi}{2}$
+
+    $W_{2n+1}=\frac{2n}{2n+1}\cdot\frac{2n-2}{2n-1}\cdot ...\cdot \frac{2}{3}\cdot W_1=\frac{(2n)!!}{(2n+1)!!}\cdot\frac{\pi}{2}$
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Формула Валлиса}
+
+    $\lim \frac{(2n)!!}{(2n-1)!!}\cdot \frac{1}{\sqrt{2n+1}}=\sqrt{\frac{\pi}{2}}$
+\end{theorem}
+
+\begin{proof}
+    $W_{2n+2}\leq W_{2n+1}\leq W_{2n}$
+
+    $W_{2n}=\frac{(2n-1)!!}{(2n)!!}\cdot \frac{\pi}{2}$ и $W_{2n+1}=\frac{(2n)!!}{(2n+1)!!}$
+
+    $\frac{(2n+1)!!}{(2n+2)!!}\cdot\frac{\pi}{2}\leq \frac{(2n)!!}{(2n+1)!!}\leq \frac{(2n-1)!!}{(2n)!!}\cdot\frac{\pi}{2}\ \bigg|\ :\frac{(2n-1)!!}{(2n)!!}$
+
+    $\frac{\pi}{2}\leftarrow\frac{2n+1}{2n-1}\cdot\frac{\pi}{2}\leq \frac{((2n)!!)^2}{(2n+1)((2n-1)!!)^2}\leq \frac{\pi}{2}\Rightarrow \lim(\frac{(2n)!!}{(2n-1)!!})^2\cdot \frac{1}{2n+1}=\frac{\pi}{2}$
+\end{proof}
+
+\begin{corollary}
+    $C_{2n}^n=\frac{(2n-1)!!}{(2n)!!}\cdot 4^n\sim \frac{4^n}{\sqrt{\pi n}}$
+\end{corollary}
+
+\begin{proof}
+    $C_{2n}^n=\frac{(2n)!}{(n!)^2}=\frac{(2n)!!(2n-1)!!}{(n!)^2}=[(2n)!!=2^n\cdot n!]=\frac{(2n)!!(2n-1)!!}{((2n)!!)^2}\cdot 4^n=\frac{(2n-1)!!}{(2n)!!}\cdot 4^n$
+
+    
+    $\begin{matrix} \frac{(2n)!!}{(2n-1)!!}\cdot \frac{1}{\sqrt{2n+1}}\sim \sqrt{\frac{\pi}{2}} \\
+    \frac{(2n-1)!!}{(2n)!!}\cdot \underbrace{\sqrt{2n+1}}_{<\sqrt{2n}}\sim \frac{2}{\pi}
+    \end{matrix}\Rightarrow \frac{(2n-1)!!}{(2n)!!}\sim \frac{1}{\sqrt{\pi n}}$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Формула Тейлора с остатком в интегральной формуле}
+
+    $f\in C^{n+1}(\langle a, b\rangle)$. Тогда $f(x)=\underbrace{\sum\limits_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}_{:=T_{n}(x)}+\underbrace{\frac{1}{n!}\int\limits_{x_0}^x(x-t)^nf^{(n+1)}(t)dt}_{:=R_{n}(x)},$ $x, x_0\in\langle a, b\rangle$.
+\end{theorem}
+
+\begin{proof}
+    Индукция по $n$.
+    
+    \textit{База} $n=0$: $f(x)=f(x_0)+\int\limits_{x_0}^x f'(t)dt$
+
+    \textit{Переход} $n\rightarrow n+1$: $f(x)=T_{n, x_0}f(x)+R_{n, x_0}f(x)=T_n(x)+R_n(x)$
+
+    $n!\cdot R_n(x)=\int\limits_{x_0}^x(x-t)^nf^{(n+1)}(t)dt=\begin{bmatrix*}
+        u=f^{(n+1)}(t) & u'=f^{(n+2)}(t) \\
+        v' =(x-t)^n & v=-\frac{(x-t)^{n+1}}{n+1}
+    \end{bmatrix*}=\left.uv\right|_{x_0}^x-\int\limits_{x_0}^xu'v=\left.-\frac{(x-t)^{n+1}}{n+1}f^{(n+1)}(t)\right|_{x_0}^x-\int\limits_{x_0}^x(-\frac{(x-t)^{n+1}}{n+1}\cdot f^{(n+2)}(t)dt =\frac{(x-x_0)^{n+1}}{n+1}\cdot f^{(n+1)}(x_0)+\frac{1}{n+1}\int\limits_{x_0}^x (x-t)^{n+1}f^{(n+2)}(t)dt$
+
+    $R_n(x)=\frac{f^{(n+1)}(x_0)}{(n+1)!}(x-x_0)^{n+1}+\underbrace{\frac{1}{(n+1)!}\int\limits_{x_0}^x(x-t)^{n+1}f^{(n+2)}(t)dt}_{R_{n+1}(x)}$
+\end{proof}
+
+\begin{example}
+    $H_j:=\frac{1}{j!}\int\limits_0^{\frac{\pi}{2}}((\frac{\pi}{2})^2-x^2)^j\cos dx$
+\end{example}
+
+\begin{statement}
+    \textbf{Свойства:}
+    \begin{enumerate}
+        \item $0<H_j\leq \frac{1}{j!}\cdot \int\limits_0^{\frac{\pi}{2}}(\frac{\pi}{2})^{2j}\cos x dx=\frac{(\frac{\pi}{2})^{2j}}{j!}$.
+        \item Если $c>0$, то $c^jH_j\rightarrow 0$
+        
+        \textit{Комментарий:} $0<c^jH_j<\frac{((\frac{\pi}{2})^2c)^j}{j!}\rightarrow 0$.
+        \item $H_0=1,\ H_1=2$.
+        \item $H_j=(4j-2)\cdot H_{j-1}-\pi^2H_{j-2}$.
+
+        $j!H_j=\int\limits_0^{\frac{\pi}{2}}((\frac{\pi}{2})^2-x^2)^j(\sin x)'dx=\underbrace{\left.((\frac{\pi}{2})^2-x^2)^j\sin x\right|_0^{\frac{\pi}{2}}}_{=0} 
+        +2j\cdot \int\limits_0^{\frac{\pi}{2}} x((\frac{\pi}{2})^2-x^2)^{j-1}\underbrace{\sin x}_{=(-\cos x)'}dx=$
+        
+        $=2j\cdot \underbrace{\left.(((\frac{\pi}{2})^2-x^2)^{j-1}\cdot x(-\cos x))\right|_0^{\frac{\pi}{2}}}_{=0}+
+        \int\limits_0^{\frac{\pi}{2}}((\frac{\pi}{2})^2-x^2)^{j-1} \cdot\cos x\ dx- $
+        
+        $-2(j-1)\cdot \int\limits_0^{\frac{\pi}{2}}((\frac{\pi}{2})^2-x^2)^{j-2}\underbrace{x^2}_{(\frac{\pi}{2})^2-((\frac{\pi}{2})^2-x^2)}\cos x\ dx=$
+        
+        $=2j((j-1)!\cdot H_{j-1}-2(j-1)(\frac{\pi}{2})^2(j-2)!\cdot H_{j-2}+2(j-1)(j-1)!\cdot H_{j-1})= $
+        
+        $=2j!\cdot H_{j-1}-\pi^2 j!\cdot H_{j-2}+4j!(j-1)\cdot H_{j-1}=j!((4j-2)\cdot H_{j-1}-\pi^2\cdot H_{j-2})$
+        \item Существует многочлен $P_j$ степени $\leq j$ с целыми коэффициентами, для которого $H_j:=P_j(\pi^2)$.
+        \begin{proof}
+            $P_0(x)\equiv 1,$ $P_1(x)\equiv 2$, $P_j(x)=(4j-2)\cdot P_{j-1}(x)-x\cdot P_{j-2}(x)$ – подходит.
+        \end{proof}
+    \end{enumerate}
+\end{statement}
+
+\begin{theorem}
+    \textbf{Теорема Ламберта}
+
+    $\pi$ и $\pi^2$ иррациональны. 
+\end{theorem}
+
+\begin{proof}
+    (Эрмит)
+
+    От противного. Пусть $\pi^2=\frac{m}{n}\Rightarrow 0<H_j=P_j(\frac{m}{n})=\frac{\text{целое}}{n^j}$
+
+    $n^jH_j\geq 1$ (это положительное целое). Но $n^jH_j\rightarrow 0$ (по свойству 2) ??
+\end{proof}
