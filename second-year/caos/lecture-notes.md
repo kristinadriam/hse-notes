@@ -36,7 +36,7 @@ ENIAC был неплох, но хотелось, чтобы можно было
 
 Группа под руководством Джона фон Неймана написала доклад, в котором представила **архитектуру фон Неймана** – некую модель программируемого вычислительного устройства.
 
-![von-neyman](second-year/caos/images/von-neumann.png)
+![von-neyman](https://github.com/kristinadriam/hse-ami-notes/second-year/caos/images/von-neumann.png)
 
 **Фон-Неймановский компьютер:**
 
