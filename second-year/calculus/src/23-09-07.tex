@@ -2,12 +2,12 @@
 
 \subsection{Система множеств}
 
-$A \sqcup B := A \cup B$ и $A \cap B = \varnothing$ – дизъюнктные множества.
+$A \sqcup B := A \cup B$ и $A \cap B = \varnothing$ – \textit{дизъюнктные множества}.
 
 $\bigsqcup\limits_{k=1}^n A_k := \bigcup\limits_{k=1}^n A_k$ и $A_i \cap A_j = \varnothing$
 
 \begin{definition}
-    $\{E_\alpha\}_{\alpha\in I}$ – разбиение множества $E$, если $E = \bigsqcup\limits_{\alpha\in I} E$
+    $\{E_\alpha\}_{\alpha\in I}$ – разбиение множества $E$, если $E = \bigsqcup\limits_{\alpha\in I} E_\alpha$
 \end{definition}
 
 Напоминание:
@@ -16,7 +16,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \in I} (X\setminus E_\alpha)$
 
 \begin{definition}
-    $\mathcal{A}$ – система подножеств X:
+    $\mathcal{A}$ – система подмножеств X:
     \begin{enumerate}
         \item[$\delta_0$.] Если $A, B\in \mathcal{A}$, то $A\cap B\in \mathcal{A}$.
         \item[$\delta$.] Если $A_1, A_2, ...\in \mathcal{A}$, то $\bigcap\limits_{n = 1}^\infty A_n\in \mathcal{A}$.
@@ -30,7 +30,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{definition}
 
 \begin{definition}
-    Система множества $\mathcal{A}$ – \textit{алгебра}, если она симметрична, $\varnothing \not\in \mathcal{A}$, есть свойства $\delta_0$ и $\sigma_0$.
+    Система множества $\mathcal{A}$ – \textit{алгебра}, если она симметрична, $\varnothing \in \mathcal{A}$, есть свойства $\delta_0$ и $\sigma_0$.
 \end{definition}
 
 \begin{definition}
@@ -68,7 +68,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
         \item $2^X$ – $\sigma$-алгебра
         
-        \item $Y\subset X$, $\mathcal{A}$ – алгебра ($\sigma$-алгебра) подмножеств $X$. тогда
+        \item $Y\subset X$, $\mathcal{A}$ – алгебра ($\sigma$-алгебра) подмножеств $X$, тогда
         
         $\mathcal{B} := \{ A\cap Y \mid A\in \mathcal{A}\}$ – алгебра ($\sigma$-алгебра). Называется \textit{индуцированная алгебра}.
 
@@ -120,11 +120,11 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{definition}
 
 \begin{remark}
-    Если $\mathcal{R}$ – кольца и $X\in \mathcal{R}$, то $\mathcal{R}$ – алгебра.
+    Если $\mathcal{R}$ – кольцо и $X\in \mathcal{R}$, то $\mathcal{R}$ – алгебра.
 \end{remark}
 
 \begin{definition}
-    $\mathcal{P}$ – \textit{получкольцо подмножеств $X$}, если:
+    $\mathcal{P}$ – \textit{полукольцо подмножеств $X$}, если:
     \begin{enumerate}
         \item $\varnothing \in \mathcal{P}$
         \item $A, B \in \mathcal{P}\Rightarrow A \cap B \in \mathcal{P}$
@@ -234,7 +234,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \begin{theorem}
     Всякое непустое открытое множество $G \subset \R^m$ представляется в виде дизъюнктного объединения
     счетного числа ячеек, замыкания которых $\subset G$. Более того, можно считать, что координаты всех 
-    вершин всех ячеек рационально.
+    вершин всех ячеек рациональны.
 \end{theorem}
 
 \begin{proof}
@@ -250,21 +250,21 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{remark}
 
 \begin{corollary}
-    $\mathcal{B}(\mathcal{P}_{\Q}^m)\overset{1) \subset}{=} \mathcal{B}(\mathcal{P}^m)\overset{2) \subset}{=}\mathcal{B}^m \overset{3) \subset}{}$
+    $\mathcal{B}(\mathcal{P}_{\Q}^m)\overset{1) \subset}{=} \mathcal{B}(\mathcal{P}^m)\overset{2) \subset}{=}\mathcal{B}^m \overset{3) \subset}{=}$
 \end{corollary}
 
-\begin{proof}
-    1) $\mathcal{P}^m\supset \mathcal{P}^m_\Q\Rightarrow \mathcal{B}(\mathcal{P}^m)\supset \mathcal{P}^m_\Q\Rightarrow \mathcal{B}(\mathcal{P}^m)\supset \mathcal{B}(\mathcal{P}^m_\Q)$
+\begin{proof}~
+    \begin{enumerate}
+        \item[1)] $\mathcal{P}^m\supset \mathcal{P}^m_\Q\Rightarrow \mathcal{B}(\mathcal{P}^m)\supset \mathcal{P}^m_\Q\Rightarrow \mathcal{B}(\mathcal{P}^m)\supset \mathcal{B}(\mathcal{P}^m_\Q)$
+        \item[2)] $\mathcal{P}^m \subset \mathcal{B}^m$
 
-    2) $\mathcal{P}^m \subset \mathcal{B}^m$
-
-    Ячейка – счетное пересение открытых парарллелепипедов, т.е. открытых множеств.
-    Они лежат в $\mathcal{B}^m$, но $\mathcal{B}^m$ – $\sigma$-алгебра $\Rightarrow$ там есть счетное пересение.
-
-    $\Rightarrow \mathcal{B}(\mathcal{P})\subset \mathcal{B}^m$
-
-    3) $G$ – открытое множество $\Rightarrow G\in \mathcal{B}(\mathcal{P}^m_\Q)$ т.к. по теореме
-    $G$ – счетное объединение элементов из $\mathcal{P}^m_\Q\Rightarrow \mathcal{B}^m\subset \mathcal{B}(\mathcal{P}^m_\Q)$
+        Ячейка – счетное пересение открытых парарллелепипедов, т.е. открытых множеств.
+        Они лежат в $\mathcal{B}^m$, но $\mathcal{B}^m$ – $\sigma$-алгебра $\Rightarrow$ там есть счетное пересение.
+    
+        $\Rightarrow \mathcal{B}(\mathcal{P})\subset \mathcal{B}^m$
+        \item[3)] $G$ – открытое множество $\Rightarrow G\in \mathcal{B}(\mathcal{P}^m_\Q)$ т.к. по теореме
+        $G$ – счетное объединение элементов из $\mathcal{P}^m_\Q\Rightarrow \mathcal{B}^m\subset \mathcal{B}(\mathcal{P}^m_\Q)$
+    \end{enumerate}
 \end{proof}
 
 \subsection{Объем и мера}
