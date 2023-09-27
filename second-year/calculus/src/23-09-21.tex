@@ -1,0 +1,331 @@
+\subsection{Мера Лебега}
+
+\begin{theorem}
+    Классический объем $\lambda_m$ на полукольце ячеек $\mathcal{P}^m$ – 
+    $\sigma$-конечная мера.
+\end{theorem}
+
+\begin{proof}
+    Надо доказать счетную полуаддитивность $\lambda_m$, т.е. если 
+    $(a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n]$, $a, b, a_n, b_n\in \R^m$, то 
+    $\lambda_m (a, b]\leq \sum\limits_{n=1}^\infty \lambda_m (a_n, b_n]$
+
+    Зафиксируем $\varepsilon > 0$. Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$.
+
+    Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$. TODO
+
+    Тогда $[a', b]\subset (a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n] \subset \bigcup\limits_{n=1}^\infty (a_n, b_n')$
+\end{proof}
+
+\begin{definition}
+    Мера Лебега – стандартное продолжение классического объема с полукольца 
+    $\mathcal{P}^m$. $\sigma$-алгебра, на которую продолжили, – лебеговская $\sigma$-алгебра
+    и обозначается $\mathcal{L}^m$.
+\end{definition}
+
+\begin{remark}
+    $\lambda_m A = \inf \{\sum\limits_{n=1}^\infty \lambda_m P_n \mid P_n\in \mathcal{P}\text{ и } A\subset \bigcup\limits_{n=1}^\infty P_n \}$.
+
+    Можно брать и ячейки из $\mathcal{P}^m_{\Q}$.
+\end{remark}
+
+
+\textbf{Свойства меры Лебега:}
+\begin{enumerate}
+    \item Открытые множества измеримы, мера непустого отрытого множества $>0$.
+    
+    \begin{proof}
+        $\mathcal{L}^m\supset \mathcal{B}(\mathcal{P}^m)=\mathcal{B}^m$ содержит все открыте множества.
+
+        Если $G$ – открытое и $\not = \varnothing$, то возьмем $a\in G\Rightarrow
+        \exists \underset{\text{ячейка}\subset}{\overline{\text{B}}}_r(a)\subset G$
+
+        $\lambda G\geq \lambda (\text{ячейка})>0$
+    \end{proof}
+    \item Замкнутые множества измеримы, мера одноточечного множества = 0.
+    
+    \begin{proof}
+        $\lambda(\text{точка})\leq \lambda (\text{ячейка}) =\varepsilon^m$
+    \end{proof}
+
+    \item Мера ограниченного измеримого множества конечна.
+    
+    \begin{proof}
+        ограниченное множество $\subset$ шар $\subset$ ячейка
+    \end{proof}
+
+    \item Всякое измеримое множество – не более чем счетное объединение множеств конечной меры.
+    
+    \begin{enumerate}
+        \item $\R^m =\bigsqcup\limits_{n=1}^\infty P_n$, где $\lambda P_n = 1\Rightarrow E =\bigsqcup\limits_{n=1}^\infty (E\cap P_n)$ и
+        $\lambda (E\cap P_n)\leq \lambda P_n = 1$
+    \end{enumerate}
+
+    \item Если $E\subset P_n$, т.ч. $\forall \varepsilon > 0$ найдутся измеримые множества
+    $A_\varepsilon$ и $B_\varepsilon$, т.ч. $A_\varepsilon\subset E \subset B_\varepsilon$ и 
+    $\lambda (B_\varepsilon\setminus A_\varepsilon)< \varepsilon$, то $E$ – измеримо.
+    
+    \begin{proof}
+        $A:=\bigcup\limits_{n=1}^\infty A_{\frac{1}{n}}$ и $B:=\bigcap\limits_{n=1}^\infty B_{\frac{1}{n}}\Rightarrow
+        A\subset E \subset B$ и $B\setminus A \subset B_{\frac{1}{n}}\setminus A_{\frac{1}{n}}$
+
+        $\lambda (B\setminus A)\leq \lambda (B_{\frac{1}{n}}\setminus A_{\frac{1}{n}})<\frac{1}{n}\Rightarrow \lambda (B\setminus A) = 0$
+
+        $E\setminus A\subset B\setminus A\Rightarrow \lambda (E\setminus A)=0$ и $E\setminus A$ измеримо
+        $\Rightarrow E= A\cup E\setminus A$ – измеримо
+    \end{proof}
+
+    \begin{remark}
+        Свойство 5 верно для любой полной меры.
+    \end{remark}
+
+    \item Если $E\subset \R^m$, т.ч. $\forall \varepsilon > 0$ найдется измеримое
+    $B_\varepsilon\supset E$, т.ч. $\lambda B_\varepsilon< \varepsilon$, то $E$ измеримо и $\lambda E = 0$.
+
+    \begin{proof}
+        $A_\varepsilon \not = \varnothing\Rightarrow E$ – измеримо и $\lambda E\leq \lambda B_\varepsilon < \varepsilon
+        \Rightarrow \lambda E = 0$
+    \end{proof}
+
+    \item Счетное объединение множеств меры 0 имеет меру 0.
+    \item Счетное множество имеет меру 0. В частности $\lambda (\Q^m)=0$.
+    \item Множество нулевой меры имеет пустую внутренность.
+    
+    \begin{proof}
+        Если $\Int A\not = \varnothing$, то $A\supset B_r (a)\Rightarrow \lambda A \geq \lambda B_r(a)>0$
+    \end{proof}
+    \item Если $\lambda e = 0$, то $\forall \varepsilon > 0$ существуют такие кубические ячейки $Q_j$, 
+    т.ч. $e\subset \bigcup\limits_{j=1}^\infty Q_j$ и $\sum\limits_{j=1}^\infty \lambda Q_j< \varepsilon$.
+
+    \begin{proof}
+        TODO
+    \end{proof}
+
+    \item Пусть $m\geq 2$. Гиперплоскость $H_j:= \{x\in \R^m\mid x_j =c\}$ имеет нулевую меру.
+    
+    \begin{proof}
+        $A_n:=(-n, n]\cap H_j(c)$, $H_j(c) \bigcup\limits_{n=1}^\infty A_n$
+
+        Достаточно проверить, что $\lambda A_n =0$: $A_n\subset (-n, n]\times ...\times (-n, n] \times (c - \varepsilon, c)
+        \times (-n, n]\times ...\times (-n, n]\Rightarrow \lambda A_n\leq (2n)^{m-1}\cdot \varepsilon$
+    \end{proof}
+
+    \item Любое множество, содержащееся в не более чем счетном объединении таких гиперплоскостей, имеет меру 0.
+    
+    \item $\lambda (a, b) =\lambda (a, b] = \lambda [a, b]$
+    
+    \begin{proof}
+        $(a, b)\subset (a, b]\subset [a, b]$, $[a, b]\setminus (a, b) \subset$ конечное 
+        объединение таких гиперплоскостей.
+    \end{proof}
+
+    \begin{remark}
+        \begin{enumerate}
+            \item[1.] Существуют несчетные множества нулевой меры.
+            
+            Если $m\geq 2$, то подойдет $H_j(c)$.
+
+            Если $m= 1$, то подойдет канторово множество.
+
+            то, что осталось, называется канторово множество.
+
+            TODO
+
+            Троичная запись чисел из $[0, 1)$. 
+            
+            Средний отрезок – первая цифра после запятой 1.
+
+            Оба средних отрезка – вторая цифра после запятой 1.
+
+            И так далее.
+
+            Остались в точности те числа, у которых в троичной записи 0 и 2.
+
+            \item[2.] Существуют неизмеримые множества. Более того, любое множество положительной
+            меры содержит неизмеримое подмножемтво.
+        \end{enumerate}
+    \end{remark}
+\end{enumerate}
+
+\begin{theorem}
+    \textbf{Регулярность меры Лебега}
+
+    Если $E\subset \R^m$ измеримое множество, то найдется $G$ – открытое, т.ч. $G\supset E$ и $\lambda (G\setminus E) < \varepsilon$.
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\lambda E < +\infty$, $\lambda E =\inf \{ \sum\limits_{n=1}^\infty \lambda P_n \mid E\subset \cup P_n, P_n\in \mathcal{P}^m\}$
+        
+        Выберем такое покрытие ячейками, что $\sum\limits_{n=1}^\infty \lambda P_n<\lambda E + \varepsilon$.
+
+        $P_n= (a_n, b_n]\subset (a_n, b_n')$, т.ч. $\lambda (a_n, b_n')< \lambda P_n + \frac{\varepsilon}{2^n}$
+
+        $G=\bigcup\limits_{n=1}^\infty (a_n, b_n')\supset \bigcap\limits_{n=1}^\infty P_n \subset E$
+
+        $\lambda (G\setminus E) = \lambda G - \lambda E \leq \sum\limits_{n=1}^\infty \lambda (a_n, b_n') - \lambda E
+        \leq \sum\limits_{n=1}^\infty (\lambda P_n + \frac{\varepsilon}{2^n}) - \lambda E = \varepsilon + \underbrace{\sum \lambda P_n - \lambda E}_{\leq \varepsilon}$
+
+        \item $\lambda E = +\infty$
+        
+        Разобьем $E$ в объединение $E_n$, т.ч. $\lambda E_n <+\infty$.
+
+        Возьмем $G_n$ – открытое, т.ч. $E_n\subset G_n$ и $\lambda (G_n \setminus E_n) < \frac{\varepsilon}{2^n}$
+
+        $G:= \bigcup\limits_{n=1}^\infty G_n \supset E$
+
+        $G\setminus E \subset \bigcup\limits_{n=1}^\infty G_n \setminus E_n\Rightarrow \lambda (G\setminus E)\leq \sum\limits_{n=1}^\infty(G_n \setminus E_n)< 
+        \sum\limits_{n=1}^\infty \frac{\varepsilon}{2^n}=\varepsilon$
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \begin{enumerate}
+        \item Если $E\subset \R^m$ измеримо, то найдется $F$ – замкнутое, т.ч. 
+        $F\subset E$ и $\lambda (E\setminus F)< \varepsilon$.
+
+        \begin{proof}
+            $G$ для $X\setminus E$, $\lambda (G\setminus (X\setminus E))< \varepsilon$
+
+            TODO
+        \end{proof}
+
+        \item $E$ – измеримое, тогда 
+        
+        $\lambda E =\inf \{\lambda G\mid G\text{ – открытое и } G\supset E\}$
+
+        $\lambda E = \sup \{\lambda F\mid F\text{ – замкнутое и } F\supset E\}$
+
+        $\lambda E = \sup \{\lambda K\mid K\text{ – компакт и } K\supset E\}$
+
+        \begin{proof}
+            $\lambda \underset{\text{замк.}}{F}=\lim\limits_{n\rightarrow \infty} \lambda ([-n, n]^m \cap F)$ непрер. меры снизу
+        \end{proof}
+        
+        \item Если $E$ – измеримо, то существует $K_n$ – компакты, т.ч. $R_1 \subset K_2 \subset ...$ и $e$ – нулевой
+        меры, т.ч. $E=\bigcup\limits_{n=1}^\infty K_n\cup e$.
+
+        \begin{proof}
+            Берем компакты $\tilde{K_n}$, т.ч. $\lambda\tilde{K_n} \rightarrow \lambda E$.
+
+            Если $\lambda E<+\infty $, то $\lambda (E\setminus \tilde{K_n})\rightarrow 0\Rightarrow \lambda (E\setminus \bigcup\limits_{n=1}^\infty \tilde{K_n}) = 0
+            \Rightarrow e:=\bigcup\limits_{n=1}^\infty \tilde{K_n}$
+        \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    При сдвиге измеримого множества его измеримость и мера сохраняются. 
+\end{theorem}
+
+\begin{proof}
+    Сдвиг на вектор $v$, $\lambda \mu E:=\lambda (v + E)$ на ячейках 
+    $\lambda$ и $\mu$ совпадают $\Rightarrow$ по единственности продолжения они совпадают.
+\end{proof}
+
+\begin{theorem}
+    Пусть $\mu$ мера на $\mathcal{L}^m$, т.ч.
+
+    \begin{enumerate}
+        \item Инвариантна относатльно сдвигов.
+        \item Мера $\mu$ для каждой ячейки конечна = мера любого ограниченного измеримого множемтва конечна.
+    \end{enumerate}
+\end{theorem}
+
+TODO
+
+Пример неизмеримого множества
+
+$x, y\in (0, 1]$, $x\tilde y$, если $x-y\in \Q$
+
+$A$ – берем из каждого класса эквивалентности по одному представителю
+
+$A$ – неизмеримо
+
+\begin{proof}
+    От противого. Пусть $A$ измеримо.
+
+    \begin{enumerate}
+        \item $\lambda A = 0$. Тогда $(0, 1]\subset \bigcup\limits_{x\in \Q} 
+        \overset{\text{множества нулевой меры}}{(A+x)}\Rightarrow \lambda (0, 1]=0$, противоречие.
+
+        \item $\lambda A \supset 0$. Тогда $\bigsqcup\limits_{x\in \Q} (A+x)\subset (0, 2]\Rightarrow 2 
+        \geq \sum\limits_{x\in \Q, 0\leq x \leq 1}\lambda \overset{\text{все меры одинак.}}{(A+x)}$, противоречие.
+    \end{enumerate}
+\end{proof}
+
+\section{Измеримые функции}
+
+\begin{definition}
+    Пусть $f: E\rightarrow \overline{\R}$, $a\in \R$.
+
+    $E\{f<a\}:= \{x\in E\mid f(x) < a\}=f^{-1}((-\infty, a))$
+
+    $E\{f\leq a\}:= \{x\in E\mid f(x) \leq a\}=f^{-1}((-\infty, a])$
+
+    $E\{f\leq a\}$ и $E\{f\leq a\}$ 
+
+    Все это – \textit{лебеговые множества функции $f$}.
+\end{definition}
+
+\begin{theorem}
+    Пусть $E$ – измеримое, $f:E\rightarrow \overline{\R}$. Следующие условия 
+    равносильны:
+
+    \begin{enumerate}
+        \item $E\{f<a\}$ измеримо $\forall a\in \R$.
+        
+        \item $E\{f\leq a\}$ измеримо $\forall a\in \R$.
+        
+        \item $E\{f>a\}$ измеримо $\forall a\in \R$.
+        
+        \item $E\{f\geq a\}$ измеримо $\forall a\in \R$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+
+    \begin{itemize}
+        \item $E\{f<a\} = E\setminus E\{f\geq a\}\Rightarrow 1\Leftrightarrow 4$
+        
+        \item $E\{f>a\} = E\setminus E\{f\leq a\}\Rightarrow 2\Leftrightarrow 3$
+        
+        \item $2\Rightarrow 1$: $E\{f<a\} =\bigcup\limits_{n=1}^\infty E\{f\leq a-\frac{1}{n}\}$
+        
+        \item $4\Rightarrow 3$: $E\{f>a\} =\bigcup\limits_{n=1}^\infty E\{f\geq a+\frac{1}{n}\}$
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    $f:E\Rightarrow \overline{\R}$ – \textit{измерима}, если все ее лебеговы множества 
+    при всех $a\in \R$ измеримы.
+\end{definition}
+
+\begin{example}~
+    \begin{enumerate}
+        \item Константа (на измеримом множестве)
+        
+        \item $E\supset A$ – измеримы
+        
+        % $\mathbf{1}_A(x):= \mathbf{1}_A :E \rightarrow \R$
+
+        \item $E\in \mathcal{L}^m$, $f:E\rightarrow \R$ непрерывна $\Rightarrow f$ – 
+        измерима относительно $\mathcal{L}^m$.
+
+        \begin{proof}
+            Достаточно измеримости множеств $E\{f<a\}=f^{-1}(\underset{\text{открытое}}{(-\infty, a)})$ – открытые 
+            множества $\Rightarrow$ они из  $\mathcal{L}^m$.
+        \end{proof}
+    \end{enumerate}
+\end{example}
+
+\textbf{Свойства:}
+
+
+\begin{enumerate}
+    \item Если $f:E\Rightarrow \overline{\R}$ измерима, то $E$ – измеримое множество.
+    
+    \begin{proof}
+        $E=\bigcup\limits_{n=1}^\infty E\{f < n\}$
+    \end{proof}
+\end{enumerate}
