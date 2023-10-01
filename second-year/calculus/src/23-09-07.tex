@@ -165,7 +165,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{example}
 
 \begin{lemma}
-    $\bigcup A_k=\bigsqcup (A_k \setminus \bigcup\limits_{j=1}^k A_j)$ 
+    $\bigcup A_k=\bigsqcup (A_k \setminus \bigcup\limits_{j=1}^{k - 1} A_j)$ 
 \end{lemma}
 
 \begin{proof} Проверяем «$\supset$»: $B_k := A_k \setminus \bigcup\limits_{j=1}^{k-1} A_j \subset A_k \Rightarrow \bigcup A_k \supset \bigcup B_k$
@@ -257,7 +257,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
     $P_{n+1}\subset P_n$, $P_n\supset (a, b]$ и $\bigcap\limits_{n=1}^\infty P_n=(a, b]$
 
-    Рассмотрим закрытые параллелепипеды $A_n := (a_1 - \frac{1}{n}, b_1] \times (a_2 - \frac{1}{n}, b_2] \times .. \times (a_m - \frac{1}{n}, b_m]$
+    Рассмотрим закрытые параллелепипеды $A_n := [a_1 - \frac{1}{n}, b_1] \times [a_2 - \frac{1}{n}, b_2] \times .. \times [a_m - \frac{1}{n}, b_m]$
 
     $A_{n+1} \supset A_n \subset (a, b]$, $\bigcup A_n = (a, b]$
 
@@ -303,7 +303,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \begin{proof}~
     \begin{enumerate}
         \item[1)] $\mathcal{P}^m\supset \mathcal{P}^m_\Q\Rightarrow \mathcal{B}(\mathcal{P}^m)\supset \mathcal{P}^m_\Q\overset{\sigma\text{-алгебра}}{\Rightarrow} \mathcal{B}(\mathcal{P}^m)\supset \mathcal{B}(\mathcal{P}^m_\Q)$
-        \item[2)] $\mathcal{P}^m \subset \mathcal{B}^m\Rightarrow \mathcal{B}(\mathcal{P^m})\subset \mathcal{B}^m$
+        \item[2)] $\mathcal{P}^m \subset \mathcal{B}^m\Rightarrow \mathcal{B}(\mathcal{P}^m)\subset \mathcal{B}^m$
 
         Ячейка – счетное пересечение открытых параллелепипедов, т.е. открытых множеств.
         Они лежат в $\mathcal{B}^m$, но $\mathcal{B}^m$ – $\sigma$-алгебра $\Rightarrow$ там есть и счетное пересечение.
@@ -387,7 +387,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
         \item[2'.] $\bigsqcup\limits_{k=1}^n P_k \subset \bigsqcup\limits_{k=1}^\infty P_k \subset P \Rightarrow
         \mu P \geq \sum\limits_{k=1}^n \mu P_k \rightarrow \sum\limits_{k=1}^\infty \mu P_k$
-        \item[3'.] $P'_k:= P_k \cap P \in \mathcal{P} \Rightarrow P = \bigcup\limits_{k=1}^n P_k' \Rightarrow P = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$, 
+        \item[3.] $P'_k:= P_k \cap P \in \mathcal{P} \Rightarrow P = \bigcup\limits_{k=1}^n P_k' \Rightarrow P = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$,
         $Q_{kj}\in \mathcal{P}$, $Q_{kj}\subset P_k' \subset P_k$
 
         $\bigsqcup\limits_{j=1}^{m_k} Q_{kj} \subset P_k \overset{2)}{\Rightarrow} \sum\limits_{j=1}^{m_k}\mu Q_{kj} \leq \mu P_k$
