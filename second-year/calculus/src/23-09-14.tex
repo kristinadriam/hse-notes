@@ -138,7 +138,7 @@
     \begin{enumerate}
         \item $\nu \varnothing =0$
         \item $A\subset B\Rightarrow \nu A\leq \nu B$ (монотонность)
-        \item $\mu(\bigcup\limits_{n=1}^\infty A_n)\leq \sum\limits_{n=1}^\infty \nu A_n$ (счетная полуаддитивность)
+        \item $\nu(\bigcup\limits_{n=1}^\infty A_n)\leq \sum\limits_{n=1}^\infty \nu A_n$ (счетная полуаддитивность)
     \end{enumerate}
 \end{definition}
 
@@ -161,7 +161,7 @@
     \begin{enumerate}
         \item Достаточно писать «$\leq$», т.к. счетная полуаддитивность $\Rightarrow $
         
-        $\nu (A\cap E) + \nu (A\setminus E)\leq \nu \underset{=A}{((A\cap E) \cup (A\setminus E))}$.
+        $\nu (A\cap E) + \nu (A\setminus E)\geq \nu \underset{=A}{((A\cap E) \cup (A\setminus E))}$.
         \item Если $E_1, E_2, ..., E_n$ – $\nu$-измеримые, то $\nu \underbrace{(A\cap \bigsqcup\limits_{k=1}^n E_k)}_{\bigsqcup\limits_{k=1}^n(A\cap E_k)=:B}=\sum\limits_{k=1}^n \nu (A\cap E_k)$
 
         $\nu B = \nu (\underset{=A\cap E_1}{B\cap E_1})+ \nu (\underset{=\bigsqcup\limits_{k=2}^n(A\cap E_k)}{B\setminus E_1})$
@@ -268,7 +268,7 @@
         
         Если справа есть $+\infty$, то очевидно, считаем, что там все конечно:
 
-        $\mu^* B =\inf \{\sum\limits_{k=1}^\infty \mu A_k\mid P_k\in \mathcal{P}\text{ и } B_n\subset \bigcup\limits_{k=1}^\infty P_k\}$
+        $\mu^* B =\inf \{\sum\limits_{k=1}^\infty \mu P_k\mid P_k\in \mathcal{P}\text{ и } B_n\subset \bigcup\limits_{k=1}^\infty P_k\}$
 
         Выберем такие множества $C_{nk}$, что $\bigcup\limits_{k=1}^\infty C_{nk}\supset B_n$ и $\sum\limits_{k=1}^\infty \mu C_{nk}\leq \mu^* B_n +\frac{\varepsilon}{2^n}$
 
