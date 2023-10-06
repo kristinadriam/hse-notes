@@ -10,11 +10,17 @@
     $(a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n]$, $a, b, a_n, b_n\in \R^m$, то 
     $\lambda_m (a, b]\leq \sum\limits_{n=1}^\infty \lambda_m (a_n, b_n]$
 
-    Зафиксируем $\varepsilon > 0$. Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$.
+    Зафиксируем $\varepsilon > 0$. Возьмем $[a', b]\subset (a, b]$ и $\lambda_m (a', b]>\lambda_m (a, b]-\varepsilon$.
 
-    Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$. TODO
+    Возьмем $(a_n, b_n')\supset (a_n, b_n]$, такое что $\lambda_m (a_n, b_n'] < \lambda_m (a_n, b_n] + \frac{\varepsilon}{2^n}$.
 
-    Тогда $[a', b]\subset (a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n] \subset \bigcup\limits_{n=1}^\infty (a_n, b_n')$
+    Тогда $[a', b]\subset (a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n] \subset \bigcup\limits_{n=1}^\infty (a_n, b_n') \Rightarrow [a', b] \subset \bigcup_{n = 1}^{\infty} (a_n, b_n')$
+    покрытие компакта открытыми множествами.
+
+    Тогда можем выбрать конечное подпокрытие $(a', b] \subset [a', b] \subset \bigcup_{n = 1}^{N} (a_n, b_n') \subset \bigcup_{n = 1}^{N} (a_n, b_n']$
+     - откуда по усилению монотонности $\lambda_m (a', b] - \varepsilon < \lambda_m (a', b] \leq \sum_{n = 1}^{N} \lambda_m (a_n, b_n'] <
+     \sum_{n = 1}^{N} (\lambda_m (a_n, b_n] + \frac{\varepsilon}{2^n}) < \sum_{n = 1}^{\infty} \lambda_m (a_n, b_n] + \varepsilon \Rightarrow
+     \lambda_m (a, b] \leq \sum_{n = 1}^{\infty} \lambda_m (a_n, b_n] + 2\varepsilon$
 \end{proof}
 
 \begin{definition}
@@ -38,7 +44,7 @@
         $\mathcal{L}^m\supset \mathcal{B}(\mathcal{P}^m)=\mathcal{B}^m$ содержит все открыте множества.
 
         Если $G$ – открытое и $\not = \varnothing$, то возьмем $a\in G\Rightarrow
-        \exists \underset{\text{ячейка}\subset}{\overline{\text{B}}}_r(a)\subset G$
+        \exists \underset{\text{ячейка}}{\overline{\text{B}_r}}(a)\subset G$
 
         $\lambda G\geq \lambda (\text{ячейка})>0$
     \end{proof}
