@@ -1,0 +1,425 @@
+\begin{enumerate}
+    \item[3.] Если $f:E\rightarrow \overline{\R}$ измеримая, то прообраз любого 
+    промежутка – измеримое множество.
+
+    \begin{proof}
+        $E\{a < f \leq b\}=E\{f \leq b\}\cap E\{a < f\}$
+    \end{proof}
+
+    \item[4.] Если $f$ – измеримая, то прообраз открытого множества измерим.
+    \begin{proof}
+        $G$ – открытое $\subset \R\Rightarrow G = \bigsqcup\limits_{k=1}^\infty (a_k, b_k]\Rightarrow
+        f^{-1}(G)=\bigcup\limits_{k=1}^\infty f^{-1}(a_k, b_k]$
+    \end{proof}
+
+    \item[5.] Если $f$ и $g$ измеримые, то $\max\{f, g\}$ и $\min\{f, g\}$ измеримые. 
+    В частности $f_+=\max\{f, 0\}$ и $f_-=\max\{-f, 0\}$ измеримые.
+
+    \begin{proof}
+        $E\{\max\{f, g\} \leq a\}=E\{f \leq a\}\cap E\{g \leq a\}$
+
+        Остальное аналогично.
+    \end{proof}
+
+    \item[6.] Пусть $E=\bigcup\limits_{n=1}^\infty E_n$. Если $f\mid_{E_n}$ измерима, то $f:E\rightarrow \overline{\R}$ измерима.
+    
+    \begin{proof}
+        $E\{f\leq a\}=\bigcup E_n\{f\leq a\}$
+    \end{proof}
+
+    \item[7.] Если $f:E\rightarrow \overline{\R}$ измерима, то найдется $g:X\rightarrow\overline{\R}$ измеримая, 
+    т.ч. $f=g\mid_E$.
+
+    \begin{proof}
+        $g(x)=\left\{ \begin{array}{ll}
+            f(x), & \text{если } x\in E \\
+            0, & \text{иначе}
+        \end{array}\right.$
+    \end{proof}
+\end{enumerate}
+
+\begin{theorem}
+    Пусть $f_n:E\rightarrow\overline{\R}$ поселдовательность измеримых функций. Тогда:
+
+    \begin{enumerate}
+        \item $\sup f_n$ и $\inf f_n$ – измеримые функции ($g=\sup f_n$, если $g(x)=\sup f_n(x)$).
+        \item $\overline{\lim} f_n$ и $\underline{\lim} f_n$ – измеримые функции.
+        \item Если $\forall x\in E$ существует $\lim\limits_{n\rightarrow \infty} f_n(x)$, то $\lim f_n$ – измеримая функция.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item $E=\{\sup f_n > a\}=\bigcup\limits_{n=1}^\infty E\{f_n > a\}$
+        
+        
+        $E=\{\inf f_n < a\}=\bigcap\limits_{n=1}^\infty E\{f_n < a\}$
+
+        Объединили измеримые множества, поэтому измеримость осталась.
+
+        \item $\overline{\lim} f_n =\underset{n}{\inf}\ \underset{k\geq n}{\sup} f_k(x)$
+        
+        $\underline{\lim} f_n =\underset{n}{\sup}\ \underset{k\geq n}{\inf} f_k(x)$
+
+        \item Если существует $\lim\limits_{n\rightarrow \infty} f_n(x)$, то $\lim f_n(x) =\overline{\lim} f_n$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Пусть $f:E\rightarrow H \subset \R^m$, т.ч. $f=(f_1, ..., f_m)$ и $f_1, ..., f_m$ – измеримые;
+    $\varphi \in C(H)$, $\varphi: H \rightarrow \R$. Тогда $F=\varphi \circ f$ – измеримая.
+\end{theorem}
+
+\begin{proof}
+    $E\{F < a\}= F^{-1}(-\infty, c)= f^{-1}(\underbrace{\varphi^{-1}(-\infty, c)}_{H\{\varphi < c\}})$
+
+    $H\{\varphi < c\}$ – открытое множество в $H$, т.е. это $H\cap G$, где $G$ 
+    открыто в $\R^m$.
+
+    $G$ – открытое $\Rightarrow$ $G$ – счетное объединение ячеек.
+
+    $f^{-1}(H\cap G)= f^{-1}(G)$
+
+    То есть надо понять, что $f^{-1}(a, b]$ – измеримо $a, b\in \R^m$
+
+    $f^{-1}(a, b]=\bigcap\limits_{k=1}^m f(\underset{\text{измеримые}}{a_k, b_k}]$
+\end{proof}
+
+\begin{corollary}
+    В условии теоремы можно в качестве $\varphi$ взять поточечный предел
+    непрерывных функций.
+\end{corollary}
+
+\begin{definition}
+    \textit{Арифметические операции с $\infty$:}
+
+    \begin{enumerate}
+        \item Если $x> 0$, то $x\cdot \pm \infty = \pm \infty$.
+        Если $x< 0$, то $x\cdot \pm \infty = \mp \infty$
+
+        \item Если $x\in \overline{\R}$, то $0\cdot x =0$
+        \item Если $x\in \overline{\R}$, то $x+(\pm \infty)=\pm \infty$ и $x-(\pm \infty)=\mp \infty$.
+        \item $(+\infty )+(-\infty)=(+\infty) - (+\infty) = (-\infty) -(-\infty) = 0$
+    \end{enumerate}
+
+    Деление на 0 не определено.
+\end{definition}
+
+\begin{theorem}~
+    \begin{enumerate}
+        \item Произведение и сумма измеримых функций – измеримая функция.
+        \item Если $f$ – измеримая, $\varphi$ – непрерывная, то $\varphi \circ f$ – измеримая.
+        \item Если $f\geq 0$ измеримая, $p>0$, то $f^p$ – измеримая $((+\infty)^p = +\infty)$.
+        \item Если $f$ – измеримая, то $\frac{1}{f}$ измерима на множестве $E\{f\not = 0\}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item $f$ и $g$ – измеримые. $E=\{-\infty < f < +\infty\}$ и $E\{-\infty < g < +\infty\}$
+        
+        $\varphi(x, y)=x+ y$, $\varphi \circ \binom{f}{g}$
+
+        Рассмотрим такие кусочки: $E\{-\infty < f < 0\}$, $E\{f=0\}$, $E\{ f = -\infty\}$, $E\{f = +\infty\}$, $E\{0 < f < +\infty\}$
+
+        \item Частный случай предыдущей теоремы.
+        \item $E\{f^p \leq a\}=\varnothing$ и $=\{f \leq a^{\frac{1}{p}}\}$, если $a\geq 0$.
+        \item $\Tilde{E}:=E\{f\not = 0\}$
+        
+        $\Tilde{E}\{\frac{1}{f}< a\}= E\{f < 0\}\cup E\{f > \frac{1}{a}\}$ при $a>0$
+
+        $\Tilde{E}\{\frac{1}{f}< a\}= E\{f < \frac{1}{a}\}$ при $a<0$
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}~
+    \begin{enumerate}
+        \item Произведение конечного числа измеримых функций – измеримая функция.
+        \item Натуральная степень измеримой функции – измеримая функция.
+        \item Линейная комбинация измеримой функции – измеримая функция.
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    Пусть мера задана на $\mathcal{B}^n$, $E\in \mathcal{B}^n$, $f\in C(E)$.
+    Тогда $f$ – измеримая.
+\end{theorem}
+
+\begin{proof}
+    $E\{f< a\}$ – открытое в $E\Rightarrow E\{f<a\}=E\cap G$, где $G$ – открыто в $\R^n$.
+
+    $G$ – открыто $\Rightarrow G\in\mathcal{B}^n\Rightarrow E\cap G \in \mathcal{B}^n$
+\end{proof}
+
+\begin{definition}
+    Измеримая функция называется \textit{простой}, если они принимает лишь 
+    конечное число значений.
+\end{definition}
+
+\begin{definition}
+    \textit{Допустимое разбиение} – разбиение $X$ на конечное число измеримых множеств,
+    т.ч. на каждом множестве функция постоянна.
+\end{definition}
+
+\begin{remark}
+    У простой функции есть допустимое разбиение.
+
+    Пусть $f:X\rightarrow \R$, $y_1, y_2, ..., y_n$ – ее значения. 
+    Тогда $X=\bigsqcup\limits_{k=1}^n f^{-1}(y_k)$.
+\end{remark}
+
+\subsection*{Свойства простых функций}
+
+\begin{enumerate}
+    \item Функция, постоянная на элементах конечного разбиения $X$ на 
+    измеримые множества – простая функция.
+
+    \item Для любых двух простых функций есть общее допустимое разбиение.
+    
+    \item Сумма и произведение простых функций – простая функция.
+    
+    (они постоянны на элементах общего допустимого разбиения)
+    \item Линейная комбинация простых функций – простая функция.
+    \item Максимум (минимум) конечного числа простых функций – простая функция.
+\end{enumerate}
+
+\begin{theorem}
+    \textbf{Теорема о приближении измеримых функций простыми.}
+
+    Пусть $f:X\rightarrow \overline{\R}$ неотрицательная измеримая функция. Тогда 
+    существует последовательность простых функций $\varphi_n: X\rightarrow \R$, т.ч. 
+    $\varphi_n\leq \varphi_{n+1}$ и $f=\lim \varphi_n$. Более того, если $f$ – ограниченная 
+    функция, то $\varphi_n$ можно так выбрать, что $\varphi\underset{X}{\rightrightarrows} f$.
+\end{theorem}
+
+\begin{proof}
+    $\triangle_k:=[\frac{k}{n}, \frac{k+1}{n})$, $\triangle_{n^2}:=[n, +\infty)$
+
+    $[0, +\infty]=\triangle_0\sqcup\triangle_1\sqcup ...\triangle_{n^2}$, $A_k:=f^{-1}(\triangle_k)$
+
+    Тогда $X=\bigsqcup\limits_{k=0}^{n^2}A_k$
+
+    $\varphi_n(x)=\frac{k}{n}$, если $x\in A_k$, $\varphi_n$ – простая функция.
+
+    $0\leq \varphi_n(x) \leq f(x)$
+
+    Если $f(x)\not = +\infty$, то при больших $n$ $x$ попадет в прообразы конечных полуинтервалов 
+    $\Rightarrow f(x)-\frac{1}{n}< \varphi_n(x)\leq f(x)\Rightarrow \lim \varphi_n(x)=f(x)$
+
+    Если $f(x)=+\infty$, то $x$ всегда в прообразе луча $\Rightarrow\varphi_n(x) = n \rightarrow +\infty=f(x)$
+
+    Если $f$ ограниченная, то сходимость будет равномерной.
+
+    Берем $\varphi_{2^n}$. Тогда $\varphi_{2^n}(x)\leq \varphi_{2^{n+1}}(x)$. $f(x)\in [\frac{k}{2^n}, \frac{k+1}{2^{n}})$
+\end{proof}
+
+\subsection{Последовательность функций}
+
+\subsubsection*{Напоминание:}
+
+Поточечная сходимость: $f_n$ сходится к $f$ поточечно, если $\forall x\in E$
+$f_n (x)\rightarrow f(x)$.
+
+Равномерная сходимость: $f_n\rightrightarrows f$ на $E$, если $\underset{x\in E}{\sup} |f_n(x)-f(x)|\rightarrow 0$.
+
+Обозначение $\mathcal{L}(E, \mu)$ – класс функций $f:E\rightarrow \overline{\R}$, измеримых относительно
+$\mu$ и $\mu \{f=\pm \infty\}=0$.
+
+\begin{definition}
+    Пусть $f_n, f:E\rightarrow \overline{\R}$. Тогда \textit{$f_n$ сходится к $f$ почти везде относительно $\mu$} ($\mu$ п.в.),
+    если $\exists e\subset E$, т.ч. $\mu e=0$ и $\forall x\in E\setminus e$. $\lim\limits_{n\rightarrow \infty} f_n(x)=f(x)$
+\end{definition}
+
+\begin{definition}
+    Пусть $f_n, f\in \mathcal{L}(E, \mu)$. Тогда \textit{$f_n$ сходится $f$ по мере $\mu$}, если 
+    $\forall \varepsilon > 0$ $\mu E\{|f_n - f|> \varepsilon\}\rightarrow 0$.
+\end{definition}
+
+\begin{remark}
+    Раавномерная сходимость $\Rightarrow$ поточечная $\Rightarrow$ п.в.
+
+    Раавномерная сходимость $\Rightarrow$ сходимость по мере.
+\end{remark}
+
+\begin{statement}
+    \textbf{Единственность предела.}
+
+    \begin{enumerate}
+        \item Если $f_n\rightarrow f$ и $f_n\rightarrow g$ $\mu$-п.в., то $f=g$ п.в.
+        (за исключением множества нулевой меры)
+
+        \item Если $f_n\rightarrow f$ по мере $\mu$ и $f_n\rightarrow g$ по мере $\mu$, то $f=g$ п.в.
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item $f_n\rightarrow f$ поточечно на $E\setminus e_1$
+        
+        $f_n\rightarrow g$ поточечно на $E\setminus e_2$
+
+        $\mu e_1=\mu e_2=0\Rightarrow f(x)=g(x)$ при $x\in E \setminus (e_1 \cup e_2)$
+
+        \item $E\{f\not = g\}\subset \bigcup\limits_{n=1}^\infty E\{|f - g|> \frac{1}{n}\}\subset
+        \bigcup\limits_{n=1}^\infty E\{|f - f_n|> \frac{1}{2n}\}\cup E\{|g - f_n|> \frac{1}{2n}\}$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема Лебега}
+
+    Если $\mu E<+\infty$, $f_n, f:\mathcal{L}(E, \mu)$, $f_n$ сходится к $f$,
+    $\mu$-п.в. Тогда $f_n$ сходится к $f$ по мере $\mu$.
+\end{theorem}
+
+\begin{proof}
+    Возьмем исключающее множество из определения сходимости п.в. и переопределим на 
+    нем функции так, что $f_n$ сходится к $f$ поточечно на $E$ и все функции принимают конечные значения.
+
+    \textbf{Случай 1:} $f_n \searrow 0$
+
+    Надо доказать, что $\mu E\{f_n > \varepsilon\}\rightarrow 0$.
+
+    $A_n:=E\{f_n > \varepsilon\}$, $A_{n+1}\subset A_n$, $f_{n+1}\leq f_n$
+
+    $\bigcap\limits_{n=1}^\infty A_n=\varnothing\Rightarrow$ по непрерывности меры 
+    сверху $\lim\limits_{n\rightarrow \infty} \mu A_n = 0$
+
+    \textbf{Случай 2:} $f_n \rightarrow f$ поточечно
+
+    $\lim\limits_{n\rightarrow \infty} |f_n(x)-f(x)|=0\Rightarrow 0=
+    \overline{\lim\limits_{n\rightarrow \infty}} |f_n(x)-f(x)|=\lim\limits_{n\rightarrow \infty} \underbrace{\underset{k\geq n}{\sup} |f_k(x)-f(x)|}_{=: g_n(x)}
+    \Rightarrow g_n \searrow 0\Rightarrow \mu E \{g_n > \varepsilon\}\rightarrow 0$, но 
+    $E \{g_n > \varepsilon\}=E\{\underset{k\geq n}{\sup} |f_k - f|> \varepsilon\}\supset 
+    E\{|f_n - f|> \varepsilon\}$
+\end{proof}
+
+\begin{remark}~
+    \begin{enumerate}
+        \item Условие $\mu E < +\infty $ существенно.
+        
+        $E=\R$, $\mu =\lambda_1$ – мера Лебегаб $f_n = \mathbf{1}_{[n, +\infty)}$ – 
+        характеристическая функция множества $[n, +\infty)$.
+
+        Тогда $f_n\rightarrow 0$ поточечно
+
+        Но $E\{f_n > \frac{1}{2}\}=\R$ и $\lambda E\{f_n > \frac{1}{2}\} \not\rightarrow 0$
+
+        \item Обратное утверждение неверно. Более того, из сходимости по мере не
+        следует сходимость хотя бы в одной точке.
+
+        $E=[0, 1)$, $\mu =\lambda_1$
+
+        $\mathbf{1}_{[0, 1)}$
+
+        % picture
+
+        $\mu E \{|\mathbf{1}_{[\frac{k}{n}, \frac{k+1}{n})} - 0|> \varepsilon\} 
+        =\frac{1}{n}\rightarrow 0$ есть сходимость по мере.
+
+        Но ни в какой точке нет сходимости.
+    \end{enumerate}
+\end{remark}
+
+
+\begin{theorem}
+    \textbf{Теорема Рисса.}
+
+    Если $f_n$ сходится к $f$ по мере $\mu$, то существует подпоследовательность
+    $f_{nk}$, т.ч. $f_{nk}$  сходится к $f$ п.в. по мере $\mu$.
+\end{theorem}
+
+\begin{proof}
+    $\mu E\{|f_n - f|> \frac{1}{k}\}\underset{n\rightarrow \infty}{\rightarrow}0$
+    из определения сходимости по мере.
+
+    Выберем такое $n_k>n_{k-1}$, что $\mu \underbrace{E\{|f_n - f|> \frac{1}{k}\}}_{=:A_k}<\frac{1}{2^k}$
+
+    $B_n:= \bigcup\limits_{k=n}^\infty A_k$, $\mu B_n \leq \sum \limits_{k=n+1}^\infty \mu A_k < \frac{1}{2^n}\rightarrow 0$
+
+    $B_n \supset B_{n+1}$
+
+    $B:= \bigcap \limits_{n=1}^\infty B_n\subset B_n\Rightarrow \mu B=0$
+
+    Проверим, что если $x\not \in B$, то $f_{n_k}(x)\rightarrow f(x)$.
+
+    Если $x\not \in B$, то $x\not \in B_m$ для некоторого $m\Rightarrow x\not \in A_k\forall k > m
+    \Rightarrow |f_{n_k}(x)-f(x)|\leq \frac{1}{k}\ \forall k > m\Rightarrow \lim f_{n_k}(x)=f(x)$
+\end{proof}
+
+\begin{corollary}~
+    \begin{enumerate}
+        \item Если $f_n$ сходится к $f$ по мере $\mu$, то сходимость п.в. может быть только
+        к функции $f$.
+
+        \item Если $f_n$ сходится к $f$ по мере $\mu$ и $f_n \leq g$, то $f\leq g$ п.в.
+        
+        \begin{proof}
+            Выберем подпоследовательность $f_{n_k}$ сходится к $f$ п.в. $\Rightarrow f\leq g$ во всех 
+            точках, где есть сходимость.
+        \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Теорема Фреше.}
+
+    Пусть $f:\R^m \rightarrow \R$ измеримая относительно меры Лебега. 
+    Тогда существует последовательность $f_n\in C(\R^m)$, т.ч. $f_n\rightarrow f$ п.в.
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Теорема Егорова.}
+
+    Пусть $f_n, f\in \mathcal{L}(E,\mu)$ и $\mu E < +\infty $. Если $f_n$ сходится
+    к $f$ п.в., то $\forall \varepsilon > 0$ найдется $e\subset E$, т.ч. $\mu e < \varepsilon$
+    и $f_n \rightrightarrows f$ на $E\setminus e$.
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Теорема Лузина.}
+
+    Пусть $f:\R^m \rightarrow \R$, $E\subset \R^m$, $f$ – измеримая. Тогда 
+    $\forall \varepsilon > 0$ существует $A\subset E$, т.ч. $\lambda_m (E\setminus A)
+    <\varepsilon$ и $f\mid_A$ непрерывная.
+\end{theorem}
+
+\begin{remark}
+    То, что множество точек разрыва имеет маленькую меру, – неверно.
+
+    $f=\mathbf{1}_\Q$, но $f\mid_{\R\setminus \Q}$ – непрерывна.
+\end{remark}
+
+Фреме + Егоров $\Rightarrow$ Лузин. Продолжим $f$ нулем на все 
+$\R^m\overset{\text{Фреше}}{\Rightarrow} f_n\rightarrow f$ п.в. $f\in C(\R^m)
+\overset{\text{Егоров}}{\Rightarrow} \exists e\subset \R^m$, т.ч. $\lambda_m e< \varepsilon$
+и $f_n\rightrightarrows f$ на $\R\setminus e$
+
+Но равномерный предел непрерывных функций – непрерывная функция: $f_n\mid_{\R^m\setminus e}\rightrightarrows f\mid_{\R^m\setminus e}$
+
+\newpage
+
+\section{Интеграл Лебега}
+
+\subsection{Определение интеграла}
+
+\begin{lemma}
+    Пусть $f\geq 0$ простая функция $A_1, A_2, ..., A_m$ и $B_1, B_2, ..., B_n$ – 
+    допустимые разбиения, $a_1, a_2, ..., a_m$ и $b_1, b_2, ..., b_n$ – 
+    значения $f$ на соответствующих множествах. Тогда для любого измеримого множества 
+    $E$: $\sum\limits_{i=1}^m a_i \mu (E\cap A_i)=\sum\limits_{j=1}^n b_j \mu (E\cap B_j)$
+\end{lemma}
+
+\begin{proof}
+    Если $A_i\cap B_j\not=\varnothing$, то $a_i=b_j$.
+
+    $\sum\limits_{i=1}^m a_i \mu (E\cap A_i)=\sum\limits_{i=1}^m a_i \sum\limits_{j=1}^n \mu (E\cap A_i\cap B_j)=
+    \sum\limits_{i=1}^m \sum\limits_{j=1}^n a_i (E\cap A_i\cap B_j)=\sum\limits_{i=1}^m \sum\limits_{j=1}^n b_j (E\cap A_i\cap B_j)=
+    \sum\limits_{j=1}^n b_j \mu (E\cap B_j)$
+\end{proof}
+
+\begin{definition}
+    \textit{Интеграл от простой функции $f\leq 0$}: $\int\limits_E f d\mu := 
+    \sum\limits_{i=1}^m a_i \mu (E\cap A_i)$, где $A_1, ..., A_n$ – допустимое разбиение,
+    $a_1, ..., a_n$ – значения на соответствующих множествах.
+\end{definition}
