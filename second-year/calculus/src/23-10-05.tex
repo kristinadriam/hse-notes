@@ -1,0 +1,476 @@
+\subsubsection*{Свойства:}
+
+\begin{enumerate}
+    \item $\int\limits_E c d\mu = c\mu E$
+    
+    \item Если $0\leq f \leq g$, $f, g$ – простые, то $\int\limits_E f d\mu\leq  \int\limits_E g d\mu$.
+    
+    \item Если $f, g$ – неотрицательные простые, то $\int\limits_E (f+g) d\mu= \int\limits_Ef d\mu+\int\limits_E g d\mu$.
+    
+    \begin{proof}
+        2 и 3. Берем общее допустимое разбиение $A_i$, где $a_i$ – значения $f$ на $A_i$,
+        $b_i$ – значения $g$ на $A_i$.
+
+        \begin{enumerate}
+            \item[2.] $a_i\leq b_i\Rightarrow \sum a_i\mu (A_i \cap E)\leq \sum b_i\mu (A_i \cap E)$
+            \item[3.] $a_i + b_i$ – значение $f+g$ на $A_i$, $\int\limits_E (f+g) d\mu = \int\limits_E (a_i+b_i) \mu (E\cap A_i)=...$
+        \end{enumerate}
+    \end{proof}
+\end{enumerate}
+
+\begin{definition}
+    \textit{Интеграл от неотрицательной измеримой функции $f$}
+
+    $\int\limits_E f d\mu := \sup\{ \int\limits_E \varphi d\mu \mid \varphi \text{ – простая и }
+    0\leq \varphi \leq f\}$
+\end{definition}
+
+\begin{definition}
+    \textit{Интеграл от измеримой функции $f$}
+
+    $\int\limits_E f d\mu := \int\limits_E f_+ d\mu - \int\limits_E f_- d\mu$
+
+    Если $(+\infty)-(+\infty)$, то $\int$ не определен.
+\end{definition}
+
+\begin{remark}~
+    \begin{enumerate}
+        \item Если $f\geq 0$ простая, то новое определение совпадает со старым.
+        
+        \textit{Комментарий:} можно в качестве $\varphi$ взять $f$, тогда $f=\varphi \leq f$, то есть 
+        берем супремум от множества, в котором есть старый интеграл + все функции не больше него.
+
+        \item Новое определение для неотрицательной измеримой (через $f_+$ и $f_-$) совпадает со старым.
+        
+        \textit{Комментарий:} $f_-=0$.
+    \end{enumerate}
+\end{remark}
+
+\subsubsection*{Свойства $\int$ от неотрицательной измеримых функций:}
+
+\begin{enumerate}
+    \item Если $f\leq g$, то $\int\limits_E fd\mu \leq \int\limits_E gd\mu$.
+    
+    \item Если $\mu E=0$, то $\int\limits_E fd\mu=0$.
+    
+    \item $\int\limits_E fd\mu =\int\limits_X \mathbf{1}_E fd\mu$.
+    
+    \item Если $A\subset B$, то $\int\limits_A fd\mu\leq \int\limits_B fd\mu$.
+\end{enumerate}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item Простые, подходящие для $f$, подходят и для $g$, то есть считаем $\sup$ от большего множества.
+        \item $\mu E=0\Rightarrow \int\limits_E \varphi d\mu=0$, если $\varphi$ – простая.
+        \item $\int\limits_E \varphi d\mu=\int\limits_X \mathbf{1}_E d\mu$ – верно для простых функций.
+        \item $\mathbf{1}_A f\leq \mathbf{1}_B f\Rightarrow 1) + 3) = 4)$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема Беппо Леви}
+
+    Пусть $f_n\leq 0$ – измеримые, $0\leq f_1 \leq f_2 \leq ...$. 
+    Если $f_n$ поточечно сходится к $f$, то $\lim \int\limits_X f_n d\mu =\int\limits_X f_n d\mu$.
+\end{theorem}
+
+\begin{proof}
+    $f_n \leq f_{n+1}\Rightarrow \int\limits_X f_n d\mu \leq \int\limits_X f_{n+1} d\mu\Rightarrow$
+    последовательность $\int\limits_X f_n d\mu$ возрастает.
+
+    Пусть $L:=\lim \int\limits_X f_n d\mu$. Поскольку $f_n\leq f$, $\underset{\rightarrow}{\int\limits_X f_n d\mu} \leq \int\limits_X f d\mu$
+    $\Rightarrow L\leq \lim  \int\limits_X f_n d\mu$
+
+    Надо доказать, что $L\geq \lim\int\limits_X f_n d\mu=\sup\{\int\limits_X\varphi
+    d\mu \mid 0\leq \varphi \leq f\}$, где $\varphi$ – простая. 
+
+    Достаточно доказать, что $L\geq \lim\int\limits_X f_n d\mu$ $\forall \varphi$ простая 
+    $0\leq \varphi \leq f$.
+
+    Берем $\Theta\in (0, 1)$. $X_n:=X\{f_n\geq \Theta \varphi\}$, $X_1\subset X_2\subset ...$
+
+    Докажем, что $\bigcup\limits_{n=1}^\infty X_n = X$. Берем $x\in X$. 
+    Если $\varphi(x)=0$, то $x\in X_n\forall n$.
+    Если $\varphi(x)>0$, то $f(x)\geq \varphi(x)>0$ и $\lim f_n(x)=f(x)>\Theta \varphi(x)
+    \Rightarrow$ при больших $n$ $f_n(x)\leq \Theta \varphi(x)\Rightarrow x\in X_n$ при больших $n$.
+
+    Пусть $A_i$ – допустимое разбиение для $\varphi$. $\mu (A_i\cap X_n)\underset{n\rightarrow \infty}{\rightarrow}
+    \mu A_i$ непрерывность меры снизу. Тогда $\underset{=\int\limits_{X_n}\varphi d\mu}{\sum a_i \mu(A_i\cap X_n)} \rightarrow  
+    \underset{=\int\limits_X\varphi d\mu}{\sum a_i \mu A_i}$.
+
+    Достаточно доказать, что $L\geq \Theta \int\limits_{X_n}\varphi d\mu$: 
+
+    $L\geq \int\limits_Xf_n d\mu\geq \int\limits_{X_n} f_n d\mu\geq \int\limits_{X_n} \Theta \varphi d\mu=
+    \Theta \int\limits_{X_n} \varphi d\mu$
+\end{proof}
+
+\subsubsection*{Свойства $\int$ от неотрицательной измеримых функций:}
+
+\begin{enumerate}
+    \item[5.] \textbf{Аддитивность.}
+    
+    Если $f, g\geq 0$ измеримые, то $\int \limits_E(f+g) d\mu =
+    \int \limits_E(f+g)=\int \limits_E f+\int \limits_E g$.
+
+    \item[6.] \textbf{Однородность.}
+    
+    Если $\alpha \geq 0, f\geq 0$ измеримая, то $\int \limits_E(\alpha f) d\mu =
+    \alpha\int \limits_E f d\mu$.
+
+    \begin{proof}~
+        \begin{enumerate}
+            \item[5.] По теореме о приближении $f$ простыми $0\leq \varphi_1\leq 
+            \varphi_2\leq ... \rightarrow f$ (поточечно) и $0\leq \psi_1\leq \psi_2\leq ... \rightarrow g$ (поточечно).
+
+            Тогда $\varphi_n + \psi_n \rightarrow f = g$, $0\leq \varphi_1 + \psi_1\leq \varphi_2 + \psi_2\leq ...$ 
+
+            На простых функциях есть аддитивность: $\int\limits_E (\varphi_n + \psi_n) d\mu =\int\limits_E \varphi_n d\mu + \int\limits_E \psi_n d\mu$
+
+            $\overset{\text{по th Леви}}{\rightarrow}$ $\int\limits_E (f + g) d\mu =\int\limits_E f d\mu + \int\limits_E g d\mu$
+            
+            \item[6.] Считаем, что $\alpha > 0$ (иначе, 0 = 0 и очевидно). Приблизим $f$ простыми: $0\leq \varphi_1\leq 
+            \varphi_2\leq ... \rightarrow f$ (поточечно). Тогда:
+
+            $0\leq \alpha \varphi_1\leq\alpha \varphi_2\leq ... \rightarrow \alpha f$ (поточечно) и $\int\limits_E (\alpha \varphi)d\mu =\int\limits_E \varphi d\mu $
+
+            $\overset{\text{по th Леви}}{\rightarrow}$ $\int\limits_E (\alpha f)d\mu =\int\limits_E f d\mu $
+        \end{enumerate}
+    \end{proof}
+
+    \item[7.] \textbf{Аддитивность по множеству.}
+    
+    $f\geq 0$ измеримая $\Rightarrow \int\limits_{A\sqcup B}f d\mu = \int\limits_A f d\mu +\int\limits_B f d\mu $
+
+    \begin{proof}
+        $\mathbf{1}_A f+\mathbf{1}_B f =\mathbf{1}_{A\sqcup} f$
+    \end{proof}
+
+    \item[8.] Если $\mu E>0$ и $f>0$ на $E$, то $\int\limits_E fd\mu > 0$
+    
+    \begin{proof}
+        Рассмотрим $E_n:=E\{f\geq \frac{1}{n}\}$, тогда $\bigcup\limits_{n=1}^\infty E_n = E$
+
+        $E_1\subset E_2\subset ...\Rightarrow\mu E_n \rightarrow\mu E>0\Rightarrow \mu E_n>0$ и $\int\limits_{E_n} f d\mu > \frac{1}{n}\mu E_n$
+    \end{proof}
+\end{enumerate}
+
+\begin{example}
+    Пусть $T=\{t_1, t_2, ...\}$ не более чем счетное, $\{w_1, w_2, ...\}$ неотрицательные и 
+    $\mu A_i := \sum\limits_{i:t_i\in A} w_i$.
+
+    Проверим, что $\int\limits_A fd\mu = \sum\limits_{i:t_i\in A} f(t_i)\cdot w_i$.
+
+    Если $f=\mathbf{1}_E$: $\int\limits_A \mathbf{1}_E d\mu=\mu (E\cap A) =
+    \sum\limits_{i:t_i\in (A\cap E)} w_i=\sum\limits_{i:t_i\in A} f(t_i)\cdot w_i$
+
+    Если $f\geq 0$ простая, то формула работает по линейности.
+
+    Если $f\geq 0$ измеримая:
+
+    \begin{enumerate}
+        \item[$\geq$.] $\varphi_n = f\mid_{\{t_1, ..., t_n\}}$
+        
+        $\int\limits_A f d\mu \geq \int\limits_A \varphi_n d\mu =\sum\limits_{i\leq n:t_i\in A} f(t_i)w_i
+        \underset{\rightarrow}{\rightarrow} \sum\limits_{i:t_i\in A} f(t_i)w_i$
+        
+        \item[$\leq$.] Пусть $\varphi$ – простая, $0\leq \varphi \leq f$
+        
+        $\int\limits_A f d\mu=\sum\limits_{i:t_i\in A}\varphi (t_i)w_i\leq \sum\limits_{i:t_i\in A}f (t_i)w_i$
+        и берем $\sup$ от $\int\limits_A \varphi d\mu$
+
+        Если $f$ произвольная измеримая, то $f=f_+-f_-$ и вычитаем равенства для $f_\pm$:
+
+        $\int\limits_A f_\pm d\mu=\sum\limits_{i:t_i\in A}f_\pm (t_i)w_i$
+    \end{enumerate}
+\end{example}
+
+
+\begin{definition}
+    \textit{Свойство $P(x)$ верно почти везде на $E$ или для почти всех точек из $E$}:
+
+    Если существует $e\subset E$, т.ч. $\mu e=0$ и $P(x)$ верно $\forall x\in E\setminus e$.
+\end{definition}
+
+\begin{remark}
+    Если $P_1, P_2,...$ – последовательность свойств, верных почти везде на $E$, то они
+    все вместе верны почти везде на $E$.
+\end{remark}
+
+\begin{theorem}
+    \textbf{Неравенство Чебышева}
+
+    Пусть $f\leq 0$ измерима, $p, t> 0$. Тогда $\mu E\{f\geq t\}\leq \frac{1}{t^p}
+    \int\limits_Ef^p d\mu$.
+\end{theorem}
+
+\begin{proof}
+    Заметим, что $E\{f\geq t\}=E\{f^p \geq t^p\}$
+
+    $t^p\mu E\{f\geq t\}=t^p\cdot \mu E\{f^p\geq t^p\}\leq \int\limits{E\{f^p\geq t^p\}} f^p d\mu 
+    \leq \int\limits_E f^pd\mu$
+\end{proof}
+
+\subsubsection*{Свойства интеграла, связанные с почти везде}
+
+\begin{enumerate}
+    \item Если $\int\limits_E |f| d\mu <+\infty$, то $f$ почти везде конечна на $E$.
+    
+    \begin{proof}
+        $\mu E\{|f|\geq n\}\leq \frac{1}{n}\int\limits_E |f|d\mu \underset
+        {n\rightarrow +\infty}{\rightarrow}$
+
+        $mu E\{|f|\geq \pm \infty\}\leq mu E\{|f|\geq n\}\rightarrow 0$
+    \end{proof}
+
+    \item Если $\int\limits_E |f| d\mu=0$, то $f=0$ почти везде на $E$
+    \begin{proof}
+        Если $\mu E\{|f|>0\}>0$, то $\int\limits_{E\{|f|>0\}} |f| d\mu > 0$
+    \end{proof}
+
+    \item Если $A\subset B$ измеримое и $\mu B\setminus A=0$, то $\int\limits_A f d\mu=\int\limits_B f d\mu$
+    (и существуют / не существуют одновременно).
+
+    \begin{proof}
+        $\int\limits_B f_\pm d\mu=\int\limits_A f_\pm d\mu+\int\limits_{B\setminus A} f_\pm d\mu=\int\limits_A f_\pm d\mu$
+    \end{proof}
+
+    \item Если $f$ и $g$ измеримы и $f=g$ почти везде на $E$, то $\int\limits_E fd\mu = \int\limits_E gd\mu$
+    (и существуют / не существуют одновременно).
+
+    \begin{proof}
+        Пусть $f=g$ на $E\setminus e$ и $\mu e=0$.
+
+        $\int\limits_E f d\mu=\int\limits_{E\setminus e} f d\mu = \int\limits_{E\setminus e} gd\mu = \int\limits_E g d\mu$
+    \end{proof}
+\end{enumerate}
+
+\subsection{Суммируемые функции}
+
+\begin{definition}
+    Пусть $f$ – измеримая функция. Если $\int\limits_E f_\pm d\mu$ конечны, то $f$ – 
+    \textit{суммируемая на множестве $E$}.
+\end{definition}
+
+\subsubsection*{Свойства:}
+
+\begin{enumerate}
+    \item Пусть $f$ – измеримая. Тогда $f$ – суммируемая на $E\Leftrightarrow 
+    \int\limits_E|f|d\mu <+\infty$.
+
+    \begin{proof}
+        \begin{enumerate}
+            \item[$\Leftarrow$.] $0\leq f_\pm \leq |f|\Rightarrow \int\limits_Ef_\pm d\mu \leq 
+            \int\limits_E|f|d\mu <+\infty$
+            \item[$\Rightarrow$.] $|f|=f_++f_-\Rightarrow \int\limits_E|f|d\mu=\int\limits_E f_+d\mu+\int\limits_Ef_-d\mu
+            <+\infty$
+        \end{enumerate}
+    \end{proof}
+
+    \item Суммируемая на $E$ функция почти везде конечна на $E$.
+    
+    \item Пусть $A\subset B$. Если $f$ суммируемая на $B$, то $f$ суммируемая на $A$.
+    
+    \begin{proof}
+        $\int\limits_Afd\mu\leq \int\limits_Bfd\mu$
+    \end{proof}
+
+    \item Ограниченная функция суммируемая на множестве конечной мере.
+    
+    \item Если $f$ и $g$ суммируемые на множестве $E$ и $f\leq g$ почти везде на $E$, то 
+    $\int\limits_E f d\mu\leq \int\limits_E g d\mu$.
+
+    \begin{proof}
+        $f_+-f_-\leq g_+ - g_-$ почти везде на $E\Rightarrow f_+ + g_-\leq g_+ + f_-$ почти везде на $E$ 
+
+        $\int\limits_E f_+ + \int\limits_E g_- = \int\limits_E (f_+ + g_-)d\mu \leq \int\limits_E (g_+ + f_-)d\mu=\int\limits_E g_+ + \int\limits_E f_-$
+    \end{proof}
+
+    \item \textbf{Аддитивность интеграла.}
+    
+    Если $f$ и $g$ суммируемые на множестве $E$, то $f+g$ суммируемая на множестве $E$ и 
+    $\int\limits_E (f+g)d\mu = \int\limits_E f d\mu + \int\limits_E gd \mu$.
+
+    \begin{proof}
+        $|f+g|\leq |f|+|g|\Rightarrow \int\limits_E |f+g| d\mu \leq \int\limits_E |f| d\mu +
+        \int\limits_E |g|d\mu < +\infty\Rightarrow$ суммируемость есть
+        
+        Пусть $h=f+g$. $h_+-h_-=h=f+g=f_+-f_-+g_+-g_-\Rightarrow
+        h_+f_-+g_-=f_++g_++h_-\Rightarrow \int\limits_E(h_+f_-+g_-)d\mu = 
+        \int\limits_E(f_++g_++h_-) d\mu$
+    \end{proof}
+
+    \item \textbf{Однородность интеграла.}
+    
+    Если $f$ – суммируемая на $E$, $\alpha\in \R$, то $\alpha f$ суммируемая на $E$ и
+    $\int\limits_E (\alpha f) d\mu=\alpha\int\limits_E f d\mu$.
+
+    \begin{proof}
+        $\int\limits_E |\alpha f| d\mu=|\alpha|\int\limits_E |f| d\mu<+\infty$
+
+        Если $\alpha =0$, то все очевидно. 
+
+        Пусть $\alpha > 0$. $(\alpha f)_+= \alpha f_+$,  $(\alpha f)_-= \alpha f_-$, 
+        $\int\limits_E \alpha f_\pm d\mu = \alpha \int\limits_E f_\pm d\mu$ и вычтем
+
+        Пусть $\alpha =-1$, $(-f)_+=f_-$, $(-f)_-=f_+$,
+        $\int\limits_E (-f)d\mu = \int\limits_E (-f)_+ d\mu - \int\limits_E (-f)_-d\mu =
+        \int\limits_E f_- d\mu - \int\limits_E f_+ d\mu =-\int\limits_E f d\mu$
+    \end{proof}
+
+    \item \textbf{Линейность интеграла.}
+    
+    Если $f, g$ суммируемые на $E$, $\alpha, \beta\in \R$, то $\alpha f +\beta g$
+    суммируема на $E$ и $\int\limits_E (\alpha f +\beta g)d\mu = \alpha\int\limits_E  fd\mu+\beta\int\limits_Eg d\mu$.
+
+    \item \textbf{Аддитивность интеграла по множеству.}
+    
+    Пусть $E=\bigcup\limits_{k=1}^n E_k$ – измеримые множества, $f$ – измеримая. Тогда $f$ суммируема на $E\Leftrightarrow 
+    f$ суммируема на $E_k$ при $k=1, ..., n$. B этом случае, если $E=\bigsqcup\limits_{k=1}^n E_k$, то 
+    $\int\limits_E f d\mu = \sum\limits_{k=1}^n \int\limits_{E_k} fd \mu$.
+
+    \begin{proof}
+        $|\mathbf{1}_{E_k} f|\leq |\mathbf{1}_{E} f|\leq |\mathbf{1}_{E_1} f| + |\mathbf{1}_{E_n} f|\Rightarrow$ равносильность
+
+        Если $E=\bigsqcup\limits_{k=1}^n E_k$, то $\mathbf{1}_{E}=\mathbf{1}_{E_1}+...+\mathbf{1}_{E_n}\Rightarrow 
+        \mathbf{1}_{E} f=\mathbf{1}_{E_1} f + ... + \mathbf{1}_{E_n} f$ и линейность интеграла.
+    \end{proof}
+
+    \item \textbf{Интегрирование по сумме мер}
+    Пусть $\mu_1$ и $\mu_2$ – меры, заданные на одной и той же $\sigma$-алгебре, $\mu = \mu_1 + \mu_2$.
+    Если $f\geq 0$ измеримая, то $\int\limits_E f d\mu = \int\limits_E d \mu_1 + \int\limits_E d\mu_2$.
+
+    $f$ суммируемая относительно $\mu\Leftrightarrow f$ суммируемая относительно $\mu_1$ и $\mu_2$.
+    
+    \begin{proof}
+        \textit{Равенство.}
+
+        Проверим на простых $\int\limits_E \varphi d\mu = \sum\limits_{k=1}^n a_i \mu (A_i \cap E)=
+        \sum\limits_{k=1}^n a_i \mu_1 (A_i \cap E)+\sum\limits_{k=1}^n a_i \mu_2 (A_i \cap E)=
+        \int\limits_E \varphi d\mu_1+\int\limits_E \varphi d\mu_2$
+
+        Берем простые $0\leq \varphi_1 \leq \varphi_2\leq ...\rightarrow f$
+
+        $\int\limits_E \varphi_n d\mu=\int\limits_E \varphi_n d\mu_1+\int\limits_E \varphi_n d\mu_2$
+
+        $\overset{\text{по th Леви}}{\rightarrow} \int\limits_E \varphi d\mu= \int\limits_E \varphi d\mu_1 + \int\limits_E \varphi d\mu_2$
+        
+        \textit{Суммируемость.}
+
+        $\int\limits_E |f|d\mu = \int\limits_E |f|d\mu_1+\int\limits_E |f|d\mu_2$
+    \end{proof}
+\end{enumerate}
+
+\begin{definition}
+    Пусть $f:E\rightarrow \C$. Тогда $f$ \textit{измерима}, если $\Re f$ и $\Im f$ измеримы.
+
+    $\int\limits_E f d \mu :=\int\limits_E \Re f d\mu + \int\limits_E \Im f d \mu$, если то, что написано справо, конечно.
+\end{definition}
+
+\begin{remark}
+    Все свойства, связанные с равенством сохраняются.
+\end{remark}
+
+\begin{statement}
+    Неравенство: $|\int\limits_E f d\mu|\leq \int\limits_E  |f| d\mu$
+\end{statement}
+
+\begin{proof}
+    Если $\int\limits_E |f| d\mu=+\infty$, то все очевидно. 
+    
+    Пусть $\int\limits_E |f| d\mu<+\infty\Rightarrow 
+    \int\limits_E (\Re f)_\pm d\mu, \int\limits_E (\Im f)_\pm d\mu<+\infty$; $(\Re f)_\pm, (\Im f)_\pm\leq |f|$
+
+    Тогда $\int\limits_E f d\mu$ конечный $\Rightarrow$ для некоторых 
+    $\alpha\in \R|\int\limits_E f d\mu|= e^{i\alpha}\cdot \int\limits_E f d\mu=$
+    
+
+    $=\int\limits_E (e^{i\alpha}) d\mu=\int\limits_E \Re(e^{i\alpha}f) d\mu+i\cdot \int\limits_E \Im(e^{i\alpha}f) d\mu
+    =\int\limits_E \Re(e^{i\alpha}f) d\mu\leq $
+
+    $\leq \int\limits_E |\Re(e^{i\alpha}f)| d\mu\leq \int\limits_E |e^{i\alpha}f| d\mu = \int\limits_E |f| d\mu$
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема о счетной аддитивности интеграла.}
+
+    Пусть $f\geq 0$, измерима, $E=\bigsqcup\limits_{n=1}^\infty E_n$. 
+    Тогда $\int\limits_E f d\mu=\sum\limits_{n=1}^\infty\int\limits_{E_n} f d\mu$.
+\end{theorem}
+
+\begin{proof}
+    $S_n:= \sum\limits_{k=1}^n \mathbf{1}_{E_k} f$, $S_n\leq S_{n+1}$, 
+    $S_n\rightarrow f$ поточечно на $E$.
+
+    По теореме Леви: $\int\limits_E S_n d\mu\rightarrow \int\limits_E f d\mu$
+
+    $\int\limits_E S_n d\mu=\int\limits_E \sum\limits_{k=1}^n \mathbf{1}_{E_k}d\mu=
+    \sum\limits_{k=1}^n\int\limits_E \mathbf{1}_{E_k}f d\mu= \sum\limits_{k=1}^n \int\limits_{E_k} fd\mu$
+    это части суммы нужного ряда.
+\end{proof}
+
+\begin{corollary}~
+    \begin{enumerate}
+        \item Если $f\geq 0$ измерима, то $\nu E:= \int\limits_E f d\mu$ –
+        мера на той же $\sigma$-алгебре, что и $\mu$.
+
+        \item Если $f$ – суммируемая и $E=\bigsqcup\limits_{n=1}^\infty E_n$, 
+        то $\int\limits_E f d\mu = \sum\limits_{n=1}^\infty \int\limits_{E_n} f d\mu$.
+
+        \begin{proof}
+            Для $f_+$ и $f_-$ – теорема. Дальше вычтем.
+        \end{proof}
+
+        \item Если $E_1\subset E_2\subset\dots$ и $E=\bigcup\limits_{n=1}^\infty E_n$
+        или $E_1\supset E_2\supset\dots$ и $E=\bigcap\limits_{n=1}^\infty E_n$,
+        $f$ – суммируемая, то $\int\limits_{E_n} fd \mu\rightarrow \int\limits_E f d\mu$.
+
+        \begin{proof}
+            $\nu_\pm A:= \int\limits_A f d\mu$ – конечные меры. По непрерывности сверху (снизу)
+            $\nu_\pm E_n \rightarrow \nu_\pm E$ и вычтем.
+        \end{proof}
+
+        \item Если $f$ суммируемая на $E$, то $\forall \varepsilon > 0$ $\exists A \subset E$, т.ч.
+        $\mu A<+\infty$ и $\int\limits_{E\setminus A} |f| d\mu<\varepsilon$.
+
+        \begin{proof}
+            $E_n:= E\{|f|<\frac{1}{n}\}$, $E_1\supset E_2\subset\dots$
+
+            $E=\bigcap\limits_{n=1}^\infty E_n=E\{f=0\}$. Тогда $\lim\limits_{n\rightarrow \infty} 
+            \int\limits_{E_n} |f| d\mu=\int\limits_{E\{f=0\}}|f| d\mu=0$
+
+            Берем такое $n$, что $\int\limits_{E_n} |f| d\mu<\varepsilon$ и $A=E\setminus E_n$.
+            Надо доказать, что $\mu A<+\infty$: $\mu A = \mu E=\{|f|>\frac{1}{n}\}\underset{\text{Чебышев}}{\leq}
+            \frac{\int\limits_E |f| d\mu}{\frac{1}{n}}<+\infty$
+        \end{proof}
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    \textbf{Абсолютная непрерывность интеграла.}
+
+    Пусть $f$ суммируемая на $E$. Тогда $\forall\varepsilon>0 \exists \delta > 0$, т.ч. если 
+    $e\subset E$ и $\mu e<\delta$, то $\int\limits_e |f| d\mu<\varepsilon$.
+\end{theorem}
+
+\begin{proof}
+    $\int\limits_E |f| d\mu=\sup\{\int\limits_E \varphi d\mu\mid 0 \leq \varphi \leq |f|,
+    \varphi\text{ – простая}\}$.
+
+    Берем такую простую $\varphi_\varepsilon$, что $0 \leq \varphi_\varepsilon \leq |f|$ и 
+    $\int\limits_E \varphi_\varepsilon d\mu\> \int\limits_E |f| d\mu-\varepsilon$.
+
+    $\varphi_\varepsilon$ – простая $\Rightarrow$ ограниченная, пусть $\varphi_\varepsilon\leq C$.
+
+    Возьмем $\delta =\frac{\varepsilon}{C}$. Пусть $\mu e < \delta =\frac{\varepsilon}{C}$.
+
+    $\int\limits_e\varphi_\varepsilon d\mu \leq C\cdot \mu e<\varepsilon$
+
+    $\int\limits_e|f| d\mu=\int\limits_e\varphi_\varepsilon d\mu+
+    \int\limits_e(|f|-\varphi_\varepsilon) d\mu<\varepsilon+\int\limits_e(|f|-\varphi_\varepsilon) d\mu
+    <2\varepsilon$
+\end{proof}
+
+\begin{corollary}
+    Если $\{e_n\}$ последовательность множеств, т.ч. $\mu e_n\rightarrow 0$,
+    $f$ суммируемая $\Rightarrow \int\limits_{e_n} |f| d\mu\rightarrow 0$.
+\end{corollary}
