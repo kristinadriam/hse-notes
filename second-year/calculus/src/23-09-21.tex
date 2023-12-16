@@ -13,23 +13,34 @@
     $(a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n]$, $a, b, a_n, b_n\in \R^m$, то 
     $\lambda_m (a, b]\leq \sum\limits_{n=1}^\infty \lambda_m (a_n, b_n]$
 
-    Зафиксируем $\varepsilon > 0$. Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$.
+    Зафиксируем $\varepsilon > 0$. Возьмем $[a', b]\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$.
 
-    Возьмем $[a', b']\subset (a, b]$ и $\lambda_m (a', b']>\lambda_m (a, b]-\varepsilon$. TODO
+    Возьмем $(a_n, b_n')\supset (a_n, b_n]$, т.ч. $\lambda_m (a_n, b_n']<\lambda_m (a_n, b_n]+\frac{\varepsilon}{2^n}$.
 
-    Тогда $[a', b]\subset (a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n] \subset \bigcup\limits_{n=1}^\infty (a_n, b_n')$
+    Тогда $[a', b]\subset (a, b]\subset \bigcup\limits_{n=1}^\infty (a_n, b_n] \subset \bigcup\limits_{n=1}^\infty (a_n, b_n')
+    \Rightarrow[a', b]\subset\bigcup\limits_{n=1}^\infty (a_n, b_n')$ (компакт и открытые множества)
+
+    Выберем конечное подпокрытие: $(a', b]\subset [a', b]\subset\bigcup\limits_{n=1}^N (a_n, b_n')\subset\bigcup\limits_{n=1}^N (a_n, b_n']\Rightarrow$
+
+    $\overset{\text{усил. монот.}}{\Rightarrow} \lambda_m(a, b]- \varepsilon < \lambda_m(a, b]
+    \leq \sum\limits_{n=1}^N\lambda_m (a_n, b'_n]< \sum\limits_{n=1}^N(\lambda_m (a_n, b_n] + \frac{\varepsilon}{2^n})<
+    \sum\limits_{n=1}^N\lambda_m (a_n, b_n] + \varepsilon\Rightarrow$
+
+    $\Rightarrow\lambda_m(a, b]< \sum\limits_{n=1}^N\lambda_m (a_n, b_n] + 2\varepsilon$ и устремим $\varepsilon$ к нулю.
 \end{proof}
 
 \begin{definition}
     Мера Лебега – стандартное продолжение классического объема с полукольца 
-    $\mathcal{P}^m$. $\sigma$-алгебра, на которую продолжили, – \textit{лебеговская $\sigma$-алгебра}
+    $\mathcal{P}^m$. 
+    
+    $\sigma$-алгебра, на которую продолжили, – \textit{лебеговская $\sigma$-алгебра}
     и обозначается $\mathcal{L}^m$.
 \end{definition}
 
 \begin{remark}
-    $\lambda_m A = \inf \{\sum\limits_{n=1}^\infty \lambda_m P_n \mid P_n\in \mathcal{P}^m\text{ и } A\subset \bigcup\limits_{n=1}^\infty P_n \}$.
+    Из определения стандартного продолжения: $\lambda_m A = \inf \{\sum\limits_{n=1}^\infty \lambda_m P_n \mid P_n\in \mathcal{P}^m\text{ и } A\subset \bigcup\limits_{n=1}^\infty P_n \}$.
 
-    Можно брать и ячейки из $\mathcal{P}^m_{\Q}$ (продолжения совпадут).
+    Можно брать и ячейки из $\mathcal{P}^m_{\Q}$, так как каждая ячейка содержится в ячейке сколь угодно близкой меры с рациональными вершинами. (продолжения совпадут).
 \end{remark}
 
 \textbf{Свойства меры Лебега:}
@@ -40,7 +51,7 @@
         $\mathcal{L}^m\supset \mathcal{B}(\mathcal{P}^m)=\mathcal{B}^m$ содержит все открытые множества.
 
         Если $G$ – открытое и $\not = \varnothing$, то возьмем $a\in G\Rightarrow
-        \exists \underset{\text{ячейка}\subset}{\overline{\text{B}}}_r(a)\subset G$
+        \exists \underset{\text{ячейка}\subset}{\overline{\text{B}}_r}(a)\subset G$
 
         $\lambda G\geq \lambda (\text{ячейка})>0$
 
@@ -112,23 +123,23 @@
     \begin{proof}
         $0=\lambda e = \inf \{\sum\limits_{n=1}^\infty \lambda_m P_n \mid e\subset \bigcup\limits_{j=1}^\infty P_j\text{ и }P_j\in \mathcal{P}^m_\Q \}\Rightarrow$
 
-        $\Rightarrow$ можно выбрать $P_j\in \mathcal{P}^m_\Q$, Т.ч. $e\subset \bigcup\limits_{j=1}^\infty P_j$ и $\sum \lambda P_j < \varepsilon $
+        $\Rightarrow$ можно выбрать $P_j\in \mathcal{P}^m_\Q$, т.ч. $e\subset \bigcup\limits_{j=1}^\infty P_j$ и $\sum \lambda P_j < \varepsilon $
 
-        Рассмотрим ячейку $P_1$, пусть $n=$НОК знаменателей длин ее сторон. Тогда $P_1$ можно разбить на кубические ячейки со стороной $\frac{1}{n}$.
+        Рассмотрим ячейку $P_1$, пусть $n=$ НОК знаменателей длин ее сторон. Тогда $P_1$ можно разбить на кубические ячейки со стороной $\frac{1}{n}$.
     \end{proof}
 
     \item Пусть $m\geq 2$. Гиперплоскость $H_j:= \{x\in \R^m\mid x_j =c\}$ имеет нулевую меру.
     
     \begin{proof}
-        $A_n:=(-n, n]^m\cap H_j(c)$, $H_j(c) \bigcup\limits_{n=1}^\infty A_n$
+        $A_n:=(-n, n]^m\cap H_j(c)$, $H_j(c) = \bigcup\limits_{n=1}^\infty A_n$
 
         Достаточно проверить, что $\lambda A_n =0$: $A_n\subset (-n, n]\times ...\times (-n, n] \times (c - \varepsilon, c]
         \times (-n, n]\times ...\times (-n, n]\Rightarrow \lambda A_n\leq (2n)^{m-1}\cdot \varepsilon$
     \end{proof}
 
-    \item Любое множество, содержащееся в не более чем счетном объединении таких гиперплоскостей, имеет меру 0.
+    \item Любое множество, содержащееся в нбчс объединении таких гиперплоскостей, имеет меру 0.
     
-    (счетное объединение множеств нулевой меры имеет нулевую меру)
+    \textit{Комментарий:} счетное объединение множеств нулевой меры имеет нулевую меру.
     
     \item $\lambda (a, b) =\lambda (a, b] = \lambda [a, b]$
     
@@ -188,7 +199,7 @@
 
         $P_n= (a_n, b_n]\subset (a_n, b_n')$, т.ч. $\lambda (a_n, b_n')< \lambda P_n + \frac{\varepsilon}{2^n}$
 
-        $G=\bigcup\limits_{n=1}^\infty (a_n, b_n')\supset \bigcup\limits_{n=1}^\infty P_n \subset E$
+        $G=\bigcup\limits_{n=1}^\infty (a_n, b_n')\supset \bigcup\limits_{n=1}^\infty P_n \supset E$
 
         $\lambda (G\setminus E) = \lambda G - \lambda E \leq \sum\limits_{n=1}^\infty \lambda (a_n, b_n') - \lambda E
         \leq \sum\limits_{n=1}^\infty (\lambda P_n + \frac{\varepsilon}{2^n}) - \lambda E = \varepsilon + \sum \lambda P_n - \lambda E < 2\varepsilon$
@@ -210,7 +221,7 @@
         $F\subset E$ и $\lambda (E\setminus F)< \varepsilon$.
 
         \begin{proof}
-            $G$ для $X\setminus E$, $\lambda \underbrace{(G\setminus (X\setminus E))}_{=E\setminus (X\setminus G)}< \varepsilon$
+            Рассмотрим $G\supset X\setminus E$, $\lambda \underbrace{(G\setminus (X\setminus E))}_{=E\setminus (X\setminus G)}< \varepsilon$
 
             \includegraphics[width=0.2\linewidth]{images/23-09-21-5.png}
 
@@ -250,7 +261,7 @@
 \end{theorem}
 
 \begin{proof}
-    Сдвиг на вектор $v$: $\lambda \mu E:=\lambda (v + E)$ на ячейках 
+    Сдвиг на вектор $v$: $\mu E:=\lambda (v + E)$ на ячейках 
     $\lambda$ и $\mu$ совпадают $\Rightarrow$ по единственности продолжения они совпадают.
 \end{proof}
 
@@ -266,20 +277,20 @@
 \end{theorem}
 
 \begin{proof}
-    $Q:= (0, 1]^m, k := \mu Q$
+    Положим $Q:= (0, 1]^m$. Тогда $k := \mu Q$.
 
     \begin{enumerate}
         \item Случай $k=1$
         
         Надо доказать, что $\mu =\nu$. Для этого достаточно совпадения на $\mathcal{P}^m_\Q$.
         Любая такая ячейка складывается из кубиков со стороной вида $\frac{1}{n}$, т.е. достаточно 
-        совпадения на кубике $(0, \frac{1}{n}]^m$.
+        совпадения на кубике $Q_n =(0, \frac{1}{n}]^m$.
 
         $\lambda (0, \frac{1}{n}]^m= (\frac{1}{n})^m$
 
         $\mu (0, \frac{1}{n}]^m\overset{?}{=} (\frac{1}{n})^m$
 
-        Возьмем $n^m$ сдвигов такого кубика и сложим $Q$:
+        Ячейка $Q$ есть объединение $n^m$ попарно не пересекающихся сдвигов ячейки $Q_n$:
 
         $\mu (0, \frac{1}{n}]^m= \frac{\mu Q}{n^m}=(\frac{1}{n})^m$
 
@@ -295,18 +306,54 @@
 \end{proof}
 
 \begin{theorem}
+    Мера Лебега инвариантна относительно движения.
+\end{theorem}
+
+\begin{proof}
+    Надо доказать, что мера Лебега не меняется при вращении.
+
+    Пусть $U$ – поворот. Рассмотрим $\mu E := \lambda (UE)$ – мера на $\mathcal{L}^m$ и докажем, что $\nu=\mu$.
+
+    $\mu$ конечна на ограниченных множествах и инвариантна относительно сдвигов.
+    $\mu(E + v) = \lambda (U(E+v))=\lambda (UE+Uv)=\lambda (UE)=\mu E$
+    
+    Тогда по теореме $\mu=k\lambda$ для $k\in [0, +\infty)$. А так как единичный шар переходит в
+    себя при вращении, то $ k=1$.
+\end{proof}
+
+\subsubsection*{Пример неизмеримого множества}
+
+Пусть $x, y\in (0, 1]$. Определим класс эквивалентности $x\tilde y$, если $x-y\in \Q$
+
+$A$ – множество, в которое взяли по одному представителю из каждого класса эквивалентности. 
+
+Построенное множество $A$ неизмеримо.
+
+\begin{proof}
+    От противого. Пусть $A$ измеримо.
+
+    \begin{enumerate}
+        \item $\lambda A = 0$. Тогда $(0, 1]\subset \bigcup\limits_{x\in \Q} 
+        \overset{\text{мн-ва нулевой меры}}{(A+x)}\Rightarrow \lambda (0, 1]=0$, противоречие.
+
+        \item $\lambda A > 0$. Тогда $\bigsqcup\limits_{x\in \Q} (A+x)\subset (0, 2]\Rightarrow 2 
+        \geq \sum\limits_{x\in \Q, 0\leq x \leq 1} \overset{\text{все меры одинак.}}{\lambda(A+x)}$, противоречие.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
     Пусть $G\subset \R^m$ открытое, $\Phi : G\rightarrow \R^m$ непрерывно дифференцируемо. Тогда:
     \begin{enumerate}
-        \item Если $e\subset G$, т.ч. $\lambda e=0$, то $Phi(e)$ измеримо и $\lambda (\Phi(e)) =0$.
+        \item Если $e\subset G$, т.ч. $\lambda e=0$, то $\Phi(e)$ измеримо и $\lambda (\Phi(e)) =0$.
         \item Если $E\subset G$, т.ч. $E$ – измеримо, то $\Phi(E)$ измеримо.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}~
     \begin{enumerate}
-        \item \textbf{Шаг 1.} Пусть $e\subset P\subset \Cl p\subset G$, где $P$ – ячейка.
+        \item \textbf{Шаг 1.} Пусть $e\subset P\subset \Cl P\subset G$, где $P$ – ячейка.
         
-        $\|\Phi'(x)\|$ – непрерывна на компакте $\Cl P\Rightarrow \|\Phi'(x)\|$ ограниченна
+        $\|\Phi'(x)\|$ – непрерывна на компакте $\Cl P\Rightarrow \|\Phi'(x)\|$ ограничена
         на $\Cl P$. 
         
         Пусть $\|\Phi'(x)\|\leq M$. Тогда $\|\Phi'(x)-\Phi'(y)\|\leq M\|x-y\|$ $\forall x, y\in \Cl P$.
@@ -314,10 +361,10 @@
         Накроем $e$ кубическими ячейками $Q_j$ так, что $\sum \lambda Q_j<\varepsilon$.
 
         Пусть $h_j$ – ребро $Q_j$. Тогда если $x, y\in Q_j$, то $\|x - y\|\leq \sqrt{m}h_j\Rightarrow
-        \|Phi'(x)-\Phi'(y)\|\leq M\sqrt{m}h_j\Rightarrow \Phi(Q_j)$ содержится в шаре радиуса $M\sqrt{m}h_j\Rightarrow
+        \|\Phi'(x)-\Phi'(y)\|\leq M\sqrt{m}h_j\Rightarrow \Phi(Q_j)$ содержится в шаре радиуса $M\sqrt{m}h_j\Rightarrow
         \Phi(Q_j)$ содержится в кубе со стороной $2M\sqrt{m}h_j$
 
-        $\Phi(e)\subset \cup\Phi(Q_j)$, $\sum \lambda (\Phi(Q_j))\leq \sum (2M\sqrt{m}h_j)^m=(2M\sqrt{m})^m 
+        $\Phi(e)\subset \bigcup\Phi(Q_j)$, $\sum \lambda (\Phi(Q_j))\leq \sum (2M\sqrt{m}h_j)^m=(2M\sqrt{m})^m 
         \sum \underset{=\lambda Q_j}{h_j^m}=(2M\sqrt{m})^m \sum \lambda Q_j<(2M\sqrt{m})^m\cdot \varepsilon$
 
         \textbf{Шаг 2.} $e$ произвольное, $G=\bigsqcup P_k$, где $P_k$ – ячейки, т.ч. $\Cl P_k\subset G$
@@ -329,24 +376,6 @@
     \end{enumerate}
 \end{proof}
 
-\begin{theorem}
-    Мера Лебега инвариантна относительно движения.
-\end{theorem}
-
-\begin{proof}
-    Надо доказать, что мера Лебега не меняется при вращении.
-
-    Пусть $U$ – поворот. $\mu E := \lambda (UE)$ – мера на $\mathcal{L}^m$.
-
-    $\mu$ конечна на ограниченных множествах. 
-    
-    $\mu$ инвариантна относительно сдвигов.
-
-    $\mu(E + v) = \lambda (U(E+v))=\lambda (UE+Uv)=\lambda (UE)=\mu E$
-
-    Тогда $\mu=k\lambda$ для $k\in [0, +\infty)$. Но единичный шар переходит в
-    себя при вращении $\Rightarrow k=1$
-\end{proof}
 
 \begin{theorem}
     \textbf{Теорема об изменении меры лебега при линейном отображении.}
@@ -355,29 +384,10 @@
 \end{theorem}
 
 \begin{proof}
-    $\mu E := \lambda (T(E))$ инвариантно относительно сдвигов и конечна на ограниченных множествах 
+    $\mu E := \lambda (T(E))$ инвариантнa относительно сдвигов и конечна на ограниченных множествах 
     $\Rightarrow \mu = k\lambda$ для $k=\lambda (T((0, 1]^m))$. Это $|\det T|$ (из алгебры).
 \end{proof}
 
-\subsubsection*{Пример неизмеримого множества}
-
-$x, y\in (0, 1]$, $x\tilde y$, если $x-y\in \Q$
-
-$A$ – берем из каждого класса эквивалентности по одному представителю
-
-$A$ – неизмеримо
-
-\begin{proof}
-    От противого. Пусть $A$ измеримо.
-
-    \begin{enumerate}
-        \item $\lambda A = 0$. Тогда $(0, 1]\subset \bigcup\limits_{x\in \Q} 
-        \overset{\text{множества нулевой меры}}{(A+x)}\Rightarrow \lambda (0, 1]=0$, противоречие.
-
-        \item $\lambda A \supset 0$. Тогда $\bigsqcup\limits_{x\in \Q} (A+x)\subset (0, 2]\Rightarrow 2 
-        \geq \sum\limits_{x\in \Q, 0\leq x \leq 1}\lambda \overset{\text{все меры одинак.}}{(A+x)}$, противоречие.
-    \end{enumerate}
-\end{proof}
 
 \subsection{Измеримые функции}
 
@@ -432,10 +442,10 @@ $A$ – неизмеримо
         
         \item $E\supset A$ – измеримы
         
-        $\mathbf{1}_A(x):= \begin{array}{ll}
+        $\mathbf{1}_A(x):= \left\{\begin{array}{ll}
             1, & \text{если } x\in A \\
             0, & \text{если } x\in E \setminus A \\ 
-        \end{array}$, $\mathbf{1}_A :E \rightarrow \R$
+        \end{array}\right.$, $\mathbf{1}_A :E \rightarrow \R$ – \textit{характеристическая функция}.
 
         \item $E\in \mathcal{L}^m$, $f:E\rightarrow \R$ непрерывна $\Rightarrow f$ – 
         измерима относительно $\mathcal{L}^m$.

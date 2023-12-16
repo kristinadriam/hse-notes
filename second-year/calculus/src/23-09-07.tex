@@ -12,7 +12,7 @@
 \end{enumerate}
 
 \begin{definition}
-    $\{E_\alpha\}_{\alpha\in I}$ – \textit{разбиение множества $E$}, если $E = \bigsqcup\limits_{\alpha\in I} E_\alpha$
+    Семейство множеств $\{E_\alpha\}_{\alpha\in I}$ – \textit{разбиение множества $E$}, если $E = \bigsqcup\limits_{\alpha\in I} E_\alpha$
 \end{definition}
 
 \subsubsection*{Напоминание:}
@@ -21,7 +21,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \in I} (X\setminus E_\alpha)$
 
 \begin{definition}
-    $\mathcal{A}$ – система подмножеств $X$:
+    $\mathcal{A}$ – система подмножеств $X$ – обладает следующими свойствами:
     \begin{enumerate}
         \item[$\delta_0$.] Если $A, B\in \mathcal{A}$, то $A\cap B\in \mathcal{A}$.
         \item[$\sigma_0$.] Если $A, B\in \mathcal{A}$, то $A\cup B\in \mathcal{A}$.
@@ -64,7 +64,9 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
 \begin{enumerate}
     \item $\varnothing, X\in \mathcal{A}$.
-    \item Если $A, B \in \mathcal{A}$, то $\underbrace{A\setminus B}_{A\cap (X \setminus B)}\in \mathcal{A}$.
+    \item Если $A, B \in \mathcal{A}$, то $A\setminus B\in \mathcal{A}$.
+    
+    \textit{Комментарий:} $A\setminus B = A\cap (X \setminus B)$
     \item Если $A_1, A_2, ..., A_n\in \mathcal{A}$, то $\bigcup\limits_{k = 1}^n A_k$ и $\bigcap\limits_{k = 1}^n A_k\in \mathcal{A}$ (по индукции).
 \end{enumerate}
 
@@ -73,9 +75,9 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
         \item[]
         \item $X=\R^2$, $\mathcal{A} = \{\text{все огранич. мн-ва и их дополнения}\}$
         
-        (пустое есть, для любого множества есть дополнение, пересечение двух ограниченных ограниченно,
+        \textit{Комментарий:} пустое есть, для любого множества есть дополнение, пересечение двух ограниченных ограниченно,
         пересечение ограниченного с каким-то ограничено и пересечение дополнений – это дополнение объединений, а 
-        объединение ограниченных ограничено)
+        объединение ограниченных ограничено.
         
         $\mathcal{A}$ – алгебра, но не $\sigma$-алгебра.
 
@@ -88,7 +90,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
         \begin{proof}
             $Y \setminus (A\cap Y) = Y \cap (X \setminus A)$
 
-            Проверили, что взяли какую-то алгберу и пересекли с конкретным множеством, то структура сохранится.
+            Проверили, что взяли какую-то алгебру и пересекли с конкретным множеством, то структура сохранится.
 
             \includegraphics[width=0.3\linewidth]{images/23-09-07-1.png}
         \end{proof}
@@ -98,16 +100,17 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
         \begin{proof}
             Пустое лежало везде, поэтому оно осталось в пересечении. Само пересечение, очевидно, тоже есть.
 
-            Если $A, B\in \bigcap\limits_{\alpha \in I} A_\alpha$, то $A, B\in \mathcal{A}_\alpha\ \forall \alpha \in I\Rightarrow A\cup B \in \mathcal{A}_\alpha\ \forall \alpha \in I\Rightarrow \bigcap\limits_{\alpha \in I} A_\alpha$
+            Если $A, B\in \bigcap\limits_{\alpha \in I} A_\alpha$, то $A, B\in \mathcal{A}_\alpha\ \forall \alpha \in I\Rightarrow A\cup B 
+            \in \mathcal{A}_\alpha\ \forall \alpha \in I\Rightarrow A\cup B\in \bigcap\limits_{\alpha \in I} A_\alpha$
         \end{proof}
 
         \item Пусть есть $A, B\subset X$. 
         
         \textit{Вопрос:} из чего состоит наименьшая алебра, содержащая $A$ и $B$?
         
-        \textit{Ответ:} $\varnothing, X, A, B, A\cap B, A \cup B, X \setminus A,  X \setminus B,  X \setminus (A\cap B),  X \setminus (A\cup B), A\setminus B, B\setminus B,$
+        \textit{Ответ:} $\varnothing$, $X$, $A$, $B$, $A\cap B$, $A \cup B$, $X \setminus A$, $X \setminus B$, $X \setminus (A\cap B)$, $X \setminus (A\cup B)$, $A\setminus B$, $B\setminus B$,
         
-        $A\triangle B, X \setminus (A\triangle B), X\setminus (A\setminus B), X\setminus (B\setminus A)$
+        $A\triangle B$, $X \setminus (A\triangle B)$, $X\setminus (A\setminus B)$, $X\setminus (B\setminus A)$
 
         \includegraphics[width=0.3\linewidth]{images/23-09-07-2.png}
     \end{enumerate}
@@ -124,8 +127,6 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
     Пусть $\mathcal{A}_\alpha$ – всевозможные $\sigma$-алгебры, содержащие $\mathcal{E}$.
 
     $\mathcal{B} :=\bigcap\limits_{\alpha \in I}\mathcal{A}_\alpha$ – $\sigma$-алгебра, $\mathcal{B} \supset \mathcal{E}$ и $\mathcal{A}_\alpha \supset \mathcal{E}\ \forall \alpha$.
-
-    Доказали сущестование.
 \end{proof}
 
 \begin{definition}
@@ -141,7 +142,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{remark}
 
 \begin{definition}
-    $\mathcal{R}$ – \textit{кольцо подмножеств $X$}, если $A, B\in \mathcal{R}\Rightarrow A \cap B,  A \cup B,  A \setminus B\in \mathcal{R}$
+    Система множеств $\mathcal{R}$ – \textit{кольцо подмножеств $X$}, если $A, B\in \mathcal{R}\Rightarrow A \cap B$, $A \cup B$, $A \setminus B\in \mathcal{R}$.
 \end{definition}
 
 \begin{remark}
@@ -149,12 +150,12 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{remark}
 
 \begin{definition}
-    $\mathcal{P}$ – \textit{полукольцо подмножеств $X$}, если:
+    Система подмножеств $\mathcal{P}$ – \textit{полукольцо подмножеств $X$}, если:
     \begin{enumerate}
-        \item $\varnothing \in \mathcal{P}$
-        \item $A, B \in \mathcal{P}\Rightarrow A \cap B \in \mathcal{P}$
+        \item $\varnothing \in \mathcal{P}$.
+        \item $A, B \in \mathcal{P}\Rightarrow A \cap B \in \mathcal{P}$.
         \item $A, B \in \mathcal{P}\Rightarrow$ существуют $Q_1, Q_2, ..., Q_n\in \mathcal{P}$ 
-            т.ч. $A\setminus B =\bigsqcup\limits_{k=1}^n Q_k$
+            т.ч. $A\setminus B =\bigsqcup\limits_{k=1}^n Q_k$.
     \end{enumerate}
 \end{definition}
 
@@ -165,15 +166,18 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{example}
 
 \begin{lemma}
-    $\bigcup A_k=\bigsqcup (A_k \setminus \bigcup\limits_{j=1}^{k - 1} A_j)$ 
+    $\bigcup\limits_{k=1}^\infty A_k=\bigsqcup\limits_{k=1}^\infty (A_k \setminus \bigcup\limits_{j=1}^{k - 1} A_j)$ 
 \end{lemma}
 
-\begin{proof} Проверяем «$\supset$»: $B_k := A_k \setminus \bigcup\limits_{j=1}^{k-1} A_j \subset A_k \Rightarrow \bigcup A_k \supset \bigcup B_k$
-
-    Проверяем, что $B_k$ дизъюнктны: $B_n \subset A_n \setminus \underbrace{A_k}_{\supset B_k}$ при $n>k\Rightarrow B_n \cup B_k = \varnothing$
-
-    Проверяем «$\subset$»: берем $x\in \bigcup A_k$, $n:=\min \{j\mid x\in A_j\}\Rightarrow x\in B_n=\underbrace{A_n}_{x\in}\setminus \underbrace{\bigcup\limits_{j=1}^{n-1} A_j}_{x\not\in} 
-    \Rightarrow x\in \bigcup B_k$.
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\supset$.] Пусть $B_k := A_k \setminus \bigcup\limits_{j=1}^{k-1} A_j \subset A_k \Rightarrow \bigcup A_k \supset \bigcup B_k$.
+        
+        При этом $B_k$ дизъюнктны: $B_n \subset A_n \setminus \underbrace{A_k}_{\supset B_k}$ при $n>k\Rightarrow B_n \cup B_k = \varnothing$
+        
+        \item[$\subset$.] Берем $x\in \bigcup A_k$. Обозначим $n:=\min \{j\mid x\in A_j\}\Rightarrow x\in B_n=\underbrace{A_n}_{x\in}\setminus \underbrace{\bigcup\limits_{j=1}^{n-1} A_j}_{x\not\in} 
+        \Rightarrow x\in \bigcup B_k$.    
+    \end{enumerate} 
 \end{proof}
 
 \begin{theorem}
@@ -192,18 +196,19 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
         \item Индукция по $n$. База – определение. Переход $n -1 \rightarrow n$
         
         $P \setminus \bigcup\limits_{k=1}^n P_k = (\underbrace{P \setminus \bigcup\limits_{k=1}^{n-1} P_k}_{\text{инд.пр.} = \bigsqcup\limits_{j=1}^m Q_j}) 
-        \setminus P_n=\bigsqcup\limits_{j=1}^m Q_j \setminus P_n = \bigsqcup\limits_{j=1}^m\bigsqcup\limits_{i=1}^{m_j} Q_{ji}$
+        \setminus P_n=\bigsqcup\limits_{j=1}^m (Q_j \setminus P_n) = \bigsqcup\limits_{j=1}^m\bigsqcup\limits_{i=1}^{m_j} Q_{ji}$
 
-        \item $\bigcup\limits_{k=1}^n P_k = \bigsqcup\limits_{k=1}^n (P_k \setminus \bigcup\limits_{j=1}^{k -1} P_j)\overset{\text{по 1}}{=}\bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k}Q_{kj}\Rightarrow Q_{kj}\subset P_k$
+        \item $\bigcup\limits_{k=1}^n P_k = \bigsqcup\limits_{k=1}^n (P_k \setminus \bigcup\limits_{j=1}^{k -1} P_j)\overset{\text{по 1}}{=}
+        \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k}Q_{kj}\Rightarrow Q_{kj}\subset P_k$
     \end{enumerate}
 \end{proof}
 
 \begin{theorem}
     \textbf{Декартово произведение полуколец}
 
-    Пусть $\mathcal{P}$ – полукольцо подмножеств мн-ва $X$, $\mathcal{Q}$ – полукольцо подмножеств мн-ва $Y$.
+    Пусть $\mathcal{P}$ – полукольцо подмножеств множества $X$, $\mathcal{Q}$ – полукольцо подмножеств множества $Y$.
 
-    Тогда конструкция $\mathcal{P}\times \mathcal{Q} := \{ P\times Q \mid P \in \mathcal{P}, Q\in \mathcal{Q}\}$ – полукольцо подмножеств $X\times Y$.
+    Тогда конструкция произведения полуколец $\mathcal{P}\times \mathcal{Q} := \{ P\times Q \mid P \in \mathcal{P}, Q\in \mathcal{Q}\}$ – полукольцо подмножеств $X\times Y$.
 \end{theorem}
 
 \begin{proof}
@@ -270,6 +275,22 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
     \item $\mathcal{P}_{\Q}^m$ – семейство ячеек в $\R^m$, у которых все координаты вершин рациональны.
 \end{enumerate}
 
+\begin{remark}
+    $\mathcal{P}^m$ и $\mathcal{P}_{\Q}^m$ – полукольца.
+\end{remark}
+
+\begin{proof}
+    Индукция по размерности.
+
+    \textit{База:} $m=1$ – был пример с доказательством. 
+    
+    \textit{Переход:} верно для $m$, докажем для $m+1$. 
+
+    $\mathcal{P}^{m+1}=\mathcal{P}^{m}\times \mathcal{P}^1$ и $\mathcal{P}_{\Q}^{m+1}=\mathcal{P}_{\Q}^{m}\times \mathcal{P}_{\Q}^1$ – 
+    полукольца, так как декартово произведение сохраняет структуру полукольца.
+
+\end{proof}
+
 \begin{theorem}
     Всякое непустое открытое множество $G \subset \R^m$ представляется в виде дизъюнктного объединения
     счетного числа ячеек, замыкания которых $\subset G$. Более того, можно считать, что координаты всех 
@@ -279,10 +300,10 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \begin{proof}
     $x\in G\overset{G\text{ откр.}}{\Rightarrow} x\in \overline{\text{B}}_{r}(x)\subset G$
 
-    Найдется ячейка $R_x$, т.ч. $x\in R_x$, координаты $R_x$ рациональны и $\Cl R_x \subset G$ ($\Cl$ содержится
+    Для каждой точки найдется ячейка $R_x$, т.ч. $x\in R_x$, координаты $R_x$ рациональны и $\Cl R_x \subset G$ ($\Cl$ содержится
     в $\overline{\text{B}}_{r}(x)$, которое содержится в $G$). 
     
-    Выкинем все повторы и получим счетное число ячеек, объединение которых (не дизъюнктное) равно $G$. По свойству 
+    Так как полукольцо счетно, то выкинув все повторы, мы получим счетное число ячеек, объединение которых (не дизъюнктное) равно $G$. По свойству 
     полукольца можно это объединение сделать дизъюнктным.
 
     \includegraphics[width=0.2\linewidth]{images/23-09-07-8.png}
@@ -321,8 +342,8 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
     Тогда $\mu$ – \textit{объем}, если:
     \begin{enumerate}
-        \item $\mu \varnothing = 0$
-        \item Если $A_1, ..., A_n \in \mathcal{P}$, то $\mu(\bigsqcup\limits_{k=1}^n A_k)=\sum \limits_{k=1}^n \mu A_k$
+        \item $\mu \varnothing = 0$.
+        \item Если $A_1, ..., A_n \in \mathcal{P}$, то $\mu(\bigsqcup\limits_{k=1}^n A_k)=\sum \limits_{k=1}^n \mu A_k$.
     \end{enumerate}
 \end{definition}
 
@@ -354,14 +375,14 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
         
         $\lambda_m(a, b] = (b_m - a_m)...(b_2 - a_2)(b_1 - a_1)$
         \item $x_0\in X$, $a>0$, $\mu A =\left\{\begin{array}{ll}
-            a, & \text{если } x_0\in A  \\
-            0, & \text{иначе} 
+            a, & \text{если } x_0\in A,  \\
+            0, & \text{иначе.}
        \end{array}\right.$
-        \item $\mathcal{A}$ – огранич. подмн-ва $\R$ и их дополнения. 
+        \item $\mathcal{A}$ – ограниченные подмножества $\R$ и их дополнения. 
         
         Если $A\in \mathcal{A}$, то $\mu A=\left\{\begin{array}{ll}
-            0, & \text{если } A \text{ – огр. мн-во}  \\
-            1, & \text{иначе} 
+            0, & \text{если } A \text{ – огр. мн-во,}  \\
+            1, & \text{иначе.} 
         \end{array}\right.$
 
         Это объем, но не мера.
@@ -369,25 +390,26 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{example}
 
 \begin{theorem}
-    Пусть $\mu$ – объем на полукольце $\mathcal{P}$. Тогда:
+    Пусть $\mu$ – объем на полукольце $\mathcal{P}$ и $P, P', P_1, ..., P_n \in \mathcal{P}$. Тогда:
 
     \begin{enumerate}
-        \item Если $P'\subset P$ ($P, P'\in \mathcal{P}$), то $\mu P' \leq \mu P$. (монотонность объема)
-        \item Если $\bigsqcup\limits_{k=1}^n \underset{\in\mathcal{P}}{P_k}\subset \underset{\in\mathcal{P}}{P}$, то $\sum\limits_{k=1}^n \mu P_k \leq \mu P$. (усиленная монотонность)
-        \item[2'.] Если $\bigsqcup\limits_{k=1}^\infty \underset{\in\mathcal{P}}{P_k}\subset \underset{\in\mathcal{P}}{P}$, то $\sum\limits_{k=1}^\infty \mu P_k \leq \mu P$.
-        \item[3.] Если $P\subset \bigcup\limits_{k=1}^n P_k$, то $\mu P \leq \sum\limits_{k=1}^n \mu P_k$ (полуаддитивность)
+        \item Если $P'\subset P$, то $\mu P' \leq \mu P$ (монотонность объема).
+        \item Если $\bigsqcup\limits_{k=1}^n P_k\subset P$, то $\sum\limits_{k=1}^n \mu P_k \leq \mu P$ (усиленная монотонность).
+        \item[2'.] Если $\bigsqcup\limits_{k=1}^\infty P_k\subset P$, то $\sum\limits_{k=1}^\infty \mu P_k \leq \mu P$.
+        \item[3.] Если $P\subset \bigcup\limits_{k=1}^n P_k$, то $\mu P \leq \sum\limits_{k=1}^n \mu P_k$ (полуаддитивность).
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}~
     \begin{enumerate}
+        \item[1.] Следует из усиленной монотонности.
         \item[2.] $P\setminus \bigsqcup\limits_{k=1}^n P_k = \bigsqcup\limits_{j=1}^m Q_j$, где $Q_j \in \mathcal{P}\Rightarrow
         P = \bigsqcup\limits_{k=1}^n P_k \sqcup \bigsqcup\limits_{j=1}^m Q_j\Rightarrow \mu P = \sum\limits_{k=1}^n \mu P_k +
         \sum\limits_{j=1}^m \mu Q_j \geq \sum\limits_{k=1}^n \mu P_k$
 
         \item[2'.] $\bigsqcup\limits_{k=1}^n P_k \subset \bigsqcup\limits_{k=1}^\infty P_k \subset P \Rightarrow
         \mu P \geq \sum\limits_{k=1}^n \mu P_k \rightarrow \sum\limits_{k=1}^\infty \mu P_k$
-        \item[3.] $P'_k:= P_k \cap P \in \mathcal{P} \Rightarrow P = \bigcup\limits_{k=1}^n P_k' \Rightarrow P = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$,
+        \item[3.] Положим $P'_k:= P_k \cap P \in \mathcal{P} $, тогда $ P = \bigcup\limits_{k=1}^n P_k' \Rightarrow P = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$,
         $Q_{kj}\in \mathcal{P}$, $Q_{kj}\subset P_k' \subset P_k$
 
         $\bigsqcup\limits_{j=1}^{m_k} Q_{kj} \subset P_k \overset{2)}{\Rightarrow} \sum\limits_{j=1}^{m_k}\mu Q_{kj} \leq \mu P_k$
@@ -407,7 +429,7 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 
 \begin{theorem}
     Пусть $\mathcal{P}$ – полукольцо подмножеств $X$, $\mu$ – объем на $\mathcal{P}$, 
-    $\mathcal{Q}$ – полукольцо подмножеств $Y$, $\nu$ – объем на $\mathcal{Q}$.
+    $\mathcal{Q}$ – полукольцо подмножеств $Y$, $\nu$ – объем на $\mathcal{Q}$. Определим $\lambda$:
 
     $\lambda: \mathcal{P}\times \mathcal{Q}\rightarrow [0, +\infty]$.
 
@@ -418,7 +440,8 @@ $X \setminus  \bigcup\limits_{\alpha \in I} E_\alpha = \bigcap\limits_{\alpha \i
 \end{theorem}
 
 \begin{proof}
-    Если $P = \bigsqcup\limits_{k=1}^n P_k$ и $Q =  \bigsqcup\limits_{j=1}^m Q_j$, то $P\times Q = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^m P_k \times Q_j$
+    Рассмотрим более простой случай, когда $P = \bigsqcup\limits_{k=1}^n P_k$ и $Q = \bigsqcup\limits_{j=1}^m Q_j$. 
+    Тогда $P\times Q = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^m P_k \times Q_j$
 
     $\lambda(P \times Q) = \mu P \cdot \nu Q = \sum\limits_{k=1}^n \mu P_k \cdot \sum\limits_{j=1}^m \nu Q_j = \sum\limits_{k=1}^n \sum\limits_{j=1}^m \underbrace{\mu P_k \nu O_j}_{=\lambda (P_k \times Q_j)}$
 

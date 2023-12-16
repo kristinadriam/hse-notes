@@ -53,7 +53,7 @@
     
     \item Если $\mu E=0$, то $\int\limits_E fd\mu=0$.
     
-    \item $\int\limits_E fd\mu =\int\limits_X \mathbf{1}_E fd\mu$.
+    \item $\int\limits_E fd\mu =\int\limits_X \mathbf{1}_E d\mu$.
     
     \item Если $A\subset B$, то $\int\limits_A fd\mu\leq \int\limits_B fd\mu$.
 \end{enumerate}
@@ -70,7 +70,7 @@
 \begin{theorem}
     \textbf{Теорема Беппо Леви}
 
-    Пусть $f_n\leq 0$ – измеримые, $0\leq f_1 \leq f_2 \leq ...$. 
+    Пусть $f_n\geq 0$ – измеримые, $0\leq f_1 \leq f_2 \leq ...$. 
     Если $f_n$ поточечно сходится к $f$, то $\lim \int\limits_X f_n d\mu =\int\limits_X f_n d\mu$.
 \end{theorem}
 
@@ -78,8 +78,8 @@
     $f_n \leq f_{n+1}\Rightarrow \int\limits_X f_n d\mu \leq \int\limits_X f_{n+1} d\mu\Rightarrow$
     последовательность $\int\limits_X f_n d\mu$ возрастает.
 
-    Пусть $L:=\lim \int\limits_X f_n d\mu$. Поскольку $f_n\leq f$, $\underset{\rightarrow}{\int\limits_X f_n d\mu} \leq \int\limits_X f d\mu$
-    $\Rightarrow L\leq \lim  \int\limits_X f_n d\mu$
+    Пусть $L:=\lim \int\limits_X f d\mu$. Поскольку $f_n\leq f$, $\underset{\rightarrow}{\int\limits_X f_n d\mu} \leq \int\limits_X f d\mu$
+    $\Rightarrow L\leq \lim  \int\limits_X f d\mu$
 
     Надо доказать, что $L\geq \lim\int\limits_X f_n d\mu=\sup\{\int\limits_X\varphi
     d\mu \mid 0\leq \varphi \leq f\}$, где $\varphi$ – простая. 
@@ -142,7 +142,7 @@
     $f\geq 0$ измеримая $\Rightarrow \int\limits_{A\sqcup B}f d\mu = \int\limits_A f d\mu +\int\limits_B f d\mu $
 
     \begin{proof}
-        $\mathbf{1}_A f+\mathbf{1}_B f =\mathbf{1}_{A\sqcup} f$
+        $\mathbf{1}_A f+\mathbf{1}_B f =\mathbf{1}_{A\sqcup B} f$
     \end{proof}
 
     \item[8.] Если $\mu E>0$ и $f>0$ на $E$, то $\int\limits_E fd\mu > 0$
@@ -199,14 +199,14 @@
 \begin{theorem}
     \textbf{Неравенство Чебышева}
 
-    Пусть $f\leq 0$ измерима, $p, t> 0$. Тогда $\mu E\{f\geq t\}\leq \frac{1}{t^p}
+    Пусть $f\geq 0$ измерима, $p, t> 0$. Тогда $\mu E\{f\geq t\}\leq \frac{1}{t^p}
     \int\limits_Ef^p d\mu$.
 \end{theorem}
 
 \begin{proof}
     Заметим, что $E\{f\geq t\}=E\{f^p \geq t^p\}$
 
-    $t^p\mu E\{f\geq t\}=t^p\cdot \mu E\{f^p\geq t^p\}\leq \int\limits{E\{f^p\geq t^p\}} f^p d\mu 
+    $t^p\mu E\{f\geq t\}=t^p \mu E\{f^p\geq t^p\}\leq \int\limits_{E\{f^p\geq t^p\}} f^p d\mu 
     \leq \int\limits_E f^pd\mu$
 \end{proof}
 
@@ -219,10 +219,10 @@
         $\mu E\{|f|\geq n\}\leq \frac{1}{n}\int\limits_E |f|d\mu \underset
         {n\rightarrow +\infty}{\rightarrow}$
 
-        $mu E\{|f|\geq \pm \infty\}\leq mu E\{|f|\geq n\}\rightarrow 0$
+        $\mu E\{|f|\geq \pm \infty\}\leq \mu E\{|f|\geq n\}\rightarrow 0$
     \end{proof}
 
-    \item Если $\int\limits_E |f| d\mu=0$, то $f=0$ почти везде на $E$
+    \item Если $\int\limits_E |f| d\mu=0$, то $f=0$ почти везде на $E$.
     \begin{proof}
         Если $\mu E\{|f|>0\}>0$, то $\int\limits_{E\{|f|>0\}} |f| d\mu > 0$
     \end{proof}
@@ -336,6 +336,7 @@
     \end{proof}
 
     \item \textbf{Интегрирование по сумме мер}
+    \item 
     Пусть $\mu_1$ и $\mu_2$ – меры, заданные на одной и той же $\sigma$-алгебре, $\mu = \mu_1 + \mu_2$.
     Если $f\geq 0$ измеримая, то $\int\limits_E f d\mu = \int\limits_E d \mu_1 + \int\limits_E d\mu_2$.
 

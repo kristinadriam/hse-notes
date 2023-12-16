@@ -1,0 +1,86 @@
+\documentclass[10pt, oneside, dvipsnames]{extarticle}
+\input{preamble}
+\usepackage{cleveref}
+\begin{document}
+
+\newpage
+
+\begin{definition}
+    Пусть $f: E\rightarrow \R^m$, $E\subset \R^n$, $a\in \Int E$. Тогда $f$ \textit{дифференцируема в точке} $a$, если существует линейное отображение $T: \R^n \rightarrow \R^m$, т.ч. 
+    
+    $f(a + h) = f(a) + Th + o(\|h\|)$ при $h\rightarrow 0$.
+\end{definition}
+
+\begin{remark}
+    Дифференцируемость в точке $a$ влечет непрерывность в точке $a$.
+
+    $f(a+h)=\underset{\rightarrow f(a)}{f(a)}+\underset{\rightarrow T0=0}{Th}+\underset{\rightarrow 0}{o(\|h\|)}$ при $h \rightarrow 0$
+\end{remark}
+
+\begin{theorem}
+    Пусть $f: E\rightarrow \R^m$, $E\subset \R^n$, $a\in \Int E$, $f=\begin{pmatrix}
+        f_1  \\ \vdots \\ f_m
+    \end{pmatrix}$, где $f_1, ..., f_m: E\rightarrow \R$ (\textit{координатные функции}). Тогда $f$ дифференцирема в точке $a\Leftrightarrow f_j$  дифференцируема в точка $a$ $\forall j=1, ..., m$.
+\end{theorem}
+
+
+\begin{corollary}
+    Матрица Якоби $f$ – матрица, составленная из градиентов координатных функций: $f'(a)=\begin{pmatrix}
+             \triangledown f_1(a) \\ \vdots \\ \triangledown f_m(a)
+         \end{pmatrix}$.
+\end{corollary}
+
+\begin{statement}
+    $\frac{\partial f}{\partial x_k}(a)=\langle \triangledown f(a), e_k\rangle$, то есть $\triangledown f(a)= (\frac{\partial f}{\partial x_1}(a), ..., \frac{\partial  f}{\partial x_n}(a))$.
+\end{statement}
+
+\begin{theorem}
+    Пусть $f: E\rightarrow \R$, $E\subset \R^n$, $a\in \Int E$. Если все частные производные функции $f$ непрерывны в точке $a$, то $f$  дифференцируема в точке $a$.
+\end{theorem}
+
+\begin{definition}
+    $f$ \textit{непрерывно дифференцируема в точке $a$}, если $f$ дифференцируема в окрестности точки $a$ и $\|d_xf-d_af\|\underset{x\rightarrow a}{\rightarrow} 0$.
+\end{definition}
+
+\begin{theorem}
+    Пусть $f: E\rightarrow \R^m$, $E\subset \R^n$, $a\in \Int E$, $f$ дифференцируема в окрестности точки $a$. Тогда $f$ непрерывно дифференцируема в точке $a\Leftrightarrow\pdv{f_i}{x_j}$ непрерывна в точке $a$ $\forall i, j$. 
+\end{theorem}
+
+
+\begin{theorem}
+    \textbf{Формула Тейлора с остатком в форме Пеано.}
+
+    Пусть $D\subset \R^n$ открытое, $f\in C^{r}(D)$, $a\in D$. Тогда при $x\rightarrow a$:
+    
+    $f(x)=\sum\limits_{|k|\leq r}\frac{f^{(k)}(a)}{k!}(x-a)^k+o(\|x-a\|^r)$
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Необходимое условие экстремума.}
+
+    Пусть $f: E\rightarrow \R$, $E\subset \R^n$, $a\in \Int E$, $a$ – точка экстремума функции $f$. Тогда если существует $\frac{\partial f}{\partial x_k}(a)$, то $\frac{\partial f}{\partial x_k}(a)=0$. В частности, если $f$ дифференцируема в точке $a$, то $\frac{\partial f}{\partial x_1}(a)=...=\frac{\partial f}{\partial x_n}(a)=0$, то есть $\triangledown f(a)=0$.
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Достаточные условия экстремума.}
+
+    Пусть $f: E\rightarrow \R$, $E\subset \R^n$, $a\in \Int E$, $a$ – стационарная точка, $f$ дважды дифференцируема, $Q(h):=\sum\limits_{i=1, j=1}^n\frac{\partial^2 f}{\partial x_i \partial x_j}(a) h_i h_j$. Тогда:
+    \begin{enumerate}
+        \item Если $Q$ строго положительно определена, то $a$ точка строгого локального минимума.
+        \item Если $Q$ строго отрицательного определена, то $a$ точка строгого локального максимума
+        \item Если $a$ точка нестрогого локального минимума, то $Q$ нестрого положительно определена.
+        \item Если $a$ точка нестрогого локального максимума, то $Q$ нестрого отрицательно определена.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Метод неопределенных множителей Лагранжа}
+    
+    Пусть $f: D \rightarrow \R$ непрерывно дифференцируема,  $\Phi: D \rightarrow \R^m$ непрерывно дифференцируема, $a\in D$, $\Phi(a) =0$, $D$ открытое. 
+
+    Если $a$ точка условного экстремума (при условии $\Phi(x) = 0$), то $\triangledown f_{(a)}$, $\triangledown \Phi_1^{(a)}$, ..., $\triangledown \Phi_m^{(a)}$ линейно зависимы.
+\end{theorem}
+
+\newpage
+
+\end{document}

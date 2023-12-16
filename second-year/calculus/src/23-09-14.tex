@@ -12,8 +12,8 @@
         \end{exercise}
 
         \item $x_0\in X$, $a>0$, $\mu A=\left\{\begin{array}{ll}
-            a, & \text{если } x_0\in A \\
-            0, & \text{иначе}
+            a, & \text{если } x_0\in A, \\
+            0, & \text{иначе.}
         \end{array}\right.$
         \item Считающая мера $\mu A=$ количество элементов в множестве $A$.
         \item $T=\{t_1, t_2, ...\}\subset X$, $\{w_1, w_2, ...\}$ –  неотрицательные числа, $\mu A:=\sum\limits_{i:t_i\in A}w_i$
@@ -36,7 +36,7 @@
 \begin{theorem}
     Пусть $\mu: \mathcal{P} \rightarrow [0, +\infty]$ – объем на полукольце. 
     
-    Тогда $\mu $ – мера $\Leftrightarrow$ (счетная полуаддитивность) Если $P, P_n\in \mathcal{P}, P \subset\bigcup\limits_{n=1}^\infty P_n$, 
+    Тогда $\mu $ – мера $\Leftrightarrow$ \textbf{счетная полуаддитивность:} eсли $P, P_n\in \mathcal{P}, P \subset\bigcup\limits_{n=1}^\infty P_n$, 
     то $\mu P \leq \sum\limits_{n=1}^\infty \mu P_n$.
 \end{theorem}
 
@@ -47,7 +47,9 @@
                 \item счетная полуаддитивность $\Rightarrow \mu P \leq \sum\limits_{n=1}^\infty \mu P_n$
                 \item усиленная монотонность $\Rightarrow \mu P \geq \sum\limits_{n=1}^\infty \mu P_n$
             \end{enumerate}
-        \item[$\Rightarrow$.] $P_n':= P \cap P_n \in \mathcal{P} \Rightarrow P = \bigcup\limits_{n=1}^\infty P'_n\Rightarrow 
+
+            Из всего этого следует счетная аддитивность, то есть $\mu$ – мера.
+        \item[$\Rightarrow$.] Положим $P_n':= P \cap P_n \in \mathcal{P}$. Тогда $P = \bigcup\limits_{n=1}^\infty P'_n\Rightarrow 
         P = \bigsqcup\limits_{n=1}^\infty\bigsqcup\limits_{k=1}^{m_k}Q_{nk}$, где $Q_{nk}\in \mathcal{P}$, $Q_{nk} \subset P'_n \subset P_n$
 
         $\mu P = \sum\limits_{k=1}^\infty \sum\limits_{k=1}^{m_k} \mu Q_{nk} \leq \sum \limits_{n=1}^\infty \mu P_n$
@@ -62,31 +64,31 @@
 \end{corollary}
 
 \begin{proof}
-    $\mu _n = 0$, $A=\bigsqcup\limits_{n=1}^\infty A_n\overset{\text{счет. полуад.}}{\Rightarrow} \mu A_n \leq \sum\limits_{n=1}^\infty \mu A_n=0\Rightarrow \mu A=0$
+    $\mu A_n = 0$, $A=\bigcup\limits_{n=1}^\infty A_n\overset{\text{счет. полуад.}}{\Rightarrow} \mu A \leq \sum\limits_{n=1}^\infty \mu A_n=0\Rightarrow \mu A=0$
 \end{proof}
 
 \begin{theorem}
     Пусть $\mu$ – объем, заданный на $\sigma$-алгебре $\mathcal{A}$. 
     
-    Тогда $\mu$ – мера $\Leftrightarrow$ (непрерывность снизу) Если $A_1 \subset A_2 \subset ....$, $A_n\in \mathcal{A}$,
+    Тогда $\mu$ – мера $\Leftrightarrow$ \textbf{непрерывность снизу:} если $A_1 \subset A_2 \subset ....$, $A_n\in \mathcal{A}$,
     то $\mu (\bigcup\limits_{n=1}^\infty A_n) =\lim \mu A_n$.
 \end{theorem}
 
 \begin{proof}~
     \begin{enumerate}
-        \item[$\Rightarrow$.] $B_k := A_k \setminus A_{k-1}$ (считаем, что $A_0=\varnothing$)
+        \item[$\Rightarrow$.] Положим $B_k := A_k \setminus A_{k-1}$ (считаем, что $A_0=\varnothing$).
         
-        $A:=\bigcup\limits_{n=1}^\infty A_n \underset{\supset}{=} \bigsqcup\limits_{n=1}^\infty B_n$ ($B_n \subset A_n$)
+        Тогда $A:=\bigcup\limits_{n=1}^\infty A_n \underset{\supset}{=} \bigsqcup\limits_{n=1}^\infty B_n$ ($B_n \subset A_n$)
 
         $\subset$: если $x\in A$, то возьмем $m$ – наименьший индекс, для которого $x\in A_m\Rightarrow x\in B_m$.
 
-        (счет. ад.) $\mu A= \sum \limits_{n=1}^\infty \mu B_n = \sum \limits_{n=1}^\infty(\mu A_n - \mu A_{n-1})$
+        По счетной аддитивности: $\mu A= \sum \limits_{n=1}^\infty \mu B_n = \sum \limits_{n=1}^\infty(\mu A_n - \mu A_{n-1})$
 
         Если все $\mu A_n$ конечны, то $\underset{\rightarrow \sum \limits_{k=1}^\infty \mu B_k=\mu A}{\sum \limits_{k=1}^n \mu B_k} = \sum \limits_{k=1}^n (\mu A_k - \mu A_{k-1})=\mu A_n\Rightarrow \mu A_n\rightarrow \mu A$
 
         Если $\mu A_n=+\infty$ при больших $n$, то $\mu A=+\infty$ и все очевидно.
 
-        \item[$\Leftarrow$.] Пусть $A=\bigsqcup \limits_{n=1}^\infty C_n$, $A_n:=\bigsqcup \limits_{k=1}^n C_k$, $A_1\subset A_2 \subset ...$ и $\bigcup\limits_{n=1}^\infty A_n = A$
+        \item[$\Leftarrow$.] Пусть $A=\bigsqcup \limits_{n=1}^\infty C_n$, $A_n:=\bigsqcup \limits_{k=1}^n C_k$. Тогда $A_1\subset A_2 \subset ...$ и $\bigcup\limits_{n=1}^\infty A_n = A$.
         
         $\overset{\text{непр. снизу}}{\Rightarrow}\underset{=\mu (\bigsqcup\limits_{k=1}^n C_k)=\sum\limits_{k=1}^n\mu C_k}{\mu A_n}\rightarrow \mu A
         \Rightarrow \mu A = \sum\limits_{k=1}^\infty \mu C_k$
@@ -98,7 +100,7 @@
     тогда следующие условия равносильны:
     \begin{enumerate}
         \item $\mu$ – мера.
-        \item $\mu$ непрерывно сверху, т.е. если $A_1 \supset A_2 \supset ...$ и $\bigcap\limits_{n=1}^\infty A_n = :A$, 
+        \item $\mu$ \textbf{непрерывен сверху}, т.е. если $A_1 \supset A_2 \supset ...$ и $\bigcap\limits_{n=1}^\infty A_n = :A$, 
         то $\mu A_n \rightarrow \mu A$.
         \item $\mu$ непрерывна сверху на пустом множестве, т.е. если $A_1 \supset A_2 \supset ...$ и $\bigcap\limits_{n=1}^\infty A_n = \varnothing$, то $\mu A_n \rightarrow 0$.
     \end{enumerate}
@@ -107,12 +109,12 @@
 \begin{proof}~
     \begin{enumerate}
         \item[$2. \Rightarrow 3.$] Очевидно.
-        \item[$1. \Rightarrow 2.$] $B_n := A_1 \setminus A_n$,   $B_1 \subset B_2 \subset B_3 \subset ...$
+        \item[$1. \Rightarrow 2.$] Положим $B_n := A_1 \setminus A_n$. Тогда $B_1 \subset B_2 \subset B_3 \subset ...$
         
         $\bigcup\limits_{n=1}^\infty B_n = \bigcup\limits_{n=1}^\infty (A_1 \setminus A_n) = A_1 \setminus \bigcap\limits_{n=1}^\infty A_n = A_1 \setminus A\Rightarrow
         \underset{=\mu(A_1\setminus A_n)=\mu A_1 - \mu A_n}{\mu B_n} \rightarrow \mu (A_1\setminus A) = \mu A_1-\mu A$
 
-        \item[$3. \Rightarrow 1.$] Пусть $A=\bigsqcup\limits_{n=1}^\infty C_n$, $A_n:=\bigsqcup\limits_{k=n+1}^\infty C_k$, $A_1 \supset A_2 \supset ...$ 
+        \item[$3. \Rightarrow 1.$] Пусть $A=\bigsqcup\limits_{n=1}^\infty C_n$ и $A_n:=\bigsqcup\limits_{k=n+1}^\infty C_k$. Тогда $A_1 \supset A_2 \supset ...$ 
         
         $\bigcap\limits_{n=1}^\infty A_n =\varnothing$, $A=A_n \sqcup \bigsqcup\limits_{k=1}^n C_k\overset{\mu\text{ – объем}}{\Rightarrow}
         \mu A = \underset{\rightarrow 0}{\mu A_n}+\underset{\rightarrow\sum\limits_{k=1}^\infty \mu C_k}{\sum\limits_{k=1}^n \mu C_k}\Rightarrow
@@ -136,9 +138,9 @@
 \begin{definition}
     $\nu: 2^X \rightarrow [0, +\infty)$ – \textit{субмера}, если:
     \begin{enumerate}
-        \item $\nu \varnothing =0$
-        \item $A\subset B\Rightarrow \nu A\leq \nu B$ (монотонность)
-        \item $\nu(\bigcup\limits_{n=1}^\infty A_n)\leq \sum\limits_{n=1}^\infty \nu A_n$ (счетная полуаддитивность)
+        \item $\nu \varnothing =0$.
+        \item $A\subset B\Rightarrow \nu A\leq \nu B$ (монотонность).
+        \item $\nu(\bigcup\limits_{n=1}^\infty A_n)\leq \sum\limits_{n=1}^\infty \nu A_n$ (счетная полуаддитивность).
     \end{enumerate}
 \end{definition}
 
@@ -181,7 +183,7 @@
     \begin{enumerate}
         \item Если $\nu E=0$, то $E\in \mathcal{A}$.
         
-        $\nu A \overset{\text{полуад.}}{\leq} \nu \overset{\subset A}{(A\cap E)}+\nu \overset{\subset E}{(A\setminus E)}\overset{\text{монот.}}{\leq} \nu E + \nu A = \nu A$
+        $\nu A \overset{\text{полуад.}}{\leq} \nu \overset{\subset E}{(A\cap E)}+\nu \overset{\subset A}{(A\setminus E)}\overset{\text{монот.}}{\leq} \nu E + \nu A = \nu A$
 
         \item $\mathcal{A}$ – симметрично.
         
@@ -270,9 +272,9 @@
 
         $\mu^* B =\inf \{\sum\limits_{k=1}^\infty \mu P_k\mid P_k\in \mathcal{P}\text{ и } B_n\subset \bigcup\limits_{k=1}^\infty P_k\}$
 
-        Выберем такие множества $C_{nk}$, что $\bigcup\limits_{k=1}^\infty C_{nk}\supset B_n$ и $\sum\limits_{k=1}^\infty \mu C_{nk}\leq \mu^* B_n +\frac{\varepsilon}{2^n}$
+        Зафиксируем $\varepsilon > 0$ и выберем такие множества $C_{nk}$, что $B_n \subset \bigcup\limits_{k=1}^\infty C_{nk}$ и $\sum\limits_{k=1}^\infty \mu C_{nk}\leq \mu^* B_n +\frac{\varepsilon}{2^n}$
 
-        $\bigcup\limits_{n=1}^\infty B_n\subset \bigcup\limits_{n=1}^\infty\bigcup\limits_{k=1}^\infty C_{nk}\Rightarrow 
+        По определнию $\mu^*$: $\bigcup\limits_{n=1}^\infty B_n\subset \bigcup\limits_{n=1}^\infty\bigcup\limits_{k=1}^\infty C_{nk}\Rightarrow 
         \mu^* (\bigcup\limits_{n=1}^\infty B_n)\leq \sum\limits_{n=1}^\infty\sum\limits_{k=1}^\infty \mu C_{nk}\leq
         \sum\limits_{n=1}^\infty (\mu^* B_n + \frac{\varepsilon}{2^n})=\sum\limits_{n=1}^\infty \mu^* B_n + \varepsilon$ и устремим $\varepsilon$ к нулю.
     \end{enumerate}
@@ -293,21 +295,21 @@
     Надо доказать, что если $E\in \mathcal{P}$, то $\forall A\subset X$ $\mu_0^* A \geq \mu_0^* (A\cap E)+\mu_0^* (A\setminus E)$
 
     \begin{enumerate}
-        \item Если $A\in \mathcal{P}$, то $A\setminus E =\bigsqcup \limits_{k=1}^n Q_k$, где $Q_k\in \mathcal{P}$. 
+        \item Если $A\in \mathcal{P}$, то по определению полукольца $A\setminus E =\bigsqcup \limits_{k=1}^n Q_k$, где $Q_k\in \mathcal{P}$. 
         Тогда т.к. $A=(A\cap E)\sqcup \bigsqcup \limits_{k=1}^n Q_k$:
 
-        $\mu_0^* A = \mu_0 A \overset{\text{адд.}}{=}\mu_0(A\cap E)+\sum \limits_{k=1}^n \mu_0 Q_k=\mu^*_0(A\cap E)+\sum \limits_{k=1}^n \mu^*_0 Q_k
-        \overset{\text{полуадд.}}{\geq} \mu_0^* (A\cap E)+\mu_0^* (\bigsqcup \limits_{k=1}^n Q_k)= \mu_0^* (A\cap E)+\mu_0^* (A\setminus E)$
+        $\mu_0^* A = \mu_0 A \overset{\text{адд. } \mu_0}{=}\mu_0(A\cap E)+\sum \limits_{k=1}^n \mu_0 Q_k=\mu^*_0(A\cap E)+\sum \limits_{k=1}^n \mu^*_0 Q_k
+        \overset{\text{полуадд. }\mu^*_0}{\geq} \mu_0^* (A\cap E)+\mu_0^* (\bigsqcup \limits_{k=1}^n Q_k)= \mu_0^* (A\cap E)+\mu_0^* (A\setminus E)$
 
         \item Если $A\not\in \mathcal{P}$. Когда $\mu_0^* A=+\infty$ все очевидно, поэтому будем считать, что $\mu_0^* A<+\infty$.
         
         $\mu^* A:=\inf \{\sum\limits_{k=1}^\infty \mu_0 P_k\mid P_k\in \mathcal{P}_n\text{ и } A\subset \bigcup\limits_{k=1}^\infty P_k\}$
 
-        Берем конкретное покрытие $A\subset \bigcup\limits_{k=1}^\infty P_k$, для которого $\sum \limits_{k=1}^\infty \mu_0 P_k<\mu_0^* A+\varepsilon$
+        Зафиксируем $\varepsilon > 0$ и выберем конкретное покрытие $A\subset \bigcup\limits_{k=1}^\infty P_k$, для которого $\sum \limits_{k=1}^\infty \mu_0 P_k<\mu_0^* A+\varepsilon$
 
-        $\mu_0 P_k = \mu_0^* P_k \geq (P_k \cap E) + \mu_0^* (P_k \setminus E)$
+        В первом пункте мы доказали, что $\mu_0 P_k = \mu_0^* P_k \geq (P_k \cap E) + \mu_0^* (P_k \setminus E)$
 
-        $\varepsilon+\mu_0^* A\geq \sum \limits_{k=1}^\infty \mu_0 P_k\geq \underset{\geq \mu_0^* (A\cap E)}{\sum \limits_{k=1}^\infty \mu_0^* (P_k\cap E)}+
+        Отсюда: $\varepsilon+\mu_0^* A\geq  \sum \limits_{k=1}^\infty \mu_0 P_k\geq \underset{\geq \mu_0^* (A\cap E)}{\sum \limits_{k=1}^\infty \mu_0^* (P_k\cap E)}+
         \underset{\geq \mu_0^* (A\setminus E)}{\sum \limits_{k=1}^\infty \mu_0^* (P_k\setminus E)}\geq \mu_0^* (A\cap E)+\mu_0^* (A\setminus E)$
 
         $\bigcup\limits_{k=1}^\infty (P_k\cap E)\supset A \cap E$, $\bigcup\limits_{k=1}^\infty (P_k\setminus E)\supset A \setminus E$
@@ -356,12 +358,15 @@
 \begin{proof}
     $\mu^* A:=\inf \{\sum\limits_{k=1}^\infty \mu P_k\mid P_k\in \mathcal{P}\text{ и } A\subset \bigcup\limits_{k=1}^\infty P_k\}$.
 
-    Берем такое покрытие $\overset{=C_n}{\bigcup\limits_{k=1}^\infty B_{nk}}\supset A$, $B_{nk}\in\mathcal{P}$ и $\sum\limits_{k=1}^\infty \mu B_{nk}<\mu^*A +\frac{1}{n}$
+    Берем такое покрытие ${\bigcup\limits_{k=1}^\infty B_{nk}}\supset A$, $B_{nk}\in\mathcal{P}$ и $\sum\limits_{k=1}^\infty \mu B_{nk}<\mu^*A +\frac{1}{n}$
 
-    $\mu C_n\leq \sum\limits_{k=1}^\infty \mu B_{nk}<\mu^*A +\frac{1}{n}$, $C\subset C_n\Rightarrow \mu C \leq \mu C_n < \mu^*A +\frac{1}{n}\Rightarrow
-    \mu C \leq \mu^* A$ и $C\supset A\Rightarrow$
+    Обозначим $C_n=\bigcup\limits_{k=1}^\infty B_{nk}$. Тогда: 
     
-    $\Rightarrow \underset{=\mu C}{\mu^* C}\geq \mu^* A$
+    $\left\{\begin{array}{l}
+        \mu C_n\leq \sum\limits_{k=1}^\infty \mu B_{nk}<\mu^*A +\frac{1}{n} \\
+        C\subset C_n
+    \end{array}\right.\Rightarrow \mu C \leq \mu C_n < \mu^*A +\frac{1}{n}\Rightarrow
+    \mu C \leq \mu^* A$ и $C\supset A\Rightarrow \underset{=\mu C}{\mu^* C}\geq \mu^* A$
 \end{proof}
 
 \begin{corollary}

@@ -1,0 +1,192 @@
+\begin{theorem}
+    \textbf{Принцип Кавальери.}
+
+    Пусть $(X, \mathcal{A}, \mu)$ и $(Y, \mathcal{B}, \nu)$ – пространства с полными $\sigma$-конечными мерами, $m=\mu\times\nu$,
+    $C\in \mathcal{A}\otimes \mathcal{B}$. Тогда:
+
+    \begin{enumerate}
+        \item $C_x\in \mathcal{B}$ при п.в. $x\in X$.
+        
+        \item Функция $\varphi (x) := \nu C_x$ измерима в широком смысле.
+        
+        \item $m C=\int\limits_X \nu C_x d\mu (x)$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Все меры конечные, $C\in \mathcal{B}(\mathcal{P})$, $\mathcal{P}$ – измеримые прямоугольники.
+
+    \textbf{Шаг 1.} Рассмотрим $\mathcal{E}$-систему подмножеств $X\times Y$, т.ч. $E_x\in \mathcal{B}
+    \ \forall x\in X$ и $x\rightarrow \nu E_x$ измерима на $X$.
+
+    \begin{enumerate}
+        \item[a)] $\mathcal{E}$ – симметричная система. 
+        
+        $E\in \mathcal{E}$ $(X\times Y\setminus E)_x = Y \setminus E_x \in \varepsilon$
+
+        $\nu (X\times Y \setminus E)_x = \nu (Y\setminus E_x) = \nu Y - \nu E_x$ – измеримое
+
+        \item[b)] Если $E_1\subset E_2 \subset ...$ из $\mathcal{E}$ и $E=\bigcup\limits_{n=1}^\infty E_n$, то $E\in \mathcal{E}$.
+        
+        $E_x=\bigcup\limits_{n=1}^\infty (E_n)_x$, $\nu E_x =\lim \nu (E_n)_x$ (непрерывность снизу) – измеримо.
+
+        \item[c)] Если $E_1\supset E_2 \supset ...$ из $\mathcal{E}$ и $E=\bigcap\limits_{n=1}^\infty E_n$, то $E\in \mathcal{E}$.
+        
+        $E_x=\bigcap\limits_{n=1}^\infty (E_n)_x$, $\nu E_x =\lim \nu (E_n)_x$ (непрерывность сверху) – измеримо.
+        
+        \item[d)] b) + c) $\Rightarrow\mathcal{E}$ – монотонный класс
+        
+        \item[e)] $A, B\in \mathcal{E}$ и $A\cap B=\varnothing\Rightarrow A\sqcup B \in \mathcal{E}$
+        
+        $(A\sqcup B)_x = A_x\sqcup B_x$, $\nu (A\sqcup B)_x = \nu A_x + \nu B_x$ – измеримо
+        
+        \item[f)] $\mathcal{E}\supset \mathcal{P}\Rightarrow \mathcal{E}\supset$ всевозможные конечные объединения элементов из $\mathcal{P}
+        \Rightarrow \mathcal{E} \supset$ алгебра, натянутую на $\mathcal{P}$
+
+        \item[g)] теорема о монотонном классе $\Rightarrow \mathcal{E} \supset \mathcal{B}(\mathcal{P})$
+    \end{enumerate}
+
+    То есть $X, Y$ конечной меры, $C\in \mathcal{B}(\mathcal{P})\Rightarrow$ 1) и 2) выполнены.
+
+    \textbf{Шаг 2.} $X, Y$ конечной меры, $C\in \mathcal{B}(\mathcal{P})\Rightarrow$ 3) выполнен.
+
+    Рассмотрим на $\mathcal{B}(\mathcal{P})$ функцию $E\rightarrow \int\limits_X \nu E_x d\mu (x)$ – мера на $\mathcal{B}(\mathcal{P})$.
+
+    Действительно, если $E=\bigsqcup\limits_{n=1}^\infty E_n$, то $\int\limits_X \nu E_x d\mu (x)=\sum\limits_{n=1}^\infty\int\limits_X \nu (E_n)_x d\mu (x)
+    = \int\limits_X\underbrace{\sum\limits_{n=1}^\infty \nu (E_n)_x}_{=\nu (\bigsqcup\limits_{n=1}^\infty E_n)_x=\nu E_x}d\mu (x)$
+
+    Это мера на $E=A\times B$ совпадает с $\mu \times \nu$: $\int\limits_X\nu (A\times B)_x d\mu (x) =
+    \int\limits_X \nu B\cdot \mathbf{1}_A(x) d\mu (x)=\mu A\cdot \mu B$
+
+    По единственности продолжения есть совпадение и на $\mathcal{B}(\mathcal{P})$.
+
+    \begin{remark}
+        Пока не пользовались полнотой и не появилось п.в.
+    \end{remark}
+
+    \textbf{Шаг 3.} $mC = 0\Rightarrow 1, 2, 3$ выполнены.
+
+    $mc=0\Rightarrow \exists \Tilde{C}\in \mathcal{B}(\mathcal{P})$, $C\subset \Tilde{C}$, т.ч. $m\Tilde{C} = 0$.
+
+    $0=m\Tilde{C}=\int\limits_X \nu \Tilde{C}_x d\mu (x)$, т.к. $\nu \Tilde{C}_x=0$ при п.в. $x\in X\Rightarrow
+    \nu C_x = 0$ ($C_x\subset \Tilde{C}_x$) при п.в. $x\in X$
+
+    $mC = 0 =\int\limits_X \nu C_x d\mu (x)$, т.к. $\nu C_x=0$ при п.в. $x\in X$.
+
+    \textbf{Шаг 4.} $C$ – произвольное из $A\otimes B$. Тогда $C=\Tilde{C}\sqcup e$, где $\Tilde{C} \in \mathcal{B}(\mathcal{P})$ 
+    и $me = 0$.
+
+    Тогда $C_x =\Tilde{C}_x\sqcup e_x\in \mathcal{B}$ при п.в. $x\in X$ ($\Tilde{C}_x\in \mathcal{B}\ \forall x$, $e_x\in \mathcal{B}$
+    при п.в. $x$)
+
+    $\nu C_x = \nu \Tilde{C}_x + \nu e_x= \nu \Tilde{C}_x$ при п.в. $x\in X \Rightarrow x\rightarrow \nu C_x$ измерима в широком смысле.
+
+    $mC = m\Tilde{C}=\int\limits_X \nu \Tilde{C}_x d\mu (x)=\int\limits_X \nu C_x d\mu (x)$, т.к. $\nu C_x = \nu \Tilde{C}_x$ при п.в. $x\in X$
+
+    \textbf{Шаг 5.} $\mu$ и $\nu$ – $\sigma$-конечные.
+
+    $X=\bigsqcup\limits_{n=1}^\infty X_n$, $\mu X_n<+\infty$, $Y=\bigsqcup\limits_{n=1}^\infty Y_n$, $\nu Y_n<+\infty$, $C\subset X\times Y$
+
+    $C_{nk}=C\cap X_n \cap Y_k\Rightarrow C= \bigsqcup\limits_{n,k=1}^\infty C_{nk}$, $mC= \sum\limits_{n,k=1}^\infty mC_{nk}$
+
+    $\nu C_x =\nu (\bigsqcup\limits_{n, k=1}^\infty C_{nk})=\sum\limits_{n=1}^\infty (C_{nk})_x$
+
+    $mC_{nk}=\int \limits_{X_n} \nu (C_{nk})_x d\mu (x)$, $mC = \sum \limits_{n, k=1}^\infty m C_{nk}=
+    \sum \limits_{n=1}^\infty\sum \limits_{k=1}^\infty \nu (C_{nk})_x d\mu (x)=\sum \limits_{n=1}^\infty \int\limits_{X_n} \nu (C_n)_x d\mu (x)
+    =\int\limits_{X} \nu C_x d\mu$
+\end{proof}
+
+\begin{remark}
+    Если множество $P(C):= \{x\in X\mid C_x\not=\varnothing\}$ измеримо, то интегрироваться можно лишь по нему. Но оно может быть
+    неизмеримо. Можно рассмотреть $\Tilde{P}(C):= \{x\in X\mid \nu C_x>0\}$ всегда измеримо.
+
+    $mC = \int\limits_X \nu C_x d\mu (x)$
+\end{remark}
+
+\begin{definition}
+    Пусть $(X, \mathcal{A}, \nu)$ – пространство с $\sigma$-конечной мерой, $f: X\rightarrow \overline{\R}$, 
+    $m=\nu \times\lambda_1$. 
+    
+    \textit{Подграфик $f$ над множеством $E$} – $\mathcal{P}_f(E)=\{ (x, y)\in X\times \R\mid 
+    x\in E, 0\leq y \leq f(x)\}$.
+
+    \textit{График $f$ над множеством $E$} – $\Gamma_f(E)=\{ (x, y)\in X\times \R\mid 
+    x\in E, y = f(x)\}$.
+\end{definition}
+
+\begin{lemma}
+    Если $f\geq 0$ измерима, то $m(\Gamma_f(E))=0$.
+\end{lemma}
+
+\begin{proof}
+    Достаточно рассмотреть $E$ конечной меры. Возьмем $\varepsilon > 0$.
+
+    $e_k:= \{x\in E\mid k\varepsilon \leq f(x)\leq (k+1)\varepsilon\}$, $\Gamma_f(E) \subset e_k\times 
+    [k\varepsilon, (k+1)\varepsilon)=H_k$
+
+    $\Gamma_f(E) =\bigsqcup\limits_{k=0}^\infty \Gamma_f(e_k)< \bigcup\limits_{k=1}^\infty H_k$
+
+    $m(\bigcup\limits_{k=0}^\infty H_k) \leq \sum\limits_{k=0}^\infty mH_k=\sum\limits_{k=0}^\infty 
+    \varepsilon \cdot \mu e_k < \varepsilon \mu E$, $\bigsqcup\limits_{k=0}^\infty e_k\subset E$
+\end{proof}
+
+\begin{lemma}
+    Если $f\geq 0$ измерима в широком смысле, то $\mathcal{P}_f(E)$ измерим.
+\end{lemma}
+
+\begin{proof}
+    Можно считать, что $f$ определена везде.
+
+    Если $f$ – простая, то $f=\sum\limits_{k=1}^n a_k \mathbf{1}_{A_k}\Rightarrow\mathcal{P}_f =
+    \bigsqcup\limits_{k=1}^n A_k\times [0, a_k]$ – измеримо.
+
+    Если $f\geq 0$ измеримая, то возьмем $\varphi_n$ – простые $0\leq \varphi_1\leq \varphi_2\leq ...$ и $\varphi_n\rightarrow f
+    \Rightarrow \mathcal{P}_f \setminus \Gamma_f\subset \bigcup\limits_{n=1}^\infty \mathcal{P}_{\varphi_n} \subset \mathcal{P}_f
+    \Rightarrow\mathcal{P}_f$ – измерим.
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема о мере подграфика.}
+
+    Пусть $(X, \mathcal{A}, \mu)$ – пространство с $sigma$-конечной мерой. $m=\mu \times \lambda_1$, $f:X\rightarrow \overline{\R}$,
+    $f\geq 0$. Тогда $f$ измерима в широком смысле $\Leftrightarrow$ измерим ее подграфик. В этом случае $\int\limits_X f d\mu = m \mathcal{P}_f$.
+\end{theorem}
+
+\begin{proof}~
+    \begin{enumerate}
+        \item[$\Rightarrow$.] $(\mathcal{P}_f)_x= [0, f(x)]$, если $f(x)<+\infty$
+        
+        $(\mathcal{P}_f)_x= [0, +\infty)$, если $f(x)=+\infty$
+
+        По принципу Кавальери: $x\rightarrow \lambda_1 (\mathcal{P}_f)_x=f(x)$ – измерима в широком смысле.
+
+        $m\mathcal{P}_f = \int\limits_X \lambda_1 (\mathcal{P}_f)_x d\mu (x) = \int\limits_X f(x) d\mu (x)$
+        
+        \item[$\Leftarrow$.] Лемма.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \textbf{Теорема Тонелли.}
+
+    Пусть $(X, \mathcal{A}, \mu)$ и $(Y, \mathcal{B}, \nu)$ – пространства с полными $sigma$-конечными мерами,
+    $m - \mu \times \nu$, $f:X\times Y\rightarrow \overline{R}$, $f\geq 0$ и измерима относительно $m$. Тогда:
+
+    \begin{enumerate}
+        \item $f_x(y):= f(x, y)$ измерима на $Y$ при п.в. $x\in X$.
+        \item $x\rightarrow \varphi(x):= \int\limits_Y f_x d\nu$ измерима в широком смысле на $X$.
+        \item $\int\limits_{X\times Y} f dm=\int\limits_X \varphi d\mu$.
+    \end{enumerate}
+\end{theorem}
+
+
+TODO
+
+\begin{theorem}
+    Пусть $(X, \mathcal{A}, \mu)$ – пространство с $\sigma$-конечной мерой, $f$ – измерима. Тогда $\int\limits_X |f| d\mu=
+    \int\limits_0^{+\infty} \mu X \{|f| \geq t\} dt$.
+\end{theorem}
+
+\begin{remark}
+    $\mu X \{|f| \geq t\}$ монотонно убывает $\Rightarrow$ нбчс число точек разрыва $\Rightarrow$ она интгерируема по Риману.
+\end{remark}
